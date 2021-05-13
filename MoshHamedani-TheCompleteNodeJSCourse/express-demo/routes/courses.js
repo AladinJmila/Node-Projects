@@ -1,3 +1,4 @@
+const Joi = require('joi')
 const express = require('express')
 const router = express.Router()
 
@@ -52,5 +53,13 @@ router.delete('/:id', (req, res) => {
 
   res.send(course)
 })
+
+function validateCourse(course) {
+  const schema = {
+    name: Joi.string().min(3).required(),
+  }
+
+  return Joi.validate(course, schema)
+}
 
 module.exports = router

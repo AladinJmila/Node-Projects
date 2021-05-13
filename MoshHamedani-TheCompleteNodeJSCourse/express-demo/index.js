@@ -1,5 +1,4 @@
 const config = require('config')
-const Joi = require('joi')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const logger = require('./middleware/logger')
@@ -33,11 +32,3 @@ app.use(authenticator)
 // PORT
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))
-
-function validateCourse(course) {
-  const schema = {
-    name: Joi.string().min(3).required(),
-  }
-
-  return Joi.validate(course, schema)
-}
