@@ -1,5 +1,14 @@
 console.log('Before')
-setTimeout(() => {
-  console.log('Reading a user from a database...')
-}, 2000)
+const user = getUser(1)
+console.log(user)
 console.log('After')
+
+// Callbacks
+// Promises
+// Async/await
+
+function getUser(id) {
+  setTimeout(() => {
+    return { id: id, gitHubUsername: 'mosh' }
+  }, 2000)
+}
