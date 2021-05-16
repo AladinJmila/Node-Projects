@@ -13,10 +13,13 @@ const courseSchema = new mongoose.Schema({
     maxlength: 255,
     // match: /pattern/,
   },
-  catergory: {
+  category: {
     type: String,
     required: true,
     enum: ['web', 'moble', 'network'],
+    lowercase: true,
+    // uppercase: true,
+    trim: true,
   },
   author: String,
   tags: {
@@ -37,6 +40,8 @@ const courseSchema = new mongoose.Schema({
     },
     min: 10,
     max: 200,
+    get: v => Math.round(v),
+    set: v => Math.round(v),
   },
 })
 
@@ -45,18 +50,18 @@ const Course = mongoose.model('Course', courseSchema)
 async function createCourse() {
   const course = new Course({
     name: 'Angular Course',
-    category: 'web',
+    category: 'Web',
     author: 'Mosh',
-    tags: null,
+    tags: ['frontend'],
     isPublished: true,
-    price: 15,
+    price: 15.8,
   })
 
   try {
     const result = await course.save()
     console.log(result)
   } catch (ex) {
-    console.log(ex.message)
+    for (field in ex.errors) console.log(ex.errors[field].message)
   }
 }
 
@@ -64,12 +69,12 @@ async function getCourses() {
   const pageNumber = 2
   const pageSize = 10
 
-  const courses = await Course.find({ author: 'Mosh', isPublished: true })
-    .skip((pageNumber - 1) * pageSize)
-    .limit(pageSize)
+  const courses = await Course.find({ _id: '60a1052b67fcd428900f8554' })
+    // .skip((pageNumber - 1) * pageSize)
+    // .limit(pageSize)
     .sort({ name: 1 })
-    .count()
-  console.log(courses)
+    .select({ name: 1, tags: 1, price: 1 })
+  console.log(courses[0].price)
 }
 
 // getCourses()
@@ -105,4 +110,4 @@ async function removeCourse(id) {
   console.log(course)
 }
 
-createCourse()
+getCourses()
