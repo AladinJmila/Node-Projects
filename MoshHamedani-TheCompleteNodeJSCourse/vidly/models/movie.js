@@ -15,7 +15,7 @@ const Movie = mongoose.model(
       type: genreSchema,
       required: true,
     },
-    numbmerInStock: {
+    numberInStock: {
       type: Number,
       required: true,
       min: 0,
@@ -31,14 +31,14 @@ const Movie = mongoose.model(
 )
 
 function validateMovie(movie) {
-  const Schema = {
+  const schema = {
     title: Joi.string().min(5).max(255).required(),
-    genre: Joi.string().required(),
+    genreId: Joi.string().required(),
     numberInStock: Joi.number().min(0).required(),
     dailyRentalRate: Joi.number().min(0).required(),
   }
 
-  return Joi.validate(movie, shcema)
+  return Joi.validate(movie, schema)
 }
 
 exports.Movie = Movie
