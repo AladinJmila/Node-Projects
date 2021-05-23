@@ -1,3 +1,6 @@
+require('express-async-errors')
+const winston = require('winston')
+require('winston-mongodb')
 const error = require('./middleware/error')
 const Joi = require('joi')
 Joi.objectId = require('joi-objectid')(Joi)
@@ -11,6 +14,21 @@ const users = require('./routes/users')
 const auth = require('./routes/auth')
 const express = require('express')
 const app = express()
+
+process.on('uncaughtException', ex => {
+  console.log('WE GOT AN UNCAUGHT EXCEPTION')
+  winston.error(ex.message, ex)
+})
+
+// process.on('unhandledException')
+
+winston.add(winston.transports.File, { filename: 'logfile.log' })
+winston.add(winston.transports.MongoDB, {
+  db: 'mongodb://localhost/vidliz',
+  level: 'info',
+})
+
+throw new Error('Something failed during startup.')
 
 if (!config.get('jwtPrivateKey')) {
   console.error('FATAL ERROR: jwtPrivateKey is not defined.')
