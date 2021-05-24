@@ -4,3 +4,5 @@
 {"level":"info","message":"Connected to MongoDB...","timestamp":"2021-05-23T14:37:23.650Z"}
 {"level":"info","message":"Listening on port 3500...","timestamp":"2021-05-23T14:39:31.291Z"}
 {"level":"info","message":"Connected to MongoDB...","timestamp":"2021-05-23T14:39:31.311Z"}
+{"level":"info","message":"Listening on port 3500...","timestamp":"2021-05-23T14:40:16.580Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2021-05-23T14:40:16.603Z"}
