@@ -26,10 +26,11 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.methods.generateAuthToken = function () {
-  return jwt.sign(
+  const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
     config.get('jwtPrivateKey')
   )
+  return token
 }
 
 const User = mongoose.model('User', userSchema)
