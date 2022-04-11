@@ -10,7 +10,7 @@ app.set('views', './views');
 
 // Index Route
 app.get('/', (req, res) => {
-  const title = 'Welcome 2';
+  const title = 'Welcome';
   res.render('index', { title });
 });
 
