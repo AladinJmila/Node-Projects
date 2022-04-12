@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Idea } = require('../models/Idea');
+const { Idea } = require('../models/idea');
 
 router.get('/', async (req, res) => {
   const ideas = await Idea.find({}).sort('-_id').lean();
@@ -21,12 +21,13 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const { title, details } = req.body;
 
-  const errors = [];
+  let errors = { empty: true };
 
-  if (!title) errors.push({ text: 'Please add a title' });
-  if (!details) errors.push({ text: 'Please add some details' });
+  if (!title) errors = { ...errors, title: 'Please add a title', empty: false };
+  if (!details)
+    errors = { ...errors, details: 'Please add idea details', empty: false };
 
-  if (errors.length) return res.render('ideas/add', { errors, title, details });
+  if (!errors.empty) return res.render('ideas/add', { errors, title, details });
 
   const idea = new Idea({ title, details });
   await idea.save();
