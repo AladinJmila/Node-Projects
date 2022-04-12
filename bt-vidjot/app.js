@@ -80,6 +80,12 @@ app.put('/ideas/:id', async (req, res) => {
   res.redirect('/ideas');
 });
 
+// Delete Idea
+app.delete('/ideas/:id', async (req, res) => {
+  await Idea.findByIdAndDelete(req.params.id);
+  res.redirect('/ideas');
+});
+
 const port = 4500;
 
 app.listen(port, () => {
