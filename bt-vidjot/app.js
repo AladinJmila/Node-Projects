@@ -2,6 +2,8 @@ const express = require('express');
 const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -27,6 +29,27 @@ app.use(bodyParser.json());
 
 // Metho-override middlewarre
 app.use(methodOverride('_method'));
+
+// Express session middleware
+app.use(
+  session({
+    secret: 'crazy-cat',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Connect flash middleware
+app.use(flash());
+
+// Global variables
+app.use((req, res, next) => {
+  res.locals.successMsg = req.flash('successMsg');
+  res.locals.errorMsg = req.flash('errorMsg');
+  res.locals.error = req.flash('error');
+
+  next();
+});
 
 // Index Route
 app.get('/', (req, res) => {
@@ -62,7 +85,7 @@ app.get('/ideas/edit/:id', async (req, res) => {
 app.post('/ideas', async (req, res) => {
   const { title, details } = req.body;
 
-  let errors = [];
+  const errors = [];
 
   if (!title) errors.push({ text: 'Please add a title' });
   if (!details) errors.push({ text: 'Please add some details' });
@@ -71,18 +94,23 @@ app.post('/ideas', async (req, res) => {
 
   const idea = new Idea({ title, details });
   await idea.save();
+
+  req.flash('successMsg', 'Video idea added');
   res.redirect('/ideas');
 });
 
 // Edit From Process
 app.put('/ideas/:id', async (req, res) => {
   await Idea.findByIdAndUpdate(req.params.id, req.body);
+
+  req.flash('successMsg', 'Video idea updated');
   res.redirect('/ideas');
 });
 
 // Delete Idea
 app.delete('/ideas/:id', async (req, res) => {
   await Idea.findByIdAndDelete(req.params.id);
+  req.flash('successMsg', 'Video idea removed');
   res.redirect('/ideas');
 });
 
