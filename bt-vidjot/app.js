@@ -25,8 +25,14 @@ app.get('/', (req, res) => {
   res.render('index', { title });
 });
 
+// About Route
 app.get('/about', (req, res) => {
   res.render('about');
+});
+
+// Add Ideo Form
+app.get('/ideas/add', (req, res) => {
+  res.render('ideas/add');
 });
 
 const port = 4500;
