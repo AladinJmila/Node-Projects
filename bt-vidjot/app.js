@@ -1,5 +1,6 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -19,6 +20,10 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Index Route
 app.get('/', (req, res) => {
   const title = 'Welcome';
@@ -33,6 +38,20 @@ app.get('/about', (req, res) => {
 // Add Ideo Form
 app.get('/ideas/add', (req, res) => {
   res.render('ideas/add');
+});
+
+// Process Form
+app.post('/ideas', (req, res) => {
+  const { title, details } = req.body;
+
+  let errors = [];
+
+  if (!title) errors.push({ text: 'Please add a title' });
+  if (!details) errors.push({ text: 'Please add some details' });
+
+  if (errors.length) return res.render('ideas/add', { errors, title, details });
+
+  res.send('passed');
 });
 
 const port = 4500;
