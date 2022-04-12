@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const { User } = require('../models/user');
 
 router.get('/login', (req, res) => {
@@ -33,7 +34,33 @@ router.post('/register', async (req, res) => {
       password2,
     });
 
-  res.send('passed');
+  const userInDb = await User.findOne({ email });
+  if (userInDb) {
+    errors = { ...errors, email: 'This email is already registered!' };
+
+    res.render('users/register', {
+      errors,
+      name,
+      email,
+      password,
+      password2,
+    });
+    return;
+  }
+
+  const user = await new User({
+    name,
+    email,
+    password,
+  });
+
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(user.password, salt);
+
+  await user.save();
+
+  req.flash('successMsg', 'You are now registered and can login');
+  res.redirect('/users/login');
 });
 
 module.exports = router;

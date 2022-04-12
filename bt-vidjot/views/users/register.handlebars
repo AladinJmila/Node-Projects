@@ -23,6 +23,9 @@
             required
           />
         </div>
+        {{#if errors.email}}
+          <div class='alert alert-danger'>{{errors.email}}</div>
+        {{/if}}
         <div class='form-group'>
           <label for='password'>Password</label>
           <input
