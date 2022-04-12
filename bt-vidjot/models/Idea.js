@@ -11,10 +11,8 @@ const IdeaSchema = new Schema({
     type: String,
     required: true,
   },
-  // date: {
-  //   type: Date,
-  //   default: Date.now(),
-  // },
 });
 
-mongoose.model('ideas', IdeaSchema);
+const Idea = mongoose.model('Idea', IdeaSchema);
+
+exports.Idea = Idea;
