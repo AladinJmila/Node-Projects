@@ -1,6 +1,7 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -23,6 +24,9 @@ app.set('views', './views');
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Metho-override middlewarre
+app.use(methodOverride('_method'));
 
 // Index Route
 app.get('/', (req, res) => {
@@ -47,6 +51,13 @@ app.get('/ideas/add', (req, res) => {
   res.render('ideas/add');
 });
 
+// Edit Idea From
+app.get('/ideas/edit/:id', async (req, res) => {
+  const idea = await Idea.findOne({ _id: req.params.id }).lean();
+
+  res.render('ideas/edit', { idea });
+});
+
 // Process Form
 app.post('/ideas', async (req, res) => {
   const { title, details } = req.body;
@@ -60,6 +71,12 @@ app.post('/ideas', async (req, res) => {
 
   const idea = new Idea({ title, details });
   await idea.save();
+  res.redirect('/ideas');
+});
+
+// Edit From Process
+app.put('/ideas/:id', async (req, res) => {
+  await Idea.findByIdAndUpdate(req.params.id, req.body);
   res.redirect('/ideas');
 });
 
