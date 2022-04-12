@@ -35,13 +35,20 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-// Add Ideo Form
+// Idea Index Page
+app.get('/ideas', async (req, res) => {
+  const ideas = await Idea.find({}).sort('-_id').lean();
+
+  res.render('ideas/index', { ideas });
+});
+
+// Add Idea Form
 app.get('/ideas/add', (req, res) => {
   res.render('ideas/add');
 });
 
 // Process Form
-app.post('/ideas', (req, res) => {
+app.post('/ideas', async (req, res) => {
   const { title, details } = req.body;
 
   let errors = [];
@@ -51,7 +58,9 @@ app.post('/ideas', (req, res) => {
 
   if (errors.length) return res.render('ideas/add', { errors, title, details });
 
-  res.send('passed');
+  const idea = new Idea({ title, details });
+  await idea.save();
+  res.redirect('/ideas');
 });
 
 const port = 4500;
