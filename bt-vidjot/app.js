@@ -7,6 +7,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
 require('./config/passport')(passport);
+const dbURI = require('./config/db');
 
 const app = express();
 
@@ -15,14 +16,14 @@ const ideas = require('./routes/ideas');
 const users = require('./routes/users');
 
 // Launch the server
-const port = 4500;
+const port = process.env.PORT || 4500;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}...`);
 });
 
 // Connect to mongoose
 mongoose
-  .connect('mongodb://localhost/vidjot-dev')
+  .connect(dbURI)
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.log(err));
 
