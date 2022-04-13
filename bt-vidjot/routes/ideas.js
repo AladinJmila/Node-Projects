@@ -4,7 +4,9 @@ const { Idea } = require('../models/idea');
 const auth = require('../services/auth');
 
 router.get('/', auth, async (req, res) => {
-  const ideas = await Idea.find({}).sort('-_id').lean();
+  const ideas = await Idea.find({ creatorId: req.user._id })
+    .sort('-_id')
+    .lean();
 
   res.render('ideas/index', { ideas });
 });
@@ -14,7 +16,10 @@ router.get('/add', auth, (req, res) => {
 });
 
 router.get('/edit/:id', auth, async (req, res) => {
-  const idea = await Idea.findOne({ _id: req.params.id }).lean();
+  const idea = await Idea.findOne({
+    _id: req.params.id,
+    creatorId: req.user._id,
+  }).lean();
 
   res.render('ideas/edit', { idea });
 });
@@ -30,7 +35,7 @@ router.post('/', auth, async (req, res) => {
 
   if (!errors.empty) return res.render('ideas/add', { errors, title, details });
 
-  const idea = new Idea({ title, details });
+  const idea = new Idea({ title, details, creatorId: req.user._id });
   await idea.save();
 
   req.flash('successMsg', 'Video idea added');

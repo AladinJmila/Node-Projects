@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ideaSchema = new Schema({
+  creatorId: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
