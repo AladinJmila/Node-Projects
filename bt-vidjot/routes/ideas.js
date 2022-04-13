@@ -1,24 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const { Idea } = require('../models/idea');
+const auth = require('../services/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const ideas = await Idea.find({}).sort('-_id').lean();
 
   res.render('ideas/index', { ideas });
 });
 
-router.get('/add', (req, res) => {
+router.get('/add', auth, (req, res) => {
   res.render('ideas/add');
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', auth, async (req, res) => {
   const idea = await Idea.findOne({ _id: req.params.id }).lean();
 
   res.render('ideas/edit', { idea });
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   const { title, details } = req.body;
 
   let errors = { empty: true };
@@ -36,14 +37,14 @@ router.post('/', async (req, res) => {
   res.redirect('/ideas');
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
   await Idea.findByIdAndUpdate(req.params.id, req.body);
 
   req.flash('successMsg', 'Video idea updated');
   res.redirect('/ideas');
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   await Idea.findByIdAndDelete(req.params.id);
   req.flash('successMsg', 'Video idea removed');
   res.redirect('/ideas');
