@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const { User } = require('../models/user');
+const { route } = require('express/lib/application');
 
 router.get('/login', (req, res) => {
   res.render('users/login');
@@ -69,6 +70,12 @@ router.post('/register', async (req, res) => {
   await user.save();
 
   req.flash('successMsg', 'You are now registered and can login');
+  res.redirect('/users/login');
+});
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('successMsg', 'You are now logged out');
   res.redirect('/users/login');
 });
 
