@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const passport = require('passport');
+require('./config/passport')(passport);
 
 const app = express();
 
@@ -47,6 +49,10 @@ app.use(
   })
 );
 
+// Adding authentication to the session with passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Connect flash middleware
 app.use(flash());
 
@@ -55,6 +61,7 @@ app.use((req, res, next) => {
   res.locals.successMsg = req.flash('successMsg');
   res.locals.errorMsg = req.flash('errorMsg');
   res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
 
   next();
 });
