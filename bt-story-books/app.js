@@ -1,5 +1,6 @@
+const bodyParser = require('body-parser');
 const path = require('path');
-const { engine } = require('express-handlebars');
+const { create } = require('express-handlebars');
 const mongoose = require('mongoose');
 const dbURI = require('./config/db');
 const express = require('express');
@@ -21,10 +22,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// handlebars Services
+const { truncate, stripTags } = require('./services/hbs');
+const hbs = create({ helpers: { truncate, stripTags } });
 // Handlebars Middleware
-app.engine('handlebars', engine());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
+
+// Body-parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 4500;
 app.listen(port, () => {
