@@ -2,10 +2,12 @@
   <div class='container'>
     <div class='nav-wrapper'>
       <a href='/stories' class='brand-logo center'>StoryBooks</a>
-      <a href='#' data-activates='main-menu' class='button-collapse'><i
-          class='fa fa-bars fa-lg'
-        ></i></a>
-
+      <a
+        href='#'
+        data-target='slide-out'
+        class='sidenav-trigger show-on-large'
+      ><i class='fa fa-bars fa-lg'></i></a>
+      <!-- Right Nav -->
       <ul class='right hide-on-small-only'>
         {{#if user}}
           <li><a href='/dashbord'>Welcome {{user.firstName}}</a></li>
@@ -20,6 +22,40 @@
             <a href='/stoies'>
               <i class='fa fa-book'></i>
               Pulic Stories
+            </a>
+          </li>
+        {{/if}}
+      </ul>
+      <!-- Side Menu -->
+      <ul class='sidenav' id='slide-out'>
+        {{#if user}}{{else}}
+          <li>
+            <a href='/auth/google' class='btn red darken-1'>
+              Login With Google
+              <i class='fa fa-google left'></i>
+            </a>
+          </li>
+        {{/if}}
+        <li><a href='/stories'>
+            <i class='fa fa-book'></i>
+            Public Stories
+          </a>
+        </li>
+        <li class='divider'></li>
+        {{#if user}}
+          <li><a href='/dashboard'>
+              <i class='fa fa-cog'></i>
+              Dashboard
+            </a>
+          </li>
+          <li><a href='/stories/my'>
+              <i class='fa fa-user'></i>
+              My Stories
+            </a>
+          </li>
+          <li><a href='/auth/logout'>
+              <i class='fa fa-sign-out'></i>
+              Logout
             </a>
           </li>
         {{/if}}
