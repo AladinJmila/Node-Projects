@@ -10,6 +10,7 @@ const session = require('express-session');
 // Routes
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const stories = require('./routes/stories');
 
 app.use(
   session({ secret: 'angry cat', resave: false, saveUninitialized: false })
@@ -43,3 +44,4 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/stories', stories);
