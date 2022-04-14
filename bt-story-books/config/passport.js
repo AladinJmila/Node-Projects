@@ -18,7 +18,7 @@ module.exports = passport => {
         if (profile) {
           const userInDb = await User.findOne({
             email: profile.emails[0].value,
-          });
+          }).lean();
 
           if (userInDb) {
             done(null, userInDb);
@@ -44,7 +44,7 @@ module.exports = passport => {
   });
 
   passport.deserializeUser(async (id, done) => {
-    const user = await User.findById(id);
+    const user = await User.findById(id).lean();
     done(null, user);
   });
 };
