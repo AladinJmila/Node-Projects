@@ -1,3 +1,4 @@
+const { engine } = require('express-handlebars');
 const mongoose = require('mongoose');
 const dbURI = require('./config/db');
 const express = require('express');
@@ -6,6 +7,8 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const session = require('express-session');
 
+// Routes
+const index = require('./routes/index');
 const auth = require('./routes/auth');
 
 app.use(
@@ -16,9 +19,14 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Handlebars Middleware
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', './views');
+
 const port = process.env.PORT || 4500;
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}...`);
+  console.log(`Listening on port ${port}...`);
 });
 
 mongoose
@@ -33,8 +41,5 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.use('/', index);
 app.use('/auth', auth);
-
-app.get('/', (req, res) => {
-  res.send('It works');
-});
