@@ -1,3 +1,4 @@
+const path = require('path');
 const { engine } = require('express-handlebars');
 const mongoose = require('mongoose');
 const dbURI = require('./config/db');
@@ -40,6 +41,9 @@ app.use((req, res, next) => {
   res.locals.user = req.user || null;
   next();
 });
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', index);
