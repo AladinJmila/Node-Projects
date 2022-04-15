@@ -19,3 +19,17 @@ exports.select = (selected, options) => {
     .fn()
     .replace(new RegExp(` value=\'` + selected + `\'`), `$& selected`);
 };
+
+exports.editIcon = (storyUser, loggedUser, storyId, floating = true) => {
+  if (String(storyUser) === String(loggedUser)) {
+    if (floating) {
+      return `<a href="/stories/edit/${storyId}" class="btn-floating halfway-fab red">
+        <i class="fa fa-pencil"></i>
+      </a>`;
+    }
+
+    return `<a href="/stories/edit/${storyId}"><i class="fa fa-pencil"></i></a>`;
+  }
+
+  return '';
+};

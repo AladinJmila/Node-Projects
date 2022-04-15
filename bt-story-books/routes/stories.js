@@ -1,5 +1,4 @@
 const express = require('express');
-const { route } = require('express/lib/application');
 const router = express.Router();
 const { auth } = require('../services/auth');
 const { Story } = require('../models/story');
@@ -17,8 +16,11 @@ router.get('/add', auth, (req, res) => {
   res.render('stories/add');
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', auth, async (req, res) => {
   const story = await Story.findById(req.params.id).lean();
+
+  if (String(story.creator) !== String(req.user._id))
+    return res.redirect('/stories');
 
   res.render('stories/edit', { story });
 });
@@ -49,7 +51,7 @@ router.post('/add', auth, async (req, res) => {
   res.redirect(`/stories/show/${story._id}`);
 });
 
-router.post('/comment/:id', async (req, res) => {
+router.post('/comment/:id', auth, async (req, res) => {
   const story = await Story.findById(req.params.id);
 
   story.comments.unshift({
@@ -62,7 +64,7 @@ router.post('/comment/:id', async (req, res) => {
   res.redirect(`/stories/show/${story._id}`);
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
   const { title, status, allowComments, body } = req.body;
 
   await Story.findByIdAndUpdate(req.params.id, {
@@ -74,7 +76,7 @@ router.put('/:id', async (req, res) => {
   res.redirect('/dashboard');
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   await Story.findByIdAndDelete(req.params.id);
 
   res.redirect('/dashboard');
