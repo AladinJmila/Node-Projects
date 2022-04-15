@@ -24,7 +24,10 @@ router.get('/edit/:id', async (req, res) => {
 });
 
 router.get('/show/:id', async (req, res) => {
-  const story = await Story.findById(req.params.id).populate('creator').lean();
+  const story = await Story.findById(req.params.id)
+    .populate('creator')
+    .populate('comments.commentUser')
+    .lean();
   story.date = story['_id'].getTimestamp();
 
   res.render('stories/show', { story });

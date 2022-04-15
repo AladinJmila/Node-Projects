@@ -31,6 +31,10 @@ const Story = mongoose.model(
           type: String,
           required: true,
         },
+        commentDate: {
+          type: Date,
+          default: Date.now,
+        },
         commentUser: {
           type: Schema.Types.ObjectId,
           ref: 'User',

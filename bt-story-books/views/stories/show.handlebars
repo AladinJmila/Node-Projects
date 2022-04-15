@@ -27,6 +27,20 @@
           {{/if}}
         </div>
       </div>
+      {{#each story.comments}}
+        <div class='card'>
+          <div class='card-content'>
+            <h6>{{commentBody}}</h6>
+            <div class='chip'>
+              <img src='{{commentUser.image}}' alt='user avatar' />
+              {{commentUser.firstName}}
+              {{commentUser.lastName}}
+            </div>
+            <br />
+            <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+          </div>
+        </div>
+      {{/each}}
     {{/if}}
   </div>
 
