@@ -23,8 +23,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // handlebars Services
-const { truncate, stripTags } = require('./services/hbs');
-const hbs = create({ helpers: { truncate, stripTags } });
+const { truncate, stripTags, formatDate } = require('./services/hbs');
+const hbs = create({ helpers: { truncate, stripTags, formatDate } });
 // Handlebars Middleware
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

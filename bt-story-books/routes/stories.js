@@ -17,6 +17,13 @@ router.get('/add', auth, (req, res) => {
   res.render('stories/add');
 });
 
+router.get('/show/:id', async (req, res) => {
+  const story = await Story.findById(req.params.id).populate('creator').lean();
+  story.date = story['_id'].getTimestamp();
+
+  res.render('stories/show', { story });
+});
+
 router.post('/add', auth, async (req, res) => {
   const { title, status, allowComments, body } = req.body;
 
