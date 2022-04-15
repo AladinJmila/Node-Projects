@@ -15,8 +15,10 @@
           <br />
           <div class='chip'>
             <img src='{{creator.image}}' alt='creator' />
-            {{creator.firstName}}
-            {{creator.lastName}}
+            <a href="/stories/user/{{creator._id}}">
+              {{creator.firstName}}
+              {{creator.lastName}}
+            </a>
           </div>
         </div>
         <div class='card-action center-align'>

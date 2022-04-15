@@ -36,8 +36,10 @@
             <h6>{{commentBody}}</h6>
             <div class='chip'>
               <img src='{{commentUser.image}}' alt='user avatar' />
-              {{commentUser.firstName}}
-              {{commentUser.lastName}}
+              <a href='/stories/user/{{commentUser._id}}'>
+                {{commentUser.firstName}}
+                {{commentUser.lastName}}
+              </a>
             </div>
             <br />
             <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
@@ -59,7 +61,7 @@
         />
       </div>
       <div class='card-action center-align'>
-        <a href='/stories/user/{{story.creator.id}}'>More From
+        <a href='/stories/user/{{story.creator._id}}'>More From
           {{story.creator.firstName}}</a>
       </div>
     </div>

@@ -32,7 +32,33 @@ router.get('/show/:id', async (req, res) => {
     .lean();
   story.date = story['_id'].getTimestamp();
 
-  res.render('stories/show', { story });
+  if (story.status === 'public') return res.render('stories/show', { story });
+
+  if (req.user && String(req.user._id) === String(story.creator._id))
+    return res.render('stories/show', { story });
+
+  res.redirect('/stories');
+});
+
+router.get('/user/:userId', async (req, res) => {
+  const stories = await Story.find({
+    creator: req.params.userId,
+    status: 'public',
+  })
+    .populate('creator')
+    .sort('-_id')
+    .lean();
+
+  res.render('stories/index', { stories });
+});
+
+router.get('/my', auth, async (req, res) => {
+  const stories = await Story.find({ creator: req.user._id })
+    .populate('creator')
+    .sort('-_id')
+    .lean();
+
+  res.render('stories/index', { stories });
 });
 
 router.post('/add', auth, async (req, res) => {
