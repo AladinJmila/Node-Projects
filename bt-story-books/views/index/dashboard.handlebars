@@ -1,2 +1,41 @@
 <h1>Welcome {{user.firstName}}</h1>
 <h4>Your Stories</h4>
+
+{{#if stories}}
+  <table class='striped'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th class='center-align'>Date</th>
+        <th class='center-align'>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each stories}}
+        <tr>
+          <td><a href='/stories/show/{{_id}}'>{{title}}</a></td>
+          <td class='center-align'>{{formatDate date 'MMMM do YYYY'}}</td>
+          <td class='center-align'>
+            <spanclass='dash-status'>{{status}}</span>
+          </td>
+          <td class='right-align'>
+            <a href='/sotries/edit/{{_id}}' class='btn left-align mr-1'>
+              <i class='fa fa-pencil left-align'></i>
+              <span class='right-align'>Edit</span>
+            </a>
+
+            <form action='/stories/{{_id}}' method='post' id='delete-form'>
+              <button type='submit' class='btn red'>
+                <i class='fa fa-remove'></i>
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>There are no sotries in db</p>
+{{/if}}

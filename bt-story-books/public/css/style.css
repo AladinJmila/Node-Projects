@@ -7,3 +7,15 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.story-text {
+  height: 100px;
+}
+
+.dash-status {
+  text-transform: capitalize;
+}
+
+#delete-form {
+  display: inline;
+}
