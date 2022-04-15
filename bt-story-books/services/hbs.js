@@ -13,3 +13,9 @@ exports.stripTags = str => {
 exports.formatDate = (timestamp, format) => {
   return moment(timestamp).format(format);
 };
+
+exports.select = (selected, options) => {
+  return options
+    .fn()
+    .replace(new RegExp(` value=\'` + selected + `\'`), `$& selected`);
+};

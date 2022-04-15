@@ -17,6 +17,12 @@ router.get('/add', auth, (req, res) => {
   res.render('stories/add');
 });
 
+router.get('/edit/:id', async (req, res) => {
+  const story = await Story.findById(req.params.id).lean();
+
+  res.render('stories/edit', { story });
+});
+
 router.get('/show/:id', async (req, res) => {
   const story = await Story.findById(req.params.id).populate('creator').lean();
   story.date = story['_id'].getTimestamp();
