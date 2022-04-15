@@ -46,4 +46,16 @@ router.post('/add', auth, async (req, res) => {
   res.redirect(`/stories/show/${story._id}`);
 });
 
+router.put('/:id', async (req, res) => {
+  const { title, status, allowComments, body } = req.body;
+
+  await Story.findByIdAndUpdate(req.params.id, {
+    title,
+    status,
+    body,
+    allowComments: allowComments ? true : false,
+  });
+  res.redirect('/dashboard');
+});
+
 module.exports = router;

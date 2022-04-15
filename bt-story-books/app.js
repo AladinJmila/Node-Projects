@@ -1,3 +1,4 @@
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const path = require('path');
 const { create } = require('express-handlebars');
@@ -33,6 +34,9 @@ app.set('views', './views');
 // Body-parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Method-override Middleware
+app.use(methodOverride('_method'));
 
 const port = process.env.PORT || 4500;
 app.listen(port, () => {
