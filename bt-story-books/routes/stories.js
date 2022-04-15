@@ -46,6 +46,19 @@ router.post('/add', auth, async (req, res) => {
   res.redirect(`/stories/show/${story._id}`);
 });
 
+router.post('/comment/:id', async (req, res) => {
+  const story = await Story.findById(req.params.id);
+
+  story.comments.unshift({
+    commentBody: req.body.commentBody,
+    commentUser: req.user._id,
+  });
+
+  await story.save();
+
+  res.redirect(`/stories/show/${story._id}`);
+});
+
 router.put('/:id', async (req, res) => {
   const { title, status, allowComments, body } = req.body;
 
