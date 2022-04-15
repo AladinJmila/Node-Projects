@@ -58,4 +58,10 @@ router.put('/:id', async (req, res) => {
   res.redirect('/dashboard');
 });
 
+router.delete('/:id', async (req, res) => {
+  await Story.findByIdAndDelete(req.params.id);
+
+  res.redirect('/dashboard');
+});
+
 module.exports = router;

@@ -25,7 +25,8 @@
               <span class='right-align'>Edit</span>
             </a>
 
-            <form action='/stories/{{_id}}' method='post' id='delete-form'>
+            <form action='/stories/{{_id}}?_method=DELETE' method='post' id='delete-form'>
+              {{!-- <input type="hidden" name="_method" value="DELETE"> --}}
               <button type='submit' class='btn red'>
                 <i class='fa fa-remove'></i>
                 Delete
