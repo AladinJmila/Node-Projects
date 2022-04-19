@@ -24,9 +24,9 @@ module.exports = passport => {
       }
     )
   );
-  passport.serializeUser((user, done) => done(null, user._id))
+  passport.serializeUser((user, done) => done(null, user._id));
 
-  passport.deserializeUser((id, done) => {
-    await User.findById(id, (err, user) => done(err, user))
-  })
+  passport.deserializeUser(async (id, done) => {
+    await User.findById(id, (err, user) => done(err, user));
+  });
 };
