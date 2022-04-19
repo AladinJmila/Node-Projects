@@ -22,9 +22,12 @@ const conn = mongoose.createConnection(mongoURI);
 
 // Init gfs
 let gfs;
+let gridfsBucket;
 
 conn.once('open', () => {
-  // Init stream
+  gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: 'uploads',
+  });
   gfs = Grid(conn.db, mongoose.mongo);
   gfs.collection('uploads');
 });
@@ -38,7 +41,9 @@ const storage = new GridFsStorage({
       crypto.randomBytes(16, (err, buf) => {
         if (err) return reject(err);
 
-        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const filename =
+          buf.toString('hex') + '-' + path.basename(file.originalname);
+        // path.extname(file.originalname);
         const fileInfo = {
           filename,
           bucketName: 'uploads',
@@ -55,8 +60,45 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/files', async (req, res) => {
+  await gfs.files.find().toArray((err, files) => {
+    if (!files || !files.length)
+      return res.status(404).send('There are no files in db.');
+
+    res.send(files);
+  });
+});
+
+app.get('/files/:filename', async (req, res) => {
+  await gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (!file)
+      return res
+        .status(404)
+        .send('There are no files with the given filename.');
+
+    res.send(file);
+  });
+});
+
+app.get('/image/:filename', async (req, res) => {
+  await gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (!file)
+      return res
+        .status(404)
+        .send('There are no files with the given filename.');
+
+    if (file.contentType === 'image/png' || file.contentType === 'image/jpeg') {
+      const readstream = gridfsBucket.openDownloadStream(file._id);
+      readstream.pipe(res);
+    } else {
+      res.status(404).send('The file with the given filename is not and image');
+    }
+  });
+});
+
 app.post('/upload', upload.single('file'), async (req, res) => {
-  res.json({ file: req.file });
+  // res.json({ file: req.file });
+  res.redirect('/');
 });
 
 const port = 4500;
