@@ -34,6 +34,19 @@
               class="btn btn-primary btn-block"
             />
           </form>
+          <hr />
+          <% if (files) { %> <% files.forEach(function(file){ %>
+          <div class="card card-body mb-3">
+            <% if (file.type == 'image') { %>
+            <img src="image/<%= file.filename %>" alt="" />
+            <% } else { %> <%= file.filename %> <% } %> <% if (file.type ==
+            'video') { %>
+            <video src="video/<%= file.filename %>" controls></video>
+            <% } else { %> <%= file.filename %> <% } %>
+          </div>
+          <% }) %> <% } else { %>
+          <p>There are no file in db</p>
+          <% } %>
         </div>
       </div>
     </div>

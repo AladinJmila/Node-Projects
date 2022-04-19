@@ -56,8 +56,19 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage });
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  await gfs.files.find().toArray((err, files) => {
+    if (!files || !files.length) {
+      return res.render('index', { files: false });
+    } else {
+      files.map(file => {
+        if (file.contentType.startsWith('image')) file.type = 'image';
+        else if (file.contentType.startsWith('video')) file.type = 'video';
+        else file.type = '';
+      });
+    }
+    res.render('index', { files });
+  });
 });
 
 app.get('/files', async (req, res) => {
@@ -87,11 +98,27 @@ app.get('/image/:filename', async (req, res) => {
         .status(404)
         .send('There are no files with the given filename.');
 
-    if (file.contentType === 'image/png' || file.contentType === 'image/jpeg') {
+    if (file.contentType.startsWith('image')) {
       const readstream = gridfsBucket.openDownloadStream(file._id);
       readstream.pipe(res);
     } else {
-      res.status(404).send('The file with the given filename is not and image');
+      res.status(404).send('The file with the given filename is not an image');
+    }
+  });
+});
+
+app.get('/video/:filename', async (req, res) => {
+  await gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (!file)
+      return res
+        .status(404)
+        .send('There are no files with the given filename.');
+
+    if (file.contentType.startsWith('video')) {
+      const readstream = gridfsBucket.openDownloadStream(file._id);
+      readstream.pipe(res);
+    } else {
+      res.status(404).send('The file with the given filename is not a video');
     }
   });
 });
