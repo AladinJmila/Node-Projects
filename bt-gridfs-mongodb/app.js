@@ -123,9 +123,21 @@ app.get('/video/:filename', async (req, res) => {
   });
 });
 
-app.post('/upload', upload.single('file'), async (req, res) => {
-  // res.json({ file: req.file });
+app.post('/upload', upload.single('file'), (req, res) => {
   res.redirect('/');
+});
+
+app.delete('/files/:filename', async (req, res) => {
+  await gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (err) return res.send(err);
+
+    if (!file)
+      return res.status(404).send('There is no file with the given filename.');
+
+    gridfsBucket.delete(file._id);
+
+    res.redirect('/');
+  });
 });
 
 const port = 4500;

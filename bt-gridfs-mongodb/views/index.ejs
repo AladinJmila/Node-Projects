@@ -43,6 +43,12 @@
             'video') { %>
             <video src="video/<%= file.filename %>" controls></video>
             <% } else { %> <%= file.filename %> <% } %>
+            <form
+              action="/files/<%= file.filename %>?_method=DELETE"
+              method="post"
+            >
+              <button class="btn btn-danger btn-block mt-4">Delete</button>
+            </form>
           </div>
           <% }) %> <% } else { %>
           <p>There are no file in db</p>
