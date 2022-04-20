@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -52,5 +53,8 @@ app.use((req, res, next) => {
 
   next();
 });
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', general);
