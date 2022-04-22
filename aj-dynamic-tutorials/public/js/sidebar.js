@@ -1,14 +1,3 @@
-/* global bootstrap: false */
-// (function () {
-//   'use strict';
-//   var tooltipTriggerList = [].slice.call(
-//     document.querySelectorAll('[data-bs-toggle="tooltip"]')
-//   );
-//   tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-//     new bootstrap.Tooltip(tooltipTriggerEl);
-//   });
-// })();
-
 const sidebarData = [
   {
     name: 'organization',
@@ -122,7 +111,6 @@ const collapseButton = (item, content, ms = '') => {
 
 const collapseButtonContent = item => {
   if (item.name === 'channels') {
-    console.log(item.content);
     return item.content
       .map(i => {
         const content = collapseButtonContent(i);

@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const { createMedia } = require('../models/media');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  // await createMedia();
   res.render('index');
 });
 
