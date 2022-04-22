@@ -8,8 +8,58 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 require('./config/passport')(passport);
 const dbURI = require('./config/db');
-
 const app = express();
+
+// gridfs related imports and operations
+const crypto = require('crypto');
+const multer = require('multer');
+const { GridFsStorage } = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+
+const conn = mongoose.createConnection(dbURI);
+
+let gfs;
+let gridfsBucket;
+
+conn.once('open', () => {
+  gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: 'dynamic-tutorials-media',
+  });
+
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('dynamic-tutorials-media');
+});
+
+const storage = new GridFsStorage({
+  url: dbURI,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) return reject(err);
+
+        const filename =
+          buf.toString('hex') + '-' + path.basename(file.originalname);
+
+        const fileInfo = {
+          filename,
+          bucketName: 'dynamic-tutorials-media',
+        };
+
+        resolve(fileInfo);
+      });
+    });
+  },
+});
+
+const upload = multer({ storage });
+
+app.get('/upload-form', (req, res) => {
+  res.render('uploadForm');
+});
+
+app.post('/upload-media', upload.single('file'), (req, res) => {
+  res.redirect('/upload-form');
+});
 
 // Load routes
 const general = require('./routes/general');
@@ -31,6 +81,10 @@ mongoose
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
+
+// Body-parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Method-override middleware
 app.use(methodOverride('_method'));
