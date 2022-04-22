@@ -13,6 +13,7 @@ const app = express();
 
 // Load routes
 const general = require('./routes/general');
+const media = require('./routes/media');
 
 // Launch server
 const port = process.env.PORT || 4500;
@@ -58,3 +59,4 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', general);
+app.use('/media', media);
