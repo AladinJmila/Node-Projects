@@ -3,7 +3,7 @@ const router = express.Router();
 const { Media } = require('../models/media');
 
 router.get('/', async (req, res) => {
-  const media = await Media.findById('626275a11470bc5ad105d522').lean();
+  const media = await Media.findById('62628c495d4dd624aa2a3c9b').lean();
 
   res.send(media);
 });
