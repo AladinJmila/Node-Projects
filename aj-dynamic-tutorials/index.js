@@ -9,6 +9,7 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const dbURI = require('./config/db');
 const app = express();
+const { Media } = require('./models/media');
 
 // gridfs related imports and operations
 const crypto = require('crypto');
@@ -58,7 +59,40 @@ app.get('/upload-form', (req, res) => {
 });
 
 app.post('/upload-media', upload.single('file'), (req, res) => {
+  // let gfsMedia;
+  gfs.files.find().toArray(async (err, files) => {
+    if (!files || !files.length)
+      return res.status(404).send('There are no files in db.');
+
+    const gfsMedia = files[files.length - 1];
+
+    const medias = await Media.find().sort('-_id');
+    if (gfsMedia.contentType.startsWith('image')) {
+      // console.log(gfsMedia.filename);
+      // console.log(medias[0]);
+      medias[0].slides[0].imageURL = gfsMedia.filename;
+      await medias[0].save();
+    }
+    if (gfsMedia.contentType.startsWith('audio')) {
+      media.slides[0].audioURL = gfsMedia.filename;
+    }
+  });
+
   res.redirect('/upload-form');
+});
+
+app.get('/image/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (!file)
+      return res.status(404).send('There is no file with the given filename.');
+
+    if (file.contentType.startsWith('image')) {
+      const readstream = gridfsBucket.openDownloadStream(file._id);
+      readstream.pipe(res);
+    } else {
+      res.status(404).send('The file with the given filename is not an image.');
+    }
+  });
 });
 
 // Load routes
