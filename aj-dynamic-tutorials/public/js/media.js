@@ -11,8 +11,8 @@ let slides;
 function genTutorialMedia(id) {
   const slide = slides.filter(slide => slide._id === id)[0];
   imageEl.innerHTML = `<img src='/image/${slide.imageURL}' alt='illustration' />`;
-  audioEl.innerHTML = slide.audioURL;
-  noteEl.innerHTML = slide.note;
+  audioEl.innerHTML = `<audio src='/audio/${slide.audioURL}' controls />`;
+  noteEl.innerHTML = `<h4>${slide.note}</h4>`;
 }
 
 async function genNavLevelTwo() {

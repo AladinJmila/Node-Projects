@@ -6,3 +6,15 @@
   max-height: 70vh;
   overflow: hidden;
 }
+
+.media-audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-audio audio {
+  display: block;
+  height: 40px;
+  width: 80%;
+}

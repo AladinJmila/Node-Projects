@@ -68,13 +68,12 @@ app.post('/upload-media', upload.single('file'), (req, res) => {
 
     const medias = await Media.find().sort('-_id');
     if (gfsMedia.contentType.startsWith('image')) {
-      // console.log(gfsMedia.filename);
-      // console.log(medias[0]);
       medias[0].slides[0].imageURL = gfsMedia.filename;
       await medias[0].save();
     }
     if (gfsMedia.contentType.startsWith('audio')) {
-      media.slides[0].audioURL = gfsMedia.filename;
+      medias[0].slides[0].audioURL = gfsMedia.filename;
+      await medias[0].save();
     }
   });
 
@@ -91,6 +90,20 @@ app.get('/image/:filename', (req, res) => {
       readstream.pipe(res);
     } else {
       res.status(404).send('The file with the given filename is not an image.');
+    }
+  });
+});
+
+app.get('/audio/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (!file)
+      return res.status(404).send('There is no file with the given filename.');
+
+    if (file.contentType.startsWith('audio')) {
+      const readstream = gridfsBucket.openDownloadStream(file._id);
+      readstream.pipe(res);
+    } else {
+      res.status(404).send('The file with the given filename is not audio.');
     }
   });
 });
