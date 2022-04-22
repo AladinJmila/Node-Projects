@@ -95,3 +95,14 @@ main {
 .lh-tight {
   line-height: 1.25;
 }
+
+.sidebar {
+  /* transform: translateX(0); */
+  display: block;
+  /* transition: display 0.5s, transform 0.3s; */
+}
+
+.sidebar.hide {
+  /* transform: translateX(-100%); */
+  display: none;
+}
