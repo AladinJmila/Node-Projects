@@ -18,3 +18,21 @@
   height: 40px;
   width: 80%;
 }
+
+.level-one-label {
+  position: relative;
+}
+
+.level-one-label span {
+  z-index: 1;
+  position: absolute;
+  display: block;
+  min-height: 12px;
+  max-height: 12px;
+  min-width: 12px;
+  max-width: 12px;
+  border-radius: 50%;
+  background-color: #999;
+  bottom: -22px;
+  left: 50%;
+}
