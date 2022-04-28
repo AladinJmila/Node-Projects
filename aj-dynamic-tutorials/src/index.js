@@ -1,6 +1,13 @@
 import './main.css';
+import populateSidebar from './sidebar';
+import injectLevelTow from './media';
 
-console.log('bundle');
-const blue = 'blue';
+const hideBtn = document.getElementById('hide-sidebar');
+const sidebarEl = document.getElementById('sidebar');
 
-document.getElementsByTagName('body').innerText = blue;
+hideBtn.addEventListener('click', () => {
+  sidebarEl.classList.toggle('hide');
+});
+
+populateSidebar();
+injectLevelTow();

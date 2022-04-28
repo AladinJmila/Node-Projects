@@ -15,7 +15,7 @@ function genTutorialMedia(id) {
   noteEl.innerHTML = `<h4>${slide.note}</h4>`;
 }
 
-async function genNavLevelTwo() {
+async function genNavLevelTow() {
   const res = await fetch('media/');
   const data = await res.json();
   slides = data.slides;
@@ -24,8 +24,8 @@ async function genNavLevelTwo() {
       return `
     <div 
     title='${slide.name}'
-    onclick='genTutorialMedia("${slide._id}");'
-    class='col text-center border rounded text-truncate px-2 mx-2'>
+    id='${slide._id}'
+    class='to-media col text-center border rounded text-truncate px-2 mx-2'>
     ${slide.name}
     </div>
     `;
@@ -33,6 +33,17 @@ async function genNavLevelTwo() {
     .join('');
 
   navLevelTwoEl.innerHTML = navItems;
+
+  const DomNavItems = document.querySelectorAll('.to-media');
+  DomNavItems.forEach(item => {
+    item.addEventListener('click', () => {
+      genTutorialMedia(item.getAttribute('id'));
+    });
+  });
 }
 
-agentInformationEl.addEventListener('click', genNavLevelTwo);
+function injectLevelTow() {
+  agentInformationEl.addEventListener('click', genNavLevelTow);
+}
+
+export default injectLevelTow;

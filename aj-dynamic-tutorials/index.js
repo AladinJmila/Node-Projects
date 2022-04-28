@@ -10,6 +10,7 @@ require('./config/passport')(passport);
 const dbURI = require('./config/db');
 const app = express();
 const { Media } = require('./models/media');
+const cors = require('cors');
 
 // gridfs related imports and operations
 const crypto = require('crypto');
@@ -21,6 +22,8 @@ const conn = mongoose.createConnection(dbURI);
 
 let gfs;
 let gridfsBucket;
+
+app.use(cors());
 
 conn.once('open', () => {
   gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {

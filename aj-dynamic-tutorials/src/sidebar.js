@@ -127,21 +127,17 @@ const collapseButtonContent = item => {
 };
 
 function populateSidebar(data) {
-  data.forEach(item => {
-    const content = collapseButtonContent(item);
+  data &&
+    data.forEach(item => {
+      const content = collapseButtonContent(item);
 
-    sidebarMenuEl.innerHTML += collapseButton(item, content);
-  });
+      sidebarMenuEl.innerHTML += collapseButton(item, content);
+    });
 }
 
 populateSidebar(sidebarData);
 
-const hideBtn = document.getElementById('hide-sidebar');
-const sidebarEl = document.getElementById('sidebar');
-
-hideBtn.addEventListener('click', () => {
-  sidebarEl.classList.toggle('hide');
-});
+export default populateSidebar;
 
 // add a click event listener in the inner list items
 // when clicked it populates the screen with the relevent content
