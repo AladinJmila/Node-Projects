@@ -142,3 +142,8 @@ const sidebarEl = document.getElementById('sidebar');
 hideBtn.addEventListener('click', () => {
   sidebarEl.classList.toggle('hide');
 });
+
+// add a click event listener in the inner list items
+// when clicked it populates the screen with the relevent content
+// the first item will be selected by default to have conetent displayed by default
+// the first parameter of the first item will show its content

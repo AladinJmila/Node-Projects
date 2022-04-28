@@ -58,24 +58,17 @@ app.get('/upload-form', (req, res) => {
   res.render('uploadForm');
 });
 
-app.post('/upload-media', upload.single('file'), (req, res) => {
-  // let gfsMedia;
-  gfs.files.find().toArray(async (err, files) => {
-    if (!files || !files.length)
-      return res.status(404).send('There are no files in db.');
+app.post('/upload-media', upload.single('file'), async (req, res) => {
+  console.log(req.file, req.body);
 
-    const gfsMedia = files[files.length - 1];
-
-    const medias = await Media.find().sort('-_id');
-    if (gfsMedia.contentType.startsWith('image')) {
-      medias[0].slides[0].imageURL = gfsMedia.filename;
-      await medias[0].save();
-    }
-    if (gfsMedia.contentType.startsWith('audio')) {
-      medias[0].slides[0].audioURL = gfsMedia.filename;
-      await medias[0].save();
-    }
-  });
+  const medias = await Media.find().sort('-_id');
+  if (req.file.contentType.startsWith('image')) {
+    medias[0].slides[0].imageURL = gfsMedia.filename;
+    await medias[0].save();
+  } else if (req.file.contentType.startsWith('audio')) {
+    medias[0].slides[0].audioURL = gfsMedia.filename;
+    await medias[0].save();
+  }
 
   res.redirect('/upload-form');
 });
@@ -111,6 +104,7 @@ app.get('/audio/:filename', (req, res) => {
 // Load routes
 const general = require('./routes/general');
 const media = require('./routes/media');
+const { read } = require('fs');
 
 // Launch server
 const port = process.env.PORT || 4500;
