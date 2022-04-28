@@ -770,6 +770,26 @@ module.exports = __webpack_require__(553);
 
 /***/ }),
 
+/***/ 533:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r\n\r\n.media-image {\r\n  max-height: 70vh;\r\n  overflow: hidden;\r\n}\r\n\r\n.media-audio {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.media-audio audio {\r\n  display: block;\r\n  height: 40px;\r\n  width: 80%;\r\n}\r\n\r\n.level-one-label {\r\n  position: relative;\r\n}\r\n\r\n.level-one-label span {\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: block;\r\n  min-height: 12px;\r\n  max-height: 12px;\r\n  min-width: 12px;\r\n  max-width: 12px;\r\n  border-radius: 50%;\r\n  background-color: #999;\r\n  bottom: -22px;\r\n  left: 50%;\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ 769:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -784,6 +804,31 @@ module.exports = __webpack_require__(553);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  background-color: #3a3a3a;\r\n  color: #fffffe;\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 372:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(667);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
+// Imports
+
+
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(413), __webpack_require__.b);
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  min-height: 100vh;\r\n  min-height: -webkit-fill-available;\r\n}\r\n\r\nhtml {\r\n  height: -webkit-fill-available;\r\n}\r\n\r\nmain {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: nowrap;\r\n      flex-wrap: nowrap;\r\n  height: 100vh;\r\n  height: -webkit-fill-available;\r\n  max-height: 100vh;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n}\r\n\r\n.b-example-divider {\r\n  -ms-flex-negative: 0;\r\n      flex-shrink: 0;\r\n  width: 1.5rem;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.1);\r\n  border: solid rgba(0, 0, 0, 0.15);\r\n  border-width: 1px 0;\r\n  -webkit-box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),\r\n    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);\r\n          box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),\r\n    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.bi {\r\n  vertical-align: -0.125em;\r\n  pointer-events: none;\r\n  fill: currentColor;\r\n}\r\n\r\n.dropdown-toggle {\r\n  outline: 0;\r\n}\r\n\r\n.nav-flush .nav-link {\r\n  border-radius: 0;\r\n}\r\n\r\n.btn-toggle {\r\n  display: -webkit-inline-box;\r\n  display: -ms-inline-flexbox;\r\n  display: inline-flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  padding: 0.25rem 0.5rem;\r\n  font-weight: 600;\r\n  color: rgba(0, 0, 0, 0.65);\r\n  background-color: transparent;\r\n  border: 0;\r\n}\r\n.btn-toggle:hover,\r\n.btn-toggle:focus {\r\n  color: rgba(0, 0, 0, 0.85);\r\n  background-color: #d2f4ea;\r\n}\r\n\r\n.btn-toggle::before {\r\n  width: 1.25em;\r\n  line-height: 0;\r\n  content: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  -webkit-transition: -webkit-transform 0.35s ease;\r\n  transition: -webkit-transform 0.35s ease;\r\n  transition: transform 0.35s ease;\r\n  transition: transform 0.35s ease, -webkit-transform 0.35s ease;\r\n  -webkit-transform-origin: 0.5em 50%;\r\n          transform-origin: 0.5em 50%;\r\n  -webkit-transform: rotate(0deg);\r\n          transform: rotate(0deg);\r\n}\r\n\r\n.btn-toggle[aria-expanded='true'] {\r\n  color: rgba(0, 0, 0, 0.85);\r\n}\r\n.btn-toggle[aria-expanded='true']::before {\r\n  -webkit-transform: rotate(90deg);\r\n          transform: rotate(90deg);\r\n}\r\n\r\n.btn-toggle-nav a {\r\n  display: -webkit-inline-box;\r\n  display: -ms-inline-flexbox;\r\n  display: inline-flex;\r\n  padding: 0.1875rem 0.5rem;\r\n  margin-top: 0.125rem;\r\n  margin-left: 1.25rem;\r\n  text-decoration: none;\r\n}\r\n.btn-toggle-nav a:hover,\r\n.btn-toggle-nav a:focus {\r\n  background-color: #d2f4ea;\r\n}\r\n\r\n.scrollarea {\r\n  overflow-y: auto;\r\n}\r\n\r\n.fw-semibold {\r\n  font-weight: 600;\r\n}\r\n.lh-tight {\r\n  line-height: 1.25;\r\n}\r\n\r\n.sidebar {\r\n  /* transform: translateX(0); */\r\n  display: block;\r\n  /* transition: display 0.5s, transform 0.3s; */\r\n}\r\n\r\n.sidebar.hide {\r\n  /* transform: translateX(-100%); */\r\n  display: none;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
 
@@ -895,6 +940,42 @@ module.exports = function (cssWithMappingToString) {
   };
 
   return list;
+};
+
+/***/ }),
+
+/***/ 667:
+/***/ (function(module) {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    options = {};
+  }
+
+  if (!url) {
+    return url;
+  }
+
+  url = String(url.__esModule ? url.default : url); // If url is already wrapped in quotes, remove them
+
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+
+  return url;
 };
 
 /***/ }),
@@ -1203,6 +1284,14 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ 413:
+/***/ (function(module) {
+
+"use strict";
+module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27rgba%280,0,0,.5%29%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M5 14l6-6-6-6%27/%3e%3c/svg%3e";
+
 /***/ })
 
 /******/ 	});
@@ -1230,6 +1319,9 @@ module.exports = styleTagTransform;
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
@@ -1259,6 +1351,32 @@ module.exports = styleTagTransform;
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	!function() {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			179: 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	}();
 /******/ 	
 /************************************************************************/
@@ -1316,6 +1434,68 @@ var update = injectStylesIntoStyleTag_default()(main/* default */.Z, options);
 
        /* harmony default export */ var src_main = (main/* default */.Z && main/* default.locals */.Z.locals ? main/* default.locals */.Z.locals : undefined);
 
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/learn.css
+var learn = __webpack_require__(533);
+;// CONCATENATED MODULE: ./src/learn.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var learn_options = {};
+
+learn_options.styleTagTransform = (styleTagTransform_default());
+learn_options.setAttributes = (setAttributesWithoutAttributes_default());
+
+      learn_options.insert = insertBySelector_default().bind(null, "head");
+    
+learn_options.domAPI = (styleDomAPI_default());
+learn_options.insertStyleElement = (insertStyleElement_default());
+
+var learn_update = injectStylesIntoStyleTag_default()(learn/* default */.Z, learn_options);
+
+
+
+
+       /* harmony default export */ var src_learn = (learn/* default */.Z && learn/* default.locals */.Z.locals ? learn/* default.locals */.Z.locals : undefined);
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/sidebar.css
+var sidebar = __webpack_require__(372);
+;// CONCATENATED MODULE: ./src/sidebar.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var sidebar_options = {};
+
+sidebar_options.styleTagTransform = (styleTagTransform_default());
+sidebar_options.setAttributes = (setAttributesWithoutAttributes_default());
+
+      sidebar_options.insert = insertBySelector_default().bind(null, "head");
+    
+sidebar_options.domAPI = (styleDomAPI_default());
+sidebar_options.insertStyleElement = (insertStyleElement_default());
+
+var sidebar_update = injectStylesIntoStyleTag_default()(sidebar/* default */.Z, sidebar_options);
+
+
+
+
+       /* harmony default export */ var src_sidebar = (sidebar/* default */.Z && sidebar/* default.locals */.Z.locals ? sidebar/* default.locals */.Z.locals : undefined);
+
 ;// CONCATENATED MODULE: ./src/sidebar.js
 var sidebarData = [{
   name: 'organization',
@@ -1370,7 +1550,7 @@ function populateSidebar(data) {
 }
 
 populateSidebar(sidebarData);
-/* harmony default export */ var sidebar = (populateSidebar); // add a click event listener in the inner list items
+/* harmony default export */ var src_sidebar_0 = (populateSidebar); // add a click event listener in the inner list items
 // when clicked it populates the screen with the relevent content
 // the first item will be selected by default to have conetent displayed by default
 // the first parameter of the first item will show its content
@@ -1416,7 +1596,7 @@ var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 ;// CONCATENATED MODULE: ./src/media.js
 
 
-var mediaEl = document.getElementById('media');
+// const mediaEl = document.getElementById('media');
 var agentInformationEl = document.getElementById('agent-information');
 var navLevelTwoEl = document.getElementById('nav-level-two');
 var imageEl = document.getElementById('image');
@@ -1485,13 +1665,15 @@ function injectLevelTow() {
 
 
 
+
+
 var hideBtn = document.getElementById('hide-sidebar');
 var sidebarEl = document.getElementById('sidebar');
 hideBtn.addEventListener('click', function () {
   sidebarEl.classList.toggle('hide');
 });
-sidebar();
-media();
+src_sidebar_0();
+media(); //
 }();
 /******/ })()
 ;

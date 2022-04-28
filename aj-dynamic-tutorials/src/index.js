@@ -1,4 +1,6 @@
 import './main.css';
+import './learn.css';
+import './sidebar.css';
 import populateSidebar from './sidebar';
 import injectLevelTow from './media';
 
@@ -11,3 +13,5 @@ hideBtn.addEventListener('click', () => {
 
 populateSidebar();
 injectLevelTow();
+
+//

@@ -1,4 +1,4 @@
-const mediaEl = document.getElementById('media');
+// const mediaEl = document.getElementById('media');
 const agentInformationEl = document.getElementById('agent-information');
 const navLevelTwoEl = document.getElementById('nav-level-two');
 const imageEl = document.getElementById('image');
