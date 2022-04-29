@@ -1608,8 +1608,8 @@ function genTutorialMedia(id) {
   var slide = slides.filter(function (slide) {
     return slide._id === id;
   })[0];
-  imageEl.innerHTML = "<img src='/image/".concat(slide.imageURL, "' alt='illustration' />");
-  audioEl.innerHTML = "<audio src='/audio/".concat(slide.audioURL, "' controls />");
+  imageEl.innerHTML = "<img src='/media/image/".concat(slide.imageURL, "' alt='illustration' />");
+  audioEl.innerHTML = "<audio src='/media/audio/".concat(slide.audioURL, "' controls />");
   noteEl.innerHTML = "<h4>".concat(slide.note, "</h4>");
 }
 

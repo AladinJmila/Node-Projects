@@ -10,8 +10,8 @@ let slides;
 // injectDbData();
 function genTutorialMedia(id) {
   const slide = slides.filter(slide => slide._id === id)[0];
-  imageEl.innerHTML = `<img src='/image/${slide.imageURL}' alt='illustration' />`;
-  audioEl.innerHTML = `<audio src='/audio/${slide.audioURL}' controls />`;
+  imageEl.innerHTML = `<img src='/media/image/${slide.imageURL}' alt='illustration' />`;
+  audioEl.innerHTML = `<audio src='/media/audio/${slide.audioURL}' controls />`;
   noteEl.innerHTML = `<h4>${slide.note}</h4>`;
 }
 
