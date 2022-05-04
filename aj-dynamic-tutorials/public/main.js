@@ -1496,7 +1496,80 @@ var sidebar_update = injectStylesIntoStyleTag_default()(sidebar/* default */.Z, 
 
        /* harmony default export */ var src_sidebar = (sidebar/* default */.Z && sidebar/* default.locals */.Z.locals ? sidebar/* default.locals */.Z.locals : undefined);
 
-;// CONCATENATED MODULE: ./src/sidebar.js
+;// CONCATENATED MODULE: ./src/UIdata.js
+var subSidebarData = {
+  organization: {
+    agents: [{
+      name: 'agent informations',
+      id: ''
+    }, {
+      name: 'departments',
+      id: ''
+    }, {
+      name: 'login and security',
+      id: ''
+    }, {
+      name: 'images and greetings',
+      id: ''
+    }, {
+      name: 'automatic distribution',
+      id: ''
+    }, {
+      name: 'agent hours',
+      id: ''
+    }, {
+      name: 'email settings',
+      id: ''
+    }, {
+      name: 'advanced settings',
+      id: ''
+    }],
+    departments: [{
+      name: 'department information',
+      id: ''
+    }, {
+      name: 'rollover departments',
+      id: ''
+    }, {
+      name: 'agents',
+      id: ''
+    }, {
+      name: 'automatic distribution',
+      id: ''
+    }],
+    'premission groups': [{
+      name: 'account settings',
+      id: ''
+    }, {
+      name: 'actions',
+      id: ''
+    }, {
+      name: 'setup',
+      id: ''
+    }, {
+      name: 'folders',
+      id: ''
+    }, {
+      name: 'departments',
+      id: ''
+    }],
+    websites: [{
+      name: 'general',
+      id: ''
+    }, {
+      name: 'data validation',
+      id: ''
+    }],
+    'custom agent status': [{
+      name: 'custom agent status',
+      id: ''
+    }],
+    'agent performance indicators': [{
+      name: 'agent performance indicators',
+      id: ''
+    }]
+  }
+};
 var sidebarData = [{
   name: 'organization',
   content: ['agents', 'departments', 'permission groups', 'websites', 'custom agent status', 'agent performance indicators']
@@ -1522,6 +1595,8 @@ var sidebarData = [{
   name: 'intergrations',
   content: ['API access keys', 'API settings', 'API triggers', 'auto-translation', 'salesforce', 'genesys DX ai']
 }];
+;// CONCATENATED MODULE: ./src/sidebar.js
+
 var sidebarMenuEl = document.getElementById('sidebar-menu');
 
 var collapseButton = function collapseButton(item, content) {
@@ -1593,7 +1668,7 @@ function _asyncToGenerator(fn) {
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/regenerator/index.js
 var regenerator = __webpack_require__(757);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
-;// CONCATENATED MODULE: ./src/media.js
+;// CONCATENATED MODULE: ./src/UImedia.js
 
 
 // const mediaEl = document.getElementById('media');
@@ -1660,8 +1735,8 @@ function injectLevelTow() {
   agentInformationEl.addEventListener('click', genNavLevelTow);
 }
 
-/* harmony default export */ var media = (injectLevelTow);
-;// CONCATENATED MODULE: ./src/index.js
+/* harmony default export */ var UImedia = (injectLevelTow);
+;// CONCATENATED MODULE: ./src/main.js
 
 
 
@@ -1673,7 +1748,7 @@ hideBtn.addEventListener('click', function () {
   sidebarEl.classList.toggle('hide');
 });
 src_sidebar_0();
-media(); //
+UImedia(); //
 }();
 /******/ })()
 ;

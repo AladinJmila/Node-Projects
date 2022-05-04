@@ -14,15 +14,14 @@ const Media = mongoose.model(
           type: String,
           required: true,
         },
-        imageURL: {
-          type: String,
-          required: true,
-        },
-        audioURL: {
-          type: String,
-          required: true,
-        },
+        imageName: String,
+        audioName: String,
+
         note: String,
+        isSeen: {
+          type: Boolean,
+          default: false,
+        },
       },
     ],
   })

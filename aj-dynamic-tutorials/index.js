@@ -54,11 +54,11 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage });
 
-app.get('/upload-form', (req, res) => {
+app.get('/media/upload-form', (req, res) => {
   res.render('uploadForm');
 });
 
-app.post('/upload-media', upload.single('file'), async (req, res) => {
+app.post('/media/upload-media', upload.single('file'), async (req, res) => {
   console.log(req.file, req.body);
 
   const medias = await Media.find().sort('-_id');
@@ -73,7 +73,7 @@ app.post('/upload-media', upload.single('file'), async (req, res) => {
   res.redirect('/upload-form');
 });
 
-app.get('/image/:filename', (req, res) => {
+app.get('/media/image/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file)
       return res.status(404).send('There is no file with the given filename.');
@@ -87,7 +87,7 @@ app.get('/image/:filename', (req, res) => {
   });
 });
 
-app.get('/audio/:filename', (req, res) => {
+app.get('/media/audio/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file)
       return res.status(404).send('There is no file with the given filename.');
