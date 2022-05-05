@@ -2,7 +2,7 @@
 const agentInformationEl = document.getElementById('agent-information');
 const navLevelTwoEl = document.getElementById('nav-level-two');
 const imageEl = document.getElementById('image');
-const audioEl = document.getElementById('audio');
+const audioEl = document.getElementById('audio-container');
 const noteEl = document.getElementById('note');
 
 let slides;

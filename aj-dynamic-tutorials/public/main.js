@@ -1675,7 +1675,7 @@ var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 var agentInformationEl = document.getElementById('agent-information');
 var navLevelTwoEl = document.getElementById('nav-level-two');
 var imageEl = document.getElementById('image');
-var audioEl = document.getElementById('audio');
+var audioEl = document.getElementById('audio-container');
 var noteEl = document.getElementById('note');
 var slides; // injectDbData();
 
@@ -1736,7 +1736,98 @@ function injectLevelTow() {
 }
 
 /* harmony default export */ var UImedia = (injectLevelTow);
+;// CONCATENATED MODULE: ./src/saveMedia.js
+
+
+
+function captureAudio() {
+  var recording;
+  navigator.mediaDevices.getUserMedia({
+    audio: true
+  }).then(function (mediaStreamObj) {
+    var start = document.getElementById('btn-start');
+    var stop = document.getElementById('btn-stop');
+    var audio = document.getElementById('audio');
+    var audioContainer = document.getElementById('audio-container');
+    var mediaRecorder = new MediaRecorder(mediaStreamObj);
+    var chunks = [];
+    start.addEventListener('click', function (e) {
+      e.preventDefault();
+      mediaRecorder.start();
+      console.log(mediaRecorder.state);
+    });
+    stop.addEventListener('click', function (e) {
+      e.preventDefault();
+      mediaRecorder.stop();
+      console.log(mediaRecorder.state);
+    });
+
+    mediaRecorder.ondataavailable = function (e) {
+      chunks.push(e.data);
+    };
+
+    mediaRecorder.onstop = function (e) {
+      var blob = new Blob(chunks, {
+        type: 'audio/wav'
+      }); // recording = blob;
+
+      chunks = [];
+      var audioURL = window.URL.createObjectURL(blob);
+      audio.src = audioURL;
+      recording = audioURL;
+    };
+  }).catch(function (err) {
+    console.log(err);
+  });
+  var submitBtn = document.getElementById('submit');
+  var imageInput = document.getElementById('image-file'); // async function postData(url = '', data = {}) {
+  //   const response = await fetch(url, {
+  //     method: 'POST',
+  //     body: JSON.stringify(data)
+  //   })
+  //   return response
+  // }
+
+  submitBtn.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
+      var res;
+      return regenerator_default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault(); // console.log(imageInput.files[0]);
+
+              _context.next = 3;
+              return fetch(recording);
+
+            case 3:
+              res = _context.sent;
+              _context.t0 = console;
+              _context.next = 7;
+              return res.json();
+
+            case 7:
+              _context.t1 = _context.sent;
+
+              _context.t0.log.call(_context.t0, _context.t1);
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+/* harmony default export */ var saveMedia = (captureAudio);
 ;// CONCATENATED MODULE: ./src/main.js
+
 
 
 
@@ -1748,7 +1839,8 @@ hideBtn.addEventListener('click', function () {
   sidebarEl.classList.toggle('hide');
 });
 src_sidebar_0();
-UImedia(); //
+UImedia();
+saveMedia(); //
 }();
 /******/ })()
 ;

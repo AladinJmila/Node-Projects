@@ -1,0 +1,31 @@
+<p class='text-center display-6 my-4'>Upload Media</p>
+<form
+  class='media row'
+  {{! action='/media/upload-media' }}
+  {{! action='onSubmit' }}
+  {{! method='post' }}
+  enctype='multipart/form-data'
+>
+  <div id='image' class='media-image col-8 border p-5 text-center'>
+    <input
+      type='file'
+      name='image-file'
+      id='image-file'
+      class='custom-file-input'
+    /></div>
+  <div id='note' class='col-4 border p-5 text-center'>
+    <label>To Retain
+      <textarea name='' id='' cols='30' rows='10'></textarea>
+    </label>
+  </div>
+  <div id='audio-container' class='media-audio col-12 border p-2 text-center'>
+    <button id='btn-start' class='btn btn-primary me-2'>Start</button>
+    <button id='btn-stop' class='btn btn-primary me-2'>Stop</button>
+    <audio id='audio' src='' controls></audio>
+  </div>
+  <div class='media-audio col-12 border p-2 text-center'>
+
+    <input id='submit' type='submit' value='Submit' class='btn btn-primary' />
+  </div>
+
+</form>

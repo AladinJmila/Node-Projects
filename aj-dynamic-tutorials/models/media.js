@@ -4,6 +4,14 @@ const { Schema } = mongoose;
 const Media = mongoose.model(
   'Media',
   new Schema({
+    appName: {
+      type: String,
+      required: true,
+    },
+    parentName: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -16,7 +24,6 @@ const Media = mongoose.model(
         },
         imageName: String,
         audioName: String,
-
         note: String,
         isSeen: {
           type: Boolean,
