@@ -9,3 +9,7 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
+
+router.post('/create-media', async (req, res) => {
+  console.log(req.body);
+});

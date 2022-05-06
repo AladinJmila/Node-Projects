@@ -1,28 +1,30 @@
-<p class='text-center display-6 my-4'>Upload Media</p>
-<form
-  class='media row'
-  {{! action='/media/upload-media' }}
-  {{! action='onSubmit' }}
-  {{! method='post' }}
-  enctype='multipart/form-data'
->
-  <div id='image' class='media-image col-8 border p-5 text-center'>
-    <input type='file' name='image-file' id='image-file' class='form-control' />
+<p class='text-center display-6 my-4'>Add Media</p>
+<form class='media row' action='/media/create-media' method='post'>
+  <div class='mb-3'>
+    <label for='appName' class='form-label'>App Name</label>
+    <input
+      type='text'
+      name='appName'
+      class='form-control'
+      id='appName'
+      aria-describedby='emailHelp'
+    />
   </div>
-
-  <div id='note' class='col-4 border p-5 text-center'>
-    <label>To Retain
-      <textarea name='' id='' cols='30' rows='10'></textarea>
-    </label>
+  <div class='mb-3'>
+    <label for='ParentName' class='form-label'>Parent Name</label>
+    <input type='text' name='ParentName' class='form-control' id='ParentName' />
   </div>
-  <div id='audio-container' class='media-audio col-12 border p-2 text-center'>
-    <button id='btn-start' class='btn btn-primary me-2'>Start</button>
-    <button id='btn-stop' class='btn btn-primary me-2'>Stop</button>
-    <audio id='audio' src='' controls></audio>
+  <div class='mb-3'>
+    <label for='featureName' class='form-label'>Feature Name</label>
+    <input
+      type='text'
+      name='featureName'
+      class='form-control'
+      id='featureName'
+    />
   </div>
-  <div class='media-audio col-12 border p-2 text-center'>
-
-    <input id='submit' type='submit' value='Submit' class='btn btn-primary' />
+  <div class='d-grid gap-2'>
+    <button type='submit' class='btn btn-primary'>Submit</button>
   </div>
 
 </form>
