@@ -40,26 +40,31 @@ function captureAudio() {
   const submitBtn = document.getElementById('submit');
   const imageInput = document.getElementById('image-file');
 
-  // async function postData(url = '', data = {}) {
-  //   const response = await fetch(url, {
-  //     method: 'POST',
-  //     body: JSON.stringify(data)
-  //   })
-
-  //   return response
-  // }
-
   submitBtn.addEventListener('click', async e => {
     e.preventDefault();
-    // console.log(imageInput.files[0]);
+    const imageFile = imageInput.files[0];
     const res = await fetch(recording);
-    // const data = await res.json();
-    console.log(await res.json());
-    // await fetch('/media/upload-media', {
-    //   method: 'post',
-    //   headers: { 'Content-type': 'multipart/form-data' },
-    //   body: recording,
-    // });
+    const audioFile = await res.blob();
+    const formData = new FormData();
+    formData.append('audio', audioFile);
+    // formData.append('files', [audioFile,imageFile]);
+    // formData.append('test', { boo: 2 });
+    console.log(audioFile);
+    console.log(imageFile);
+    // fetch('/media/upload-media', { method: 'POST', body: audioFile });
+    // fetch('https:/media/upload-media', { method: 'POST', body: formData });
+    await fetch('/media/upload-audio', {
+      method: 'POST',
+      body: formData,
+    });
+
+    formData.delete('audio');
+    formData.append('image', imageFile);
+
+    await fetch('/media/upload-image', {
+      method: 'POST',
+      body: formData,
+    });
   });
 }
 

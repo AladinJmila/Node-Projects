@@ -11,6 +11,61 @@ const dbURI = require('./config/db');
 const app = express();
 const { Media } = require('./models/media');
 
+// Load routes
+const general = require('./routes/general');
+const media = require('./routes/media');
+
+// Launch server
+const port = process.env.PORT || 4500;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}...`);
+});
+
+// Connect to mongoDB
+mongoose
+  .connect(dbURI)
+  .then(() => console.log('connected to MongoDB...'))
+  .catch(err => console.log(err));
+
+// Handlebars middleware
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', './views');
+
+// Body-parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+
+// Method-override middleware
+app.use(methodOverride('_method'));
+
+// Express session middleware
+app.use(
+  session({
+    secret: 'crazy-lama',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Addine authentication to sessions with passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Global variables
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+
+  next();
+});
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', general);
+app.use('/media', media);
+
 // gridfs related imports and operations
 const crypto = require('crypto');
 const multer = require('multer');
@@ -58,19 +113,38 @@ app.get('/media/upload-form', (req, res) => {
   res.render('uploadForm');
 });
 
-app.post('/media/upload-media', upload.single('file'), async (req, res) => {
-  console.log(req.file, req.body);
+app.post('/media/upload-audio', upload.single('audio'), async (req, res) => {
+  console.log(req.file);
+  // console.log(req.body);
+  // console.log(req);
 
-  const medias = await Media.find().sort('-_id');
-  if (req.file.contentType.startsWith('image')) {
-    medias[0].slides[0].imageURL = gfsMedia.filename;
-    await medias[0].save();
-  } else if (req.file.contentType.startsWith('audio')) {
-    medias[0].slides[0].audioURL = gfsMedia.filename;
-    await medias[0].save();
-  }
+  // const medias = await Media.find().sort('-_id');
+  // if (req.file.contentType.startsWith('image')) {
+  //   medias[0].slides[0].imageURL = gfsMedia.filename;
+  //   await medias[0].save();
+  // } else if (req.file.contentType.startsWith('audio')) {
+  //   medias[0].slides[0].audioURL = gfsMedia.filename;
+  //   await medias[0].save();
+  // }
 
-  res.redirect('/upload-form');
+  res.redirect('/');
+});
+
+app.post('/media/upload-image', upload.single('image'), async (req, res) => {
+  console.log(req.file);
+  // console.log(req.body);
+  // console.log(req);
+
+  // const medias = await Media.find().sort('-_id');
+  // if (req.file.contentType.startsWith('image')) {
+  //   medias[0].slides[0].imageURL = gfsMedia.filename;
+  //   await medias[0].save();
+  // } else if (req.file.contentType.startsWith('audio')) {
+  //   medias[0].slides[0].audioURL = gfsMedia.filename;
+  //   await medias[0].save();
+  // }
+
+  res.redirect('/');
 });
 
 app.get('/media/image/:filename', (req, res) => {
@@ -100,58 +174,3 @@ app.get('/media/audio/:filename', (req, res) => {
     }
   });
 });
-
-// Load routes
-const general = require('./routes/general');
-const media = require('./routes/media');
-const { read } = require('fs');
-
-// Launch server
-const port = process.env.PORT || 4500;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}...`);
-});
-
-// Connect to mongoDB
-mongoose
-  .connect(dbURI)
-  .then(() => console.log('connected to MongoDB...'))
-  .catch(err => console.log(err));
-
-// Handlebars middleware
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
-app.set('views', './views');
-
-// Body-parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Method-override middleware
-app.use(methodOverride('_method'));
-
-// Express session middleware
-app.use(
-  session({
-    secret: 'crazy-lama',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
-// Addine authentication to sessions with passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Global variables
-app.use((req, res, next) => {
-  res.locals.user = req.user || null;
-
-  next();
-});
-
-// Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', general);
-app.use('/media', media);

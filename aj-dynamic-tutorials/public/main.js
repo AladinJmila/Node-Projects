@@ -803,7 +803,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  background-color: #3a3a3a;\r\n  color: #fffffe;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  /* background-color: #3a3a3a; */\r\n  /* color: #fffffe; */\r\n  padding: 0 20px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
 
@@ -1780,38 +1780,50 @@ function captureAudio() {
     console.log(err);
   });
   var submitBtn = document.getElementById('submit');
-  var imageInput = document.getElementById('image-file'); // async function postData(url = '', data = {}) {
-  //   const response = await fetch(url, {
-  //     method: 'POST',
-  //     body: JSON.stringify(data)
-  //   })
-  //   return response
-  // }
-
+  var imageInput = document.getElementById('image-file');
   submitBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
-      var res;
+      var imageFile, res, audioFile, formData;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              e.preventDefault(); // console.log(imageInput.files[0]);
-
-              _context.next = 3;
+              e.preventDefault();
+              imageFile = imageInput.files[0];
+              _context.next = 4;
               return fetch(recording);
 
-            case 3:
+            case 4:
               res = _context.sent;
-              _context.t0 = console;
               _context.next = 7;
-              return res.json();
+              return res.blob();
 
             case 7:
-              _context.t1 = _context.sent;
+              audioFile = _context.sent;
+              formData = new FormData();
+              formData.append('audio', audioFile); // formData.append('files', [audioFile,imageFile]);
+              // formData.append('test', { boo: 2 });
 
-              _context.t0.log.call(_context.t0, _context.t1);
+              console.log(audioFile);
+              console.log(imageFile); // fetch('/media/upload-media', { method: 'POST', body: audioFile });
+              // fetch('https:/media/upload-media', { method: 'POST', body: formData });
 
-            case 9:
+              _context.next = 14;
+              return fetch('/media/upload-audio', {
+                method: 'POST',
+                body: formData
+              });
+
+            case 14:
+              formData.delete('audio');
+              formData.append('image', imageFile);
+              _context.next = 18;
+              return fetch('/media/upload-image', {
+                method: 'POST',
+                body: formData
+              });
+
+            case 18:
             case "end":
               return _context.stop();
           }
