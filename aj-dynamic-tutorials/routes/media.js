@@ -8,8 +8,26 @@ router.get('/', async (req, res) => {
   res.send(media);
 });
 
-module.exports = router;
-
 router.post('/create-media', async (req, res) => {
-  console.log(req.body);
+  const { appName, parentName, featureName } = req.body;
+  let media = new Media({
+    appName,
+    parentName,
+    featureName,
+    slides: [{ name: 'init' }],
+  });
+
+  await media.save();
+
+  // media = await Media.findById(media._id).lean();
+  const slide = {
+    _id: media.slides[media.slides.length - 1]._id,
+    name: media.slides[media.slides.length - 1].name,
+  };
+
+  res.render('index', { slide });
+  // res.send(media).render('index');
+  // res.redirect('/../');
 });
+
+module.exports = router;

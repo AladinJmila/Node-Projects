@@ -4,6 +4,7 @@ const { createMedia } = require('../models/media');
 
 router.get('/', async (req, res) => {
   // await createMedia();
+
   res.render('index');
 });
 

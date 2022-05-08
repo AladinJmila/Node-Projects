@@ -113,7 +113,7 @@ app.get('/media/upload-form', (req, res) => {
   res.render('uploadForm');
 });
 
-app.post('/media/upload-audio', upload.single('audio'), async (req, res) => {
+app.post('/media/upload-audio/:', upload.single('audio'), async (req, res) => {
   console.log(req.file);
   // console.log(req.body);
   // console.log(req);

@@ -8,11 +8,8 @@ const Media = mongoose.model(
       type: String,
       required: true,
     },
-    parentName: {
-      type: String,
-      required: true,
-    },
-    title: {
+    parentName: String,
+    featureName: {
       type: String,
       required: true,
     },
@@ -22,8 +19,14 @@ const Media = mongoose.model(
           type: String,
           required: true,
         },
-        imageName: String,
-        audioName: String,
+        imageURL: {
+          type: String,
+          default: '',
+        },
+        audioURL: {
+          type: String,
+          default: '',
+        },
         note: String,
         isSeen: {
           type: Boolean,
