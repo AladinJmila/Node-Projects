@@ -9,7 +9,7 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const dbURI = require('./config/db');
 const app = express();
-const { Media } = require('./models/media');
+const { Feature } = require('./models/feature');
 
 // Load routes
 const general = require('./routes/general');
@@ -113,39 +113,47 @@ app.get('/media/upload-form', (req, res) => {
   res.render('uploadForm');
 });
 
-app.post('/media/upload-audio/:', upload.single('audio'), async (req, res) => {
-  console.log(req.file);
-  // console.log(req.body);
-  // console.log(req);
+app.post(
+  '/media/upload-audio/:slideId',
+  upload.single('audio'),
+  async (req, res) => {
+    console.log(req.file);
+    // console.log(req.body);
+    // console.log(req);
 
-  // const medias = await Media.find().sort('-_id');
-  // if (req.file.contentType.startsWith('image')) {
-  //   medias[0].slides[0].imageURL = gfsMedia.filename;
-  //   await medias[0].save();
-  // } else if (req.file.contentType.startsWith('audio')) {
-  //   medias[0].slides[0].audioURL = gfsMedia.filename;
-  //   await medias[0].save();
-  // }
+    const medias = await Feature.find().sort('-_id');
+    if (req.file.contentType.startsWith('image')) {
+      medias[0].slides[0].imageURL = gfsMedia.filename;
+      await medias[0].save();
+    } else if (req.file.contentType.startsWith('audio')) {
+      medias[0].slides[0].audioURL = gfsMedia.filename;
+      await medias[0].save();
+    }
 
-  res.redirect('/');
-});
+    res.redirect('/');
+  }
+);
 
-app.post('/media/upload-image', upload.single('image'), async (req, res) => {
-  console.log(req.file);
-  // console.log(req.body);
-  // console.log(req);
+app.post(
+  '/media/upload-image/:slideId',
+  upload.single('image'),
+  async (req, res) => {
+    console.log(req.file);
+    // console.log(req.body);
+    // console.log(req);
 
-  // const medias = await Media.find().sort('-_id');
-  // if (req.file.contentType.startsWith('image')) {
-  //   medias[0].slides[0].imageURL = gfsMedia.filename;
-  //   await medias[0].save();
-  // } else if (req.file.contentType.startsWith('audio')) {
-  //   medias[0].slides[0].audioURL = gfsMedia.filename;
-  //   await medias[0].save();
-  // }
+    // const medias = await Feature.find().sort('-_id');
+    // if (req.file.contentType.startsWith('image')) {
+    //   medias[0].slides[0].imageURL = gfsMedia.filename;
+    //   await medias[0].save();
+    // } else if (req.file.contentType.startsWith('audio')) {
+    //   medias[0].slides[0].audioURL = gfsMedia.filename;
+    //   await medias[0].save();
+    // }
 
-  res.redirect('/');
-});
+    res.redirect('/');
+  }
+);
 
 app.get('/media/image/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {

@@ -1,32 +1,42 @@
 const express = require('express');
 const router = express.Router();
-const { Media } = require('../models/media');
+const { Feature } = require('../models/feature');
+const Slide = require('../models/slide');
 
 router.get('/', async (req, res) => {
-  const media = await Media.findById('62628c495d4dd624aa2a3c9b').lean();
+  const feature = await Feature.findById('62628c495d4dd624aa2a3c9b').lean();
 
-  res.send(media);
+  res.send(feature);
 });
 
-router.post('/create-media', async (req, res) => {
-  const { appName, parentName, featureName } = req.body;
-  let media = new Media({
+router.post('/create-feature', async (req, res) => {
+  const { appName, parentName, name } = req.body;
+  const feature = new Feature({
     appName,
     parentName,
-    featureName,
-    slides: [{ name: 'init' }],
+    name,
   });
 
-  await media.save();
+  await feature.save();
 
-  // media = await Media.findById(media._id).lean();
-  const slide = {
-    _id: media.slides[media.slides.length - 1]._id,
-    name: media.slides[media.slides.length - 1].name,
+  let slide;
+  if (feature.slides.length === 0) {
+    slide = new Slide({
+      featureId: feature._id,
+      name: 'init',
+    });
+
+    await slide.save();
+  }
+
+  const data = {
+    featureId: feature._id,
+    slideId: slide._id,
   };
+  // feature = await Feature.findById(feature._id).lean();
 
-  res.render('index', { slide });
-  // res.send(media).render('index');
+  res.render('index', { data });
+  // res.send(feature).render('index');
   // res.redirect('/../');
 });
 

@@ -1783,47 +1783,44 @@ function captureAudio() {
   var imageInput = document.getElementById('image-file');
   submitBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
-      var imageFile, res, audioFile, formData;
+      var slideId, imageFile, res, audioFile, formData;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
+              slideId = document.getElementById('slide-id').innerText;
               imageFile = imageInput.files[0];
-              _context.next = 4;
+              _context.next = 5;
               return fetch(recording);
 
-            case 4:
+            case 5:
               res = _context.sent;
-              _context.next = 7;
+              _context.next = 8;
               return res.blob();
 
-            case 7:
+            case 8:
               audioFile = _context.sent;
               formData = new FormData();
-              formData.append('audio', audioFile); // formData.append('files', [audioFile,imageFile]);
-              // formData.append('test', { boo: 2 });
-
+              formData.append('audio', audioFile);
               console.log(audioFile);
-              console.log(imageFile); // fetch('/media/upload-media', { method: 'POST', body: audioFile });
-              // fetch('https:/media/upload-media', { method: 'POST', body: formData });
-
-              _context.next = 14;
-              return fetch('/media/upload-audio', {
+              console.log(imageFile);
+              _context.next = 15;
+              return fetch("/media/upload-audio/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 14:
+            case 15:
               formData.delete('audio');
               formData.append('image', imageFile);
-              _context.next = 18;
-              return fetch('/media/upload-image', {
+              _context.next = 19;
+              return fetch("/media/upload-image/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 18:
+            case 19:
             case "end":
               return _context.stop();
           }

@@ -1,11 +1,6 @@
 <p class='text-center display-6 my-4'>Add Slide
 </p>
-<form
-  {{! action='/media/upload-media' }}
-  {{! action='onSubmit' }}
-  {{! method='post' }}
-  enctype='multipart/form-data'
->
+<form>
   <div class='row g-3 align-items-center mb-3'>
 
     <div class='row col-6'>
@@ -13,27 +8,21 @@
         <label class='col-form-label' for='name'>Slide Name:</label>
       </div>
       <div class='col-auto'>
-        <input
-          class='form-control'
-          type='text'
-          name='name'
-          id='name'
-          value='{{slide.name}}'
-        />
+        <input class='form-control' type='text' name='name' id='name' />
       </div>
     </div>
 
     <div class='row col-6'>
       <div class='col-auto'>
-        <label class='col-form-label' for='slideId'>Slide Id:</label>
+        <label class='col-form-label' for='slide-id'>Slide Id:</label>
       </div>
       <div class='col-auto'>
         <span
-          id='slideId'
+          id='slide-id'
           class='form-control'
-          for='slideId'
+          for='slide-id'
           disabled='true'
-        >{{slide._id}}</span>
+        >{{data.slideId}}</span>
       </div>
     </div>
   </div>
