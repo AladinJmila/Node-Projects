@@ -9,6 +9,8 @@ router.get('/', async (req, res) => {
   res.send(feature);
 });
 
+router.get('/update-slide/:id', async (req, res) => {});
+
 router.post('/create-feature', async (req, res) => {
   const { appName, parentName, name } = req.body;
   let feature = new Feature({
@@ -35,7 +37,7 @@ router.post('/create-feature', async (req, res) => {
 });
 
 router.post('/create-slide', async (req, res) => {
-  const feature = await Feature().findById(req.params.featureId);
+  const feature = await Feature.findById(req.body.featureId);
   // Add feature null checking
 
   const slide = new Slide({

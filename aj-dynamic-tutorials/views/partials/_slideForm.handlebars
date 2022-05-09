@@ -1,10 +1,8 @@
-<h4 class='text-center my-4 d-inline-block'>Add Slide
-</h4>
-<button id='add-slide' class='btn btn-primary my-4 d-inline-block'><i
-    class='fa fa-plus fa-lg'
-    aria-hidden='true'
-  ></i></button>
-<form>
+<form action="/media/create-slide" method="post">
+  <h4 class='text-center my-4 d-inline-block'>Add Slide</h4>
+  <button type="submit" id='add-slide' class='btn btn-primary my-4 d-inline-block'>
+    <i class='fa fa-plus fa-lg' aria-hidden='true'></i>
+  </button>
   <div class='row g-3 align-items-center mb-3'>
 
     <div class='row col-4'>
@@ -21,11 +19,14 @@
         <label class='col-form-label' for='slide-id'>Slide Id:</label>
       </div>
       <div class='col-auto'>
-        <span
+        <input
           id='slide-id'
           class='form-control id-container'
           for='slide-id'
-        >{{slideData.slideId}}</span>
+          readonly="true"
+          name="slideId"
+          value='{{slideData.slideId}}'
+        />
       </div>
     </div>
 
@@ -34,17 +35,18 @@
         <label class='col-form-label' for='feature-id'>Feature Id:</label>
       </div>
       <div class='col-auto'>
-        <span
+        <input
           id='feature-id'
           class='form-control id-container'
           for='feature-id'
-        >
-          {{#if featureData}}
-            {{featureData.featureId}}
+          readonly="true"
+          name="featureId"
+          {{#if slideData}}
+          value="{{slideData.featureId}}"  
           {{else}}
-            {{slideData.featureId}}
+           value="{{featureData.featureId}}" 
           {{/if}}
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -73,5 +75,4 @@
       <input id='submit' type='submit' value='Submit' class='btn btn-primary' />
     </div>
   </div>
-
 </form>
