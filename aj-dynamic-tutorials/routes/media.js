@@ -58,4 +58,10 @@ router.post('/create-slide', async (req, res) => {
   res.render('index', { slideData });
 });
 
+router.put('/update-slide/:id', async (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body);
+  res.send('');
+});
+
 module.exports = router;

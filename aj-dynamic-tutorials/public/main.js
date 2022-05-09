@@ -1654,7 +1654,7 @@ function injectLevelTow() {
 }
 
 /* harmony default export */ var mediaRender = (injectLevelTow);
-;// CONCATENATED MODULE: ./src/media/featureHandler.js
+;// CONCATENATED MODULE: ./src/media/mediaHandler.js
 
 
 
@@ -1701,44 +1701,59 @@ function captureAudio() {
   var imageInput = document.getElementById('image-file');
   submitBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
-      var slideId, imageFile, res, audioFile, formData;
+      var slideId, formData, slideName, notes, imageFile, res, audioFile;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
-              slideId = document.getElementById('slide-id').innerText;
+              slideId = document.getElementById('slide-id').value;
+              formData = new FormData();
+              slideName = document.getElementById('slideName').value;
+              notes = document.getElementById('notes').value;
               imageFile = imageInput.files[0];
-              _context.next = 5;
+              _context.next = 8;
               return fetch(recording);
 
-            case 5:
+            case 8:
               res = _context.sent;
-              _context.next = 8;
+              _context.next = 11;
               return res.blob();
 
-            case 8:
+            case 11:
               audioFile = _context.sent;
-              formData = new FormData();
               formData.append('audio', audioFile);
               console.log(audioFile);
               console.log(imageFile);
-              _context.next = 15;
+              _context.next = 17;
               return fetch("/media/upload-audio/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 15:
+            case 17:
               formData.delete('audio');
               formData.append('image', imageFile);
-              _context.next = 19;
+              _context.next = 21;
               return fetch("/media/upload-image/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 19:
+            case 21:
+              _context.next = 23;
+              return fetch("/media/update-slide/".concat(slideId), {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  slideName: slideName,
+                  notes: notes
+                })
+              });
+
+            case 23:
             case "end":
               return _context.stop();
           }
@@ -1752,7 +1767,7 @@ function captureAudio() {
   }());
 }
 
-/* harmony default export */ var featureHandler = (captureAudio);
+/* harmony default export */ var mediaHandler = (captureAudio);
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
 var injectStylesIntoStyleTag = __webpack_require__(379);
 var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
@@ -1814,7 +1829,7 @@ hideBtn.addEventListener('click', function () {
 });
 sidebarRender();
 mediaRender();
-featureHandler(); //
+mediaHandler();
 }();
 /******/ })()
 ;

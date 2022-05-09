@@ -34,8 +34,8 @@ app.set('views', './views');
 
 // Body-parser middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: true }));
 
 // Method-override middleware
 app.use(methodOverride('_method'));
@@ -121,16 +121,17 @@ app.post(
     // console.log(req.body);
     // console.log(req);
 
-    const medias = await Feature.find().sort('-_id');
-    if (req.file.contentType.startsWith('image')) {
-      medias[0].slides[0].imageURL = gfsMedia.filename;
-      await medias[0].save();
-    } else if (req.file.contentType.startsWith('audio')) {
-      medias[0].slides[0].audioURL = gfsMedia.filename;
-      await medias[0].save();
-    }
+    // const medias = await Feature.find().sort('-_id');
+    // if (req.file.contentType.startsWith('image')) {
+    //   medias[0].slides[0].imageURL = gfsMedia.filename;
+    //   await medias[0].save();
+    // } else if (req.file.contentType.startsWith('audio')) {
+    //   medias[0].slides[0].audioURL = gfsMedia.filename;
+    //   await medias[0].save();
+    // }
 
-    res.redirect('/');
+    // res.redirect('/');
+    res.send('');
   }
 );
 
@@ -151,7 +152,8 @@ app.post(
     //   await medias[0].save();
     // }
 
-    res.redirect('/');
+    // res.redirect('/');
+    res.send('');
   }
 );
 

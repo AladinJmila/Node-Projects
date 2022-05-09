@@ -1,16 +1,29 @@
-<form action="/media/create-slide" method="post">
-  <h4 class='text-center my-4 d-inline-block'>Add Slide</h4>
-  <button type="submit" id='add-slide' class='btn btn-primary my-4 d-inline-block'>
+<form action="/media/create-slide" method="post" class='row g-3 align-items-center mb-3'>
+<div class="row col-4">
+
+  <h4 class='text-center my-4 d-inline-block col-6'>Add Slide</h4>
+  <button type="submit" id='add-slide' class='btn btn-primary my-4 d-inline-block col-2'>
     <i class='fa fa-plus fa-lg' aria-hidden='true'></i>
   </button>
-  <div class='row g-3 align-items-center mb-3'>
+</div>
 
-    <div class='row col-4'>
+ <div class='row col-4'>
       <div class='col-auto'>
-        <label class='col-form-label' for='name'>Slide Name:</label>
+        <label class='col-form-label' for='feature-id'>Feature Id:</label>
       </div>
       <div class='col-auto'>
-        <input class='form-control' type='text' name='name' id='name' />
+        <input
+          id='feature-id'
+          class='form-control id-container'
+          for='feature-id'
+          readonly="true"
+          name="featureId"
+          {{#if slideData}}
+          value="{{slideData.featureId}}"  
+          {{else}}
+           value="{{featureData.featureId}}" 
+          {{/if}}
+        />
       </div>
     </div>
 
@@ -30,26 +43,23 @@
       </div>
     </div>
 
-    <div class='row col-4'>
-      <div class='col-auto'>
-        <label class='col-form-label' for='feature-id'>Feature Id:</label>
-      </div>
-      <div class='col-auto'>
-        <input
-          id='feature-id'
-          class='form-control id-container'
-          for='feature-id'
-          readonly="true"
-          name="featureId"
-          {{#if slideData}}
-          value="{{slideData.featureId}}"  
-          {{else}}
-           value="{{featureData.featureId}}" 
-          {{/if}}
-        />
-      </div>
+   
+
+</form>
+
+<form class="row">
+
+  <div class="col-3"></div>
+  <div class='row col-6 mb-4'>
+    <div class='col-auto'>
+      <label class='col-form-label' for='slideName'><h4>Slide Name:</h4></label>
+    </div>
+    <div class='col-auto'>
+      <input class='form-control' type='text' name='slideName' id='slideName' />
     </div>
   </div>
+  <div class="col-3"></div>
+
 
   <div class='media row'>
     <div id='image' class='media-image col-8 border p-5 text-center'>
@@ -61,10 +71,9 @@
       />
     </div>
 
-    <div id='note' class='col-4 border p-5 text-center'>
-      <label>To Retain
-        <textarea name='' id='' cols='30' rows='10'></textarea>
-      </label>
+    <div  class='col-4 border p-5 text-center'>
+      <label for="notes">To Retain  </label>
+      <textarea name='notes' id='notes' cols='30' rows='10'></textarea>
     </div>
     <div id='audio-container' class='media-audio col-12 border p-2 text-center'>
       <button id='btn-start' class='btn btn-primary me-2'>Start</button>

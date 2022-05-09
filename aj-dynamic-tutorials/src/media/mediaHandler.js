@@ -43,12 +43,17 @@ function captureAudio() {
   submitBtn.addEventListener('click', async e => {
     e.preventDefault();
 
-    const slideId = document.getElementById('slide-id').innerText;
+    const slideId = document.getElementById('slide-id').value;
+    const formData = new FormData();
+
+    const slideName = document.getElementById('slideName').value;
+    const notes = document.getElementById('notes').value;
 
     const imageFile = imageInput.files[0];
+
     const res = await fetch(recording);
     const audioFile = await res.blob();
-    const formData = new FormData();
+
     formData.append('audio', audioFile);
 
     console.log(audioFile);
@@ -65,6 +70,12 @@ function captureAudio() {
     await fetch(`/media/upload-image/${slideId}`, {
       method: 'POST',
       body: formData,
+    });
+
+    await fetch(`/media/update-slide/${slideId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slideName, notes }),
     });
   });
 }

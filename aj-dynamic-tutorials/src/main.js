@@ -1,6 +1,6 @@
 import populateSidebar from './UI/sidebarRender';
 import injectLevelTow from './UI/mediaRender';
-import saveMedia from './media/featureHandler';
+import saveMedia from './media/mediaHandler';
 import './main.css';
 
 const hideBtn = document.getElementById('hide-sidebar');
@@ -13,5 +13,3 @@ hideBtn.addEventListener('click', () => {
 populateSidebar();
 injectLevelTow();
 saveMedia();
-
-//
