@@ -1,9 +1,7 @@
+import populateSidebar from './UI/sidebarRender';
+import injectLevelTow from './UI/mediaRender';
+import saveMedia from './media/featureHandler';
 import './main.css';
-import './learn.css';
-import './sidebar.css';
-import populateSidebar from './sidebar';
-import injectLevelTow from './UImedia';
-import saveMedia from './saveMedia';
 
 const hideBtn = document.getElementById('hide-sidebar');
 const sidebarEl = document.getElementById('sidebar');

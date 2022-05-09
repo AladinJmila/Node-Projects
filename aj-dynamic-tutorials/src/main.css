@@ -1,3 +1,7 @@
+@import url('./styles/learn.css');
+@import url('./styles/sidebar.css');
+@import url('./styles/slide.css');
+
 body {
   /* background-color: #3a3a3a; */
   /* color: #fffffe; */

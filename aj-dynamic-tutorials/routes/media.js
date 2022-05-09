@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
 router.post('/create-feature', async (req, res) => {
   const { appName, parentName, name } = req.body;
-  const feature = new Feature({
+  let feature = new Feature({
     appName,
     parentName,
     name,
@@ -25,19 +25,35 @@ router.post('/create-feature', async (req, res) => {
       featureId: feature._id,
       name: 'init',
     });
-
-    await slide.save();
   }
 
-  const data = {
+  const featureData = {
+    featureId: feature._id,
+  };
+
+  res.render('index', { featureData });
+});
+
+router.post('/create-slide', async (req, res) => {
+  const feature = await Feature().findById(req.params.featureId);
+  // Add feature null checking
+
+  const slide = new Slide({
+    featureId: feature._id,
+    name: 'init',
+  });
+
+  await slide.save();
+
+  feature.slides.push(slide._id);
+  await feature.save();
+
+  const slideData = {
     featureId: feature._id,
     slideId: slide._id,
   };
-  // feature = await Feature.findById(feature._id).lean();
 
-  res.render('index', { data });
-  // res.send(feature).render('index');
-  // res.redirect('/../');
+  res.render('index', { slideData });
 });
 
 module.exports = router;

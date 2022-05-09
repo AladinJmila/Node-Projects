@@ -1,9 +1,13 @@
-<p class='text-center display-6 my-4'>Add Slide
-</p>
+<h4 class='text-center my-4 d-inline-block'>Add Slide
+</h4>
+<button id='add-slide' class='btn btn-primary my-4 d-inline-block'><i
+    class='fa fa-plus fa-lg'
+    aria-hidden='true'
+  ></i></button>
 <form>
   <div class='row g-3 align-items-center mb-3'>
 
-    <div class='row col-6'>
+    <div class='row col-4'>
       <div class='col-auto'>
         <label class='col-form-label' for='name'>Slide Name:</label>
       </div>
@@ -12,22 +16,40 @@
       </div>
     </div>
 
-    <div class='row col-6'>
+    <div class='row col-4'>
       <div class='col-auto'>
         <label class='col-form-label' for='slide-id'>Slide Id:</label>
       </div>
       <div class='col-auto'>
         <span
           id='slide-id'
-          class='form-control'
+          class='form-control id-container'
           for='slide-id'
-          disabled='true'
-        >{{data.slideId}}</span>
+        >{{slideData.slideId}}</span>
+      </div>
+    </div>
+
+    <div class='row col-4'>
+      <div class='col-auto'>
+        <label class='col-form-label' for='feature-id'>Feature Id:</label>
+      </div>
+      <div class='col-auto'>
+        <span
+          id='feature-id'
+          class='form-control id-container'
+          for='feature-id'
+        >
+          {{#if featureData}}
+            {{featureData.featureId}}
+          {{else}}
+            {{slideData.featureId}}
+          {{/if}}
+        </span>
       </div>
     </div>
   </div>
-  <div class='media row'>
 
+  <div class='media row'>
     <div id='image' class='media-image col-8 border p-5 text-center'>
       <input
         type='file'

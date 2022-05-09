@@ -770,26 +770,6 @@ module.exports = __webpack_require__(553);
 
 /***/ }),
 
-/***/ 533:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r\n\r\n.media-image {\r\n  max-height: 70vh;\r\n  overflow: hidden;\r\n}\r\n\r\n.media-audio {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.media-audio audio {\r\n  display: block;\r\n  height: 40px;\r\n  width: 80%;\r\n}\r\n\r\n.level-one-label {\r\n  position: relative;\r\n}\r\n\r\n.level-one-label span {\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: block;\r\n  min-height: 12px;\r\n  max-height: 12px;\r\n  min-width: 12px;\r\n  max-width: 12px;\r\n  border-radius: 50%;\r\n  background-color: #999;\r\n  bottom: -22px;\r\n  left: 50%;\r\n}\r\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ 769:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -798,10 +778,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r
 /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_styles_learn_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(657);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_styles_sidebar_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(584);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_styles_slide_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(637);
 // Imports
 
 
+
+
+
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_styles_learn_css__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z);
+___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_styles_sidebar_css__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z);
+___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_styles_slide_css__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  /* background-color: #3a3a3a; */\r\n  /* color: #fffffe; */\r\n  padding: 0 20px;\r\n}\r\n", ""]);
 // Exports
@@ -810,7 +799,27 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  /* background-color: #3a3a
 
 /***/ }),
 
-/***/ 372:
+/***/ 657:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r\n\r\n.media-image {\r\n  max-height: 70vh;\r\n  overflow: hidden;\r\n}\r\n\r\n.media-audio {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.media-audio audio {\r\n  display: block;\r\n  height: 40px;\r\n  width: 80%;\r\n}\r\n\r\n.level-one-label {\r\n  position: relative;\r\n}\r\n\r\n.level-one-label span {\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: block;\r\n  min-height: 12px;\r\n  max-height: 12px;\r\n  min-width: 12px;\r\n  max-width: 12px;\r\n  border-radius: 50%;\r\n  background-color: #999;\r\n  bottom: -22px;\r\n  left: 50%;\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 584:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -828,7 +837,27 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  min-height: 100vh;\r\n  min-height: -webkit-fill-available;\r\n}\r\n\r\nhtml {\r\n  height: -webkit-fill-available;\r\n}\r\n\r\nmain {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: nowrap;\r\n      flex-wrap: nowrap;\r\n  height: 100vh;\r\n  height: -webkit-fill-available;\r\n  max-height: 100vh;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n}\r\n\r\n.b-example-divider {\r\n  -ms-flex-negative: 0;\r\n      flex-shrink: 0;\r\n  width: 1.5rem;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.1);\r\n  border: solid rgba(0, 0, 0, 0.15);\r\n  border-width: 1px 0;\r\n  -webkit-box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),\r\n    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);\r\n          box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),\r\n    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.bi {\r\n  vertical-align: -0.125em;\r\n  pointer-events: none;\r\n  fill: currentColor;\r\n}\r\n\r\n.dropdown-toggle {\r\n  outline: 0;\r\n}\r\n\r\n.nav-flush .nav-link {\r\n  border-radius: 0;\r\n}\r\n\r\n.btn-toggle {\r\n  display: -webkit-inline-box;\r\n  display: -ms-inline-flexbox;\r\n  display: inline-flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  padding: 0.25rem 0.5rem;\r\n  font-weight: 600;\r\n  color: rgba(0, 0, 0, 0.65);\r\n  background-color: transparent;\r\n  border: 0;\r\n}\r\n.btn-toggle:hover,\r\n.btn-toggle:focus {\r\n  color: rgba(0, 0, 0, 0.85);\r\n  background-color: #d2f4ea;\r\n}\r\n\r\n.btn-toggle::before {\r\n  width: 1.25em;\r\n  line-height: 0;\r\n  content: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  -webkit-transition: -webkit-transform 0.35s ease;\r\n  transition: -webkit-transform 0.35s ease;\r\n  transition: transform 0.35s ease;\r\n  transition: transform 0.35s ease, -webkit-transform 0.35s ease;\r\n  -webkit-transform-origin: 0.5em 50%;\r\n          transform-origin: 0.5em 50%;\r\n  -webkit-transform: rotate(0deg);\r\n          transform: rotate(0deg);\r\n}\r\n\r\n.btn-toggle[aria-expanded='true'] {\r\n  color: rgba(0, 0, 0, 0.85);\r\n}\r\n.btn-toggle[aria-expanded='true']::before {\r\n  -webkit-transform: rotate(90deg);\r\n          transform: rotate(90deg);\r\n}\r\n\r\n.btn-toggle-nav a {\r\n  display: -webkit-inline-box;\r\n  display: -ms-inline-flexbox;\r\n  display: inline-flex;\r\n  padding: 0.1875rem 0.5rem;\r\n  margin-top: 0.125rem;\r\n  margin-left: 1.25rem;\r\n  text-decoration: none;\r\n}\r\n.btn-toggle-nav a:hover,\r\n.btn-toggle-nav a:focus {\r\n  background-color: #d2f4ea;\r\n}\r\n\r\n.scrollarea {\r\n  overflow-y: auto;\r\n}\r\n\r\n.fw-semibold {\r\n  font-weight: 600;\r\n}\r\n.lh-tight {\r\n  line-height: 1.25;\r\n}\r\n\r\n.sidebar {\r\n  /* transform: translateX(0); */\r\n  display: block;\r\n  /* transition: display 0.5s, transform 0.3s; */\r\n}\r\n\r\n.sidebar.hide {\r\n  /* transform: translateX(-100%); */\r\n  display: none;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  min-height: 100vh;\r\n  min-height: -webkit-fill-available;\r\n}\r\n\r\nhtml {\r\n  height: -webkit-fill-available;\r\n}\r\n\r\nmain {\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  height: 100vh;\r\n  height: -webkit-fill-available;\r\n  max-height: 100vh;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n}\r\n\r\n.b-example-divider {\r\n  flex-shrink: 0;\r\n  width: 1.5rem;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.1);\r\n  border: solid rgba(0, 0, 0, 0.15);\r\n  border-width: 1px 0;\r\n  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),\r\n    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.bi {\r\n  vertical-align: -0.125em;\r\n  pointer-events: none;\r\n  fill: currentColor;\r\n}\r\n\r\n.dropdown-toggle {\r\n  outline: 0;\r\n}\r\n\r\n.nav-flush .nav-link {\r\n  border-radius: 0;\r\n}\r\n\r\n.btn-toggle {\r\n  display: inline-flex;\r\n  align-items: center;\r\n  padding: 0.25rem 0.5rem;\r\n  font-weight: 600;\r\n  color: rgba(0, 0, 0, 0.65);\r\n  background-color: transparent;\r\n  border: 0;\r\n}\r\n.btn-toggle:hover,\r\n.btn-toggle:focus {\r\n  color: rgba(0, 0, 0, 0.85);\r\n  background-color: #d2f4ea;\r\n}\r\n\r\n.btn-toggle::before {\r\n  width: 1.25em;\r\n  line-height: 0;\r\n  content: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  transition: transform 0.35s ease;\r\n  transform-origin: 0.5em 50%;\r\n  transform: rotate(0deg);\r\n}\r\n\r\n.btn-toggle[aria-expanded='true'] {\r\n  color: rgba(0, 0, 0, 0.85);\r\n}\r\n.btn-toggle[aria-expanded='true']::before {\r\n  transform: rotate(90deg);\r\n}\r\n\r\n.btn-toggle-nav a {\r\n  display: inline-flex;\r\n  padding: 0.1875rem 0.5rem;\r\n  margin-top: 0.125rem;\r\n  margin-left: 1.25rem;\r\n  text-decoration: none;\r\n}\r\n.btn-toggle-nav a:hover,\r\n.btn-toggle-nav a:focus {\r\n  background-color: #d2f4ea;\r\n}\r\n\r\n.scrollarea {\r\n  overflow-y: auto;\r\n}\r\n\r\n.fw-semibold {\r\n  font-weight: 600;\r\n}\r\n.lh-tight {\r\n  line-height: 1.25;\r\n}\r\n\r\n.sidebar {\r\n  /* transform: translateX(0); */\r\n  display: block;\r\n  /* transition: display 0.5s, transform 0.3s; */\r\n}\r\n\r\n.sidebar.hide {\r\n  /* transform: translateX(-100%); */\r\n  display: none;\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 637:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".id-container {\r\n  height: 100%;\r\n  min-width: 240px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
 
@@ -1385,118 +1414,7 @@ var __webpack_exports__ = {};
 !function() {
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-var injectStylesIntoStyleTag = __webpack_require__(379);
-var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
-var styleDomAPI = __webpack_require__(795);
-var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
-var insertBySelector = __webpack_require__(569);
-var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
-var setAttributesWithoutAttributes = __webpack_require__(565);
-var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
-var insertStyleElement = __webpack_require__(216);
-var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
-var styleTagTransform = __webpack_require__(589);
-var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/main.css
-var main = __webpack_require__(769);
-;// CONCATENATED MODULE: ./src/main.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (styleTagTransform_default());
-options.setAttributes = (setAttributesWithoutAttributes_default());
-
-      options.insert = insertBySelector_default().bind(null, "head");
-    
-options.domAPI = (styleDomAPI_default());
-options.insertStyleElement = (insertStyleElement_default());
-
-var update = injectStylesIntoStyleTag_default()(main/* default */.Z, options);
-
-
-
-
-       /* harmony default export */ var src_main = (main/* default */.Z && main/* default.locals */.Z.locals ? main/* default.locals */.Z.locals : undefined);
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/learn.css
-var learn = __webpack_require__(533);
-;// CONCATENATED MODULE: ./src/learn.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var learn_options = {};
-
-learn_options.styleTagTransform = (styleTagTransform_default());
-learn_options.setAttributes = (setAttributesWithoutAttributes_default());
-
-      learn_options.insert = insertBySelector_default().bind(null, "head");
-    
-learn_options.domAPI = (styleDomAPI_default());
-learn_options.insertStyleElement = (insertStyleElement_default());
-
-var learn_update = injectStylesIntoStyleTag_default()(learn/* default */.Z, learn_options);
-
-
-
-
-       /* harmony default export */ var src_learn = (learn/* default */.Z && learn/* default.locals */.Z.locals ? learn/* default.locals */.Z.locals : undefined);
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/sidebar.css
-var sidebar = __webpack_require__(372);
-;// CONCATENATED MODULE: ./src/sidebar.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var sidebar_options = {};
-
-sidebar_options.styleTagTransform = (styleTagTransform_default());
-sidebar_options.setAttributes = (setAttributesWithoutAttributes_default());
-
-      sidebar_options.insert = insertBySelector_default().bind(null, "head");
-    
-sidebar_options.domAPI = (styleDomAPI_default());
-sidebar_options.insertStyleElement = (insertStyleElement_default());
-
-var sidebar_update = injectStylesIntoStyleTag_default()(sidebar/* default */.Z, sidebar_options);
-
-
-
-
-       /* harmony default export */ var src_sidebar = (sidebar/* default */.Z && sidebar/* default.locals */.Z.locals ? sidebar/* default.locals */.Z.locals : undefined);
-
-;// CONCATENATED MODULE: ./src/UIdata.js
+;// CONCATENATED MODULE: ./src/UI/UIdata.js
 var subSidebarData = {
   organization: {
     agents: [{
@@ -1595,7 +1513,7 @@ var sidebarData = [{
   name: 'intergrations',
   content: ['API access keys', 'API settings', 'API triggers', 'auto-translation', 'salesforce', 'genesys DX ai']
 }];
-;// CONCATENATED MODULE: ./src/sidebar.js
+;// CONCATENATED MODULE: ./src/UI/sidebarRender.js
 
 var sidebarMenuEl = document.getElementById('sidebar-menu');
 
@@ -1625,7 +1543,7 @@ function populateSidebar(data) {
 }
 
 populateSidebar(sidebarData);
-/* harmony default export */ var src_sidebar_0 = (populateSidebar); // add a click event listener in the inner list items
+/* harmony default export */ var sidebarRender = (populateSidebar); // add a click event listener in the inner list items
 // when clicked it populates the screen with the relevent content
 // the first item will be selected by default to have conetent displayed by default
 // the first parameter of the first item will show its content
@@ -1668,7 +1586,7 @@ function _asyncToGenerator(fn) {
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/regenerator/index.js
 var regenerator = __webpack_require__(757);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
-;// CONCATENATED MODULE: ./src/UImedia.js
+;// CONCATENATED MODULE: ./src/UI/mediaRender.js
 
 
 // const mediaEl = document.getElementById('media');
@@ -1735,8 +1653,8 @@ function injectLevelTow() {
   agentInformationEl.addEventListener('click', genNavLevelTow);
 }
 
-/* harmony default export */ var UImedia = (injectLevelTow);
-;// CONCATENATED MODULE: ./src/saveMedia.js
+/* harmony default export */ var mediaRender = (injectLevelTow);
+;// CONCATENATED MODULE: ./src/media/featureHandler.js
 
 
 
@@ -1834,10 +1752,57 @@ function captureAudio() {
   }());
 }
 
-/* harmony default export */ var saveMedia = (captureAudio);
+/* harmony default export */ var featureHandler = (captureAudio);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
+var injectStylesIntoStyleTag = __webpack_require__(379);
+var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
+var styleDomAPI = __webpack_require__(795);
+var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
+var insertBySelector = __webpack_require__(569);
+var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
+var setAttributesWithoutAttributes = __webpack_require__(565);
+var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
+var insertStyleElement = __webpack_require__(216);
+var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
+var styleTagTransform = __webpack_require__(589);
+var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/main.css
+var main = __webpack_require__(769);
+;// CONCATENATED MODULE: ./src/main.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (styleTagTransform_default());
+options.setAttributes = (setAttributesWithoutAttributes_default());
+
+      options.insert = insertBySelector_default().bind(null, "head");
+    
+options.domAPI = (styleDomAPI_default());
+options.insertStyleElement = (insertStyleElement_default());
+
+var update = injectStylesIntoStyleTag_default()(main/* default */.Z, options);
+
+
+
+
+       /* harmony default export */ var src_main = (main/* default */.Z && main/* default.locals */.Z.locals ? main/* default.locals */.Z.locals : undefined);
+
 ;// CONCATENATED MODULE: ./src/main.js
-
-
 
 
 
@@ -1847,9 +1812,9 @@ var sidebarEl = document.getElementById('sidebar');
 hideBtn.addEventListener('click', function () {
   sidebarEl.classList.toggle('hide');
 });
-src_sidebar_0();
-UImedia();
-saveMedia(); //
+sidebarRender();
+mediaRender();
+featureHandler(); //
 }();
 /******/ })()
 ;
