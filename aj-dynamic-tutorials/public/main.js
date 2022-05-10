@@ -812,7 +812,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  /* background-color: #3a3a
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r\n\r\n.media-image {\r\n  max-height: 70vh;\r\n  overflow: hidden;\r\n}\r\n\r\n.media-audio {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.media-audio audio {\r\n  display: block;\r\n  height: 40px;\r\n  width: 80%;\r\n}\r\n\r\n.level-one-label {\r\n  position: relative;\r\n}\r\n\r\n.level-one-label span {\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: block;\r\n  min-height: 12px;\r\n  max-height: 12px;\r\n  min-width: 12px;\r\n  max-width: 12px;\r\n  border-radius: 50%;\r\n  background-color: #999;\r\n  bottom: -22px;\r\n  left: 50%;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".learn-main {\r\n  width: 100%;\r\n}\r\n\r\n.media-image {\r\n  max-height: 70vh;\r\n  overflow: hidden;\r\n}\r\n\r\n.media-image img {\r\n  width: 100%;\r\n  height: auto;\r\n}\r\n\r\n.media-audio {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.media-audio audio {\r\n  display: block;\r\n  height: 40px;\r\n  width: 80%;\r\n}\r\n\r\n.level-one-label {\r\n  position: relative;\r\n}\r\n\r\n.level-one-label span {\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: block;\r\n  min-height: 12px;\r\n  max-height: 12px;\r\n  min-width: 12px;\r\n  max-width: 12px;\r\n  border-radius: 50%;\r\n  background-color: #999;\r\n  bottom: -22px;\r\n  left: 50%;\r\n}\r\n\r\n.media-notes {\r\n  max-height: 60vh;\r\n}\r\n\r\n.media-notes textarea {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
 
@@ -1594,7 +1594,7 @@ var agentInformationEl = document.getElementById('agent-information');
 var navLevelTwoEl = document.getElementById('nav-level-two');
 var imageEl = document.getElementById('image');
 var audioEl = document.getElementById('audio-container');
-var noteEl = document.getElementById('note');
+var notesEl = document.getElementById('notes');
 var slides; // injectDbData();
 
 function genTutorialMedia(id) {
@@ -1603,7 +1603,7 @@ function genTutorialMedia(id) {
   })[0];
   imageEl.innerHTML = "<img src='/media/image/".concat(slide.imageURL, "' alt='illustration' />");
   audioEl.innerHTML = "<audio src='/media/audio/".concat(slide.audioURL, "' controls />");
-  noteEl.innerHTML = "<h4>".concat(slide.note, "</h4>");
+  notesEl.innerHTML = "<h4>".concat(slide.notes, "</h4>");
 }
 
 function genNavLevelTow() {

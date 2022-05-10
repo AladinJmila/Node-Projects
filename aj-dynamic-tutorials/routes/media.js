@@ -10,9 +10,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/slides/:id', async (req, res) => {
-  const slide = await Slide.findById(req.params.id);
+  const slide = await Slide.findById(req.params.id).lean();
 
-  res.render('/', { slide });
+  res.render('index', { slide });
 });
 
 router.post('/create-feature', async (req, res) => {

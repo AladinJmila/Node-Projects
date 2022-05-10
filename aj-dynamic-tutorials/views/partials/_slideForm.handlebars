@@ -19,9 +19,13 @@
           readonly="true"
           name="featureId"
           {{#if slideData}}
-          value="{{slideData.featureId}}"  
-          {{else}}
-           value="{{featureData.featureId}}" 
+            value="{{slideData.featureId}}" 
+          {{/if}} 
+          {{#if featureData}}
+            value="{{featureData.featureId}}" 
+          {{/if}}
+          {{#if slide}}
+            value="{{slide.featureId}}" 
           {{/if}}
         />
       </div>
@@ -38,7 +42,12 @@
           for='slide-id'
           readonly="true"
           name="slideId"
-          value='{{slideData.slideId}}'
+          {{#if slideData}}
+            value='{{slideData.slideId}}'
+          {{/if}}
+          {{#if slide}}
+            value='{{slide._id}}'
+          {{/if}}
         />
       </div>
     </div>
@@ -55,7 +64,15 @@
       <label class='col-form-label' for='slideName'><h4>Slide Name:</h4></label>
     </div>
     <div class='col-auto'>
-      <input class='form-control' type='text' name='slideName' id='slideName' />
+      <input 
+      class='form-control' 
+      type='text' 
+      name='slideName' 
+      id='slideName' 
+      {{#if slide}}
+        value="{{slide.name}}"
+      {{/if}}
+       />
     </div>
   </div>
   <div class="col-3"></div>
@@ -63,6 +80,9 @@
 
   <div class='media row'>
     <div id='image' class='media-image col-8 border p-5 text-center'>
+      {{#if slide}}
+        <img src='/media/image/{{slide.imageName}}' alt='illustration' />
+      {{/if}}
       <input
         type='file'
         name='image-file'
@@ -71,14 +91,26 @@
       />
     </div>
 
-    <div  class='col-4 border p-5 text-center'>
-      <label for="notes">To Retain  </label>
-      <textarea name='notes' id='notes' cols='30' rows='10'></textarea>
+    <div class='col-4 border p-5 media-notes'>
+      
+      <textarea name='notes' id='notes' cols='30' rows='10'>
+        {{#if slide}}
+          {{slide.notes}}
+        {{/if}}
+      </textarea>
+      <label for="notes" class="d-block text-center mt-2"><h4>To Retain</h4></label>
     </div>
     <div id='audio-container' class='media-audio col-12 border p-2 text-center'>
       <button id='btn-start' class='btn btn-primary me-2'>Start</button>
       <button id='btn-stop' class='btn btn-primary me-2'>Stop</button>
-      <audio id='audio' src='' controls></audio>
+      <audio 
+        id='audio'
+        {{#if slide}}
+          src="/media/audio/{{slide.audioName}}"
+        {{else}}
+          src='' 
+        {{/if}}
+       controls></audio>
     </div>
     <div class='media-audio col-12 border p-2 text-center'>
       <input id='submit' type='submit' value='Submit' class='btn btn-primary' />

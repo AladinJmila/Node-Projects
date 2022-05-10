@@ -3,7 +3,7 @@ const agentInformationEl = document.getElementById('agent-information');
 const navLevelTwoEl = document.getElementById('nav-level-two');
 const imageEl = document.getElementById('image');
 const audioEl = document.getElementById('audio-container');
-const noteEl = document.getElementById('note');
+const notesEl = document.getElementById('notes');
 
 let slides;
 
@@ -12,7 +12,7 @@ function genTutorialMedia(id) {
   const slide = slides.filter(slide => slide._id === id)[0];
   imageEl.innerHTML = `<img src='/media/image/${slide.imageURL}' alt='illustration' />`;
   audioEl.innerHTML = `<audio src='/media/audio/${slide.audioURL}' controls />`;
-  noteEl.innerHTML = `<h4>${slide.note}</h4>`;
+  notesEl.innerHTML = `<h4>${slide.notes}</h4>`;
 }
 
 async function genNavLevelTow() {
