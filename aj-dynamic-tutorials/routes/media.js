@@ -9,7 +9,11 @@ router.get('/', async (req, res) => {
   res.send(feature);
 });
 
-router.get('/update-slide/:id', async (req, res) => {});
+router.get('/slides/:id', async (req, res) => {
+  const slide = await Slide.findById(req.params.id);
+
+  res.render('/', { slide });
+});
 
 router.post('/create-feature', async (req, res) => {
   const { appName, parentName, name } = req.body;
@@ -59,9 +63,18 @@ router.post('/create-slide', async (req, res) => {
 });
 
 router.put('/update-slide/:id', async (req, res) => {
-  console.log(req.params.id);
-  console.log(req.body);
-  res.send('');
+  const slide = await Slide.findByIdAndUpdate(req.params.id, {
+    name: req.body.slideName,
+    notes: req.body.notes,
+  });
+
+  const feature = await Feature.findById(slide.featureId);
+  if (!feature.slides.includes(slide._id)) {
+    feature.slides.push(slide._id);
+    await feature.save();
+  }
+
+  res.redirect('/');
 });
 
 module.exports = router;

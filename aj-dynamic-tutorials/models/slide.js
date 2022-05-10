@@ -12,15 +12,15 @@ const Slide = mongoose.model(
       type: String,
       required: true,
     },
-    imageURL: {
+    imageName: {
       type: String,
       default: '',
     },
-    audioURL: {
+    audioName: {
       type: String,
       default: '',
     },
-    note: String,
+    notes: String,
     isSeen: {
       type: Boolean,
       default: false,

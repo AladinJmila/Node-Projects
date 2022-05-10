@@ -71,6 +71,7 @@ const crypto = require('crypto');
 const multer = require('multer');
 const { GridFsStorage } = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
+const Slide = require('./models/slide');
 
 const conn = mongoose.createConnection(dbURI);
 
@@ -114,46 +115,32 @@ app.get('/media/upload-form', (req, res) => {
 });
 
 app.post(
-  '/media/upload-audio/:slideId',
+  '/media/upload-audio/:id',
   upload.single('audio'),
   async (req, res) => {
     console.log(req.file);
-    // console.log(req.body);
-    // console.log(req);
 
-    // const medias = await Feature.find().sort('-_id');
-    // if (req.file.contentType.startsWith('image')) {
-    //   medias[0].slides[0].imageURL = gfsMedia.filename;
-    //   await medias[0].save();
-    // } else if (req.file.contentType.startsWith('audio')) {
-    //   medias[0].slides[0].audioURL = gfsMedia.filename;
-    //   await medias[0].save();
-    // }
+    const slide = await Slide.findById(req.params.id);
+    slide.audioName = req.file.filename;
+    await slide.save();
 
-    // res.redirect('/');
-    res.send('');
+    // res.send('');
+    res.redirect('/');
   }
 );
 
 app.post(
-  '/media/upload-image/:slideId',
+  '/media/upload-image/:id',
   upload.single('image'),
   async (req, res) => {
     console.log(req.file);
-    // console.log(req.body);
-    // console.log(req);
+    const slide = await Slide.findById(req.params.id);
+    console.log(slide);
+    slide.imageName = req.file.filename;
+    await slide.save();
 
-    // const medias = await Feature.find().sort('-_id');
-    // if (req.file.contentType.startsWith('image')) {
-    //   medias[0].slides[0].imageURL = gfsMedia.filename;
-    //   await medias[0].save();
-    // } else if (req.file.contentType.startsWith('audio')) {
-    //   medias[0].slides[0].audioURL = gfsMedia.filename;
-    //   await medias[0].save();
-    // }
-
-    // res.redirect('/');
-    res.send('');
+    // res.send('');
+    res.redirect('/');
   }
 );
 
@@ -162,12 +149,8 @@ app.get('/media/image/:filename', (req, res) => {
     if (!file)
       return res.status(404).send('There is no file with the given filename.');
 
-    if (file.contentType.startsWith('image')) {
-      const readstream = gridfsBucket.openDownloadStream(file._id);
-      readstream.pipe(res);
-    } else {
-      res.status(404).send('The file with the given filename is not an image.');
-    }
+    const readstream = gridfsBucket.openDownloadStream(file._id);
+    readstream.pipe(res);
   });
 });
 
@@ -176,11 +159,7 @@ app.get('/media/audio/:filename', (req, res) => {
     if (!file)
       return res.status(404).send('There is no file with the given filename.');
 
-    if (file.contentType.startsWith('audio')) {
-      const readstream = gridfsBucket.openDownloadStream(file._id);
-      readstream.pipe(res);
-    } else {
-      res.status(404).send('The file with the given filename is not audio.');
-    }
+    const readstream = gridfsBucket.openDownloadStream(file._id);
+    readstream.pipe(res);
   });
 });
