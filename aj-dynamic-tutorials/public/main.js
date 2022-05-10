@@ -2539,7 +2539,7 @@ function captureAudio() {
   var imageInput = document.getElementById('image-file');
   submitBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
-      var slideId, formData, slideName, notes, imageFile, res, audioFile, duration;
+      var slideId, formData, slideName, notes, imageFile, res, audioFile, duration, response;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2560,32 +2560,32 @@ function captureAudio() {
 
             case 11:
               audioFile = _context.sent;
-              formData.append('audio', audioFile);
-              console.log(audioFile);
-              console.log(imageFile);
-              _context.next = 17;
+              formData.append('audio', audioFile); // console.log(audioFile);
+              // console.log(imageFile);
+
+              _context.next = 15;
               return fetch("/media/upload-audio/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 17:
+            case 15:
               formData.delete('audio');
               formData.append('image', imageFile);
-              _context.next = 21;
+              _context.next = 19;
               return fetch("/media/upload-image/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 21:
-              _context.next = 23;
+            case 19:
+              _context.next = 21;
               return (0,getBlobDuration/* default */.Z)(audioFile);
 
-            case 23:
+            case 21:
               duration = _context.sent;
               duration = Math.floor(duration);
-              _context.next = 27;
+              _context.next = 25;
               return fetch("/media/update-slide/".concat(slideId), {
                 method: 'PUT',
                 headers: {
@@ -2597,6 +2597,13 @@ function captureAudio() {
                   duration: duration
                 })
               });
+
+            case 25:
+              response = _context.sent;
+
+              if (response) {
+                window.location = response.url;
+              }
 
             case 27:
             case "end":

@@ -58,8 +58,8 @@ function captureAudio() {
 
     formData.append('audio', audioFile);
 
-    console.log(audioFile);
-    console.log(imageFile);
+    // console.log(audioFile);
+    // console.log(imageFile);
 
     await fetch(`/media/upload-audio/${slideId}`, {
       method: 'POST',
@@ -77,11 +77,15 @@ function captureAudio() {
     let duration = await getBlobDuration(audioFile);
     duration = Math.floor(duration);
 
-    await fetch(`/media/update-slide/${slideId}`, {
+    const response = await fetch(`/media/update-slide/${slideId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ slideName, notes, duration }),
     });
+
+    if (response) {
+      window.location = response.url;
+    }
   });
 }
 

@@ -80,7 +80,8 @@ router.put('/update-slide/:id', async (req, res) => {
   }
 
   feature = await Feature.findById(slide.featureId).lean();
-  res.render('index', { feature });
+  // res.render('index', { feature });
+  res.redirect(`/media/slides/${slide._id}`);
 });
 
 module.exports = router;

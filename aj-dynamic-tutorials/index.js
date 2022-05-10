@@ -125,13 +125,23 @@ app.post(
   '/media/upload-audio/:id',
   upload.single('audio'),
   async (req, res) => {
-    // console.log(req.file);
-
     const slide = await Slide.findById(req.params.id);
+
+    if (slide.audioName) {
+      await gfs.files.findOne({ filename: slide.audioName }, (err, file) => {
+        if (err) return res.send(err);
+
+        if (!file)
+          return res.status(404).send('There in no file with the given name');
+
+        gridfsBucket.delete(file._id);
+      });
+    }
+
     slide.audioName = req.file.filename;
     await slide.save();
 
-    res.redirect('/');
+    res.redirect(`/media/slides/${slide._id}`);
   }
 );
 
@@ -139,14 +149,23 @@ app.post(
   '/media/upload-image/:id',
   upload.single('image'),
   async (req, res) => {
-    // console.log(req.file);
-
     const slide = await Slide.findById(req.params.id);
+
+    if (slide.imageName) {
+      await gfs.files.findOne({ filename: slide.imageName }, (err, file) => {
+        if (err) return res.send(err);
+
+        if (!file)
+          return res.status(404).send('There in no file with the given name');
+
+        gridfsBucket.delete(file._id);
+      });
+    }
+
     slide.imageName = req.file.filename;
     await slide.save();
 
-    // res.send('');
-    res.redirect('/');
+    res.redirect(`/media/slides/${slide._id}`);
   }
 );
 
