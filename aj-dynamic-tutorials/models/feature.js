@@ -13,6 +13,10 @@ const Feature = mongoose.model(
       type: String,
       required: true,
     },
+    duration: {
+      type: Number,
+      default: 0,
+    },
     slides: [
       {
         type: Schema.Types.ObjectId,

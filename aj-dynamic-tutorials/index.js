@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const { engine } = require('express-handlebars');
+// const { engine } = require('express-handlebars');
+const { create } = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -27,8 +28,14 @@ mongoose
   .then(() => console.log('connected to MongoDB...'))
   .catch(err => console.log(err));
 
+// Handlebars helper methods
+function jsonOp(obj) {
+  return JSON.stringify(obj);
+}
+const hbs = create({ helpers: { jsonOp } });
+
 // Handlebars middleware
-app.engine('handlebars', engine());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
@@ -118,13 +125,12 @@ app.post(
   '/media/upload-audio/:id',
   upload.single('audio'),
   async (req, res) => {
-    console.log(req.file);
+    // console.log(req.file);
 
     const slide = await Slide.findById(req.params.id);
     slide.audioName = req.file.filename;
     await slide.save();
 
-    // res.send('');
     res.redirect('/');
   }
 );
@@ -133,9 +139,9 @@ app.post(
   '/media/upload-image/:id',
   upload.single('image'),
   async (req, res) => {
-    console.log(req.file);
+    // console.log(req.file);
+
     const slide = await Slide.findById(req.params.id);
-    console.log(slide);
     slide.imageName = req.file.filename;
     await slide.save();
 

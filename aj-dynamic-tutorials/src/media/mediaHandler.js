@@ -1,3 +1,5 @@
+import getBlobDuration from 'get-blob-duration';
+
 function captureAudio() {
   let recording;
   navigator.mediaDevices
@@ -26,7 +28,7 @@ function captureAudio() {
       };
       mediaRecorder.onstop = e => {
         const blob = new Blob(chunks, { type: 'audio/wav' });
-        // recording = blob;
+
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
         audio.src = audioURL;
@@ -72,10 +74,13 @@ function captureAudio() {
       body: formData,
     });
 
+    let duration = await getBlobDuration(audioFile);
+    duration = Math.floor(duration);
+
     await fetch(`/media/update-slide/${slideId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slideName, notes }),
+      body: JSON.stringify({ slideName, notes, duration }),
     });
   });
 }

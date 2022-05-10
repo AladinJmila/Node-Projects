@@ -20,7 +20,14 @@ const Slide = mongoose.model(
       type: String,
       default: '',
     },
-    notes: String,
+    notes: {
+      type: String,
+      default: '',
+    },
+    duration: {
+      type: Number,
+      default: 0,
+    },
     isSeen: {
       type: Boolean,
       default: false,

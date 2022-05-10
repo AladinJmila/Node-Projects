@@ -66,15 +66,21 @@ router.put('/update-slide/:id', async (req, res) => {
   const slide = await Slide.findByIdAndUpdate(req.params.id, {
     name: req.body.slideName,
     notes: req.body.notes,
+    duration: parseInt(req.body.duration),
   });
 
-  const feature = await Feature.findById(slide.featureId);
+  let feature = await Feature.findById(slide.featureId);
   if (!feature.slides.includes(slide._id)) {
     feature.slides.push(slide._id);
     await feature.save();
   }
+  if (feature.slides.includes(slide._id)) {
+    feature.duration += parseInt(req.body.duration);
+    await feature.save();
+  }
 
-  res.redirect('/');
+  feature = await Feature.findById(slide.featureId).lean();
+  res.render('index', { feature });
 });
 
 module.exports = router;
