@@ -126,6 +126,7 @@ app.post(
   upload.single('audio'),
   async (req, res) => {
     const slide = await Slide.findById(req.params.id);
+    const feature = await Feature.findById(slide.featureId);
 
     if (slide.audioName) {
       await gfs.files.findOne({ filename: slide.audioName }, (err, file) => {
@@ -136,6 +137,9 @@ app.post(
 
         gridfsBucket.delete(file._id);
       });
+
+      feature.duration -= slide.duration;
+      await feature.save();
     }
 
     slide.audioName = req.file.filename;
