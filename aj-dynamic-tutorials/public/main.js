@@ -2539,7 +2539,7 @@ function captureAudio() {
   var imageInput = document.getElementById('image-file');
   submitBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
-      var slideId, formData, slideName, notes, imageFile, res, audioFile, duration, response;
+      var slideId, formData, audioFile, res, imageFile, slideName, notes, duration, response;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2547,45 +2547,70 @@ function captureAudio() {
               e.preventDefault();
               slideId = document.getElementById('slide-id').value;
               formData = new FormData();
-              slideName = document.getElementById('slideName').value;
-              notes = document.getElementById('notes').value;
-              imageFile = imageInput.files[0];
-              _context.next = 8;
+
+              if (!recording) {
+                _context.next = 11;
+                break;
+              }
+
+              _context.next = 6;
               return fetch(recording);
 
-            case 8:
+            case 6:
               res = _context.sent;
-              _context.next = 11;
+              _context.next = 9;
               return res.blob();
 
-            case 11:
+            case 9:
               audioFile = _context.sent;
-              formData.append('audio', audioFile); // console.log(audioFile);
-              // console.log(imageFile);
+              formData.append('audio', audioFile);
 
-              _context.next = 15;
+            case 11:
+              if (!(audioFile && audio.src === recording)) {
+                _context.next = 14;
+                break;
+              }
+
+              _context.next = 14;
               return fetch("/media/upload-audio/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 15:
+            case 14:
+              imageFile = imageInput.files[0];
               formData.delete('audio');
               formData.append('image', imageFile);
-              _context.next = 19;
+
+              if (!imageFile) {
+                _context.next = 20;
+                break;
+              }
+
+              _context.next = 20;
               return fetch("/media/upload-image/".concat(slideId), {
                 method: 'POST',
                 body: formData
               });
 
-            case 19:
-              _context.next = 21;
+            case 20:
+              slideName = document.getElementById('slideName').value;
+              notes = document.getElementById('notes').value;
+
+              if (!audioFile) {
+                _context.next = 27;
+                break;
+              }
+
+              _context.next = 25;
               return (0,getBlobDuration/* default */.Z)(audioFile);
 
-            case 21:
+            case 25:
               duration = _context.sent;
               duration = Math.floor(duration);
-              _context.next = 25;
+
+            case 27:
+              _context.next = 29;
               return fetch("/media/update-slide/".concat(slideId), {
                 method: 'PUT',
                 headers: {
@@ -2594,18 +2619,19 @@ function captureAudio() {
                 body: JSON.stringify({
                   slideName: slideName,
                   notes: notes,
-                  duration: duration
+                  duration: duration ? duration : 0
                 })
               });
 
-            case 25:
+            case 29:
               response = _context.sent;
 
               if (response) {
+                console.log(response.url);
                 window.location = response.url;
               }
 
-            case 27:
+            case 31:
             case "end":
               return _context.stop();
           }

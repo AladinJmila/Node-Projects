@@ -48,42 +48,55 @@ function captureAudio() {
     const slideId = document.getElementById('slide-id').value;
     const formData = new FormData();
 
-    const slideName = document.getElementById('slideName').value;
-    const notes = document.getElementById('notes').value;
-
-    const imageFile = imageInput.files[0];
-
-    const res = await fetch(recording);
-    const audioFile = await res.blob();
-
-    formData.append('audio', audioFile);
+    let audioFile;
+    if (recording) {
+      const res = await fetch(recording);
+      audioFile = await res.blob();
+      formData.append('audio', audioFile);
+    }
 
     // console.log(audioFile);
     // console.log(imageFile);
 
-    await fetch(`/media/upload-audio/${slideId}`, {
-      method: 'POST',
-      body: formData,
-    });
+    if (audioFile && audio.src === recording) {
+      await fetch(`/media/upload-audio/${slideId}`, {
+        method: 'POST',
+        body: formData,
+      });
+    }
+
+    const imageFile = imageInput.files[0];
 
     formData.delete('audio');
     formData.append('image', imageFile);
 
-    await fetch(`/media/upload-image/${slideId}`, {
-      method: 'POST',
-      body: formData,
-    });
+    if (imageFile) {
+      await fetch(`/media/upload-image/${slideId}`, {
+        method: 'POST',
+        body: formData,
+      });
+    }
 
-    let duration = await getBlobDuration(audioFile);
-    duration = Math.floor(duration);
+    const slideName = document.getElementById('slideName').value;
+    const notes = document.getElementById('notes').value;
+    let duration;
+    if (audioFile) {
+      duration = await getBlobDuration(audioFile);
+      duration = Math.floor(duration);
+    }
 
     const response = await fetch(`/media/update-slide/${slideId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slideName, notes, duration }),
+      body: JSON.stringify({
+        slideName,
+        notes,
+        duration: duration ? duration : 0,
+      }),
     });
 
     if (response) {
+      console.log(response.url);
       window.location = response.url;
     }
   });

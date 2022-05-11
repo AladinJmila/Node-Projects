@@ -79,9 +79,9 @@
 
 
   <div class='media row'>
-    <div id='image' class='media-image col-8 border p-5 text-center'>
+    <div  class='media-image col-8 border p-5 text-center'>
       {{#if slide}}
-        <img src='/media/image/{{slide.imageName}}' alt='illustration' />
+        <img id='image' src='/media/image/{{slide.imageName}}' alt='illustration' />
       {{/if}}
       <input
         type='file'
@@ -93,11 +93,7 @@
 
     <div class='col-4 border p-5 media-notes'>
       
-      <textarea name='notes' id='notes'>
-        {{#if slide}}
-          {{slide.notes}}
-        {{/if}}
-      </textarea>
+      <textarea name='notes' id='notes'>{{#if slide}}{{slide.notes}}{{/if}}</textarea>
       <label for="notes" class="d-block text-center mt-2"><h4>To Retain</h4></label>
     </div>
     <div id='audio-container' class='media-audio col-12 border p-2 text-center'>
