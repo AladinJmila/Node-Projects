@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
 
-const Feature = mongoose.model(
-  'Feature',
-  new Schema({
-    group: {
+const Group = mongoose.model(
+  'Group',
+  new mongoose.Schema({
+    application: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Group',
+      ref: 'Application',
       required: true,
     },
     name: {
@@ -17,13 +16,13 @@ const Feature = mongoose.model(
       type: Number,
       default: 0,
     },
-    slides: [
+    features: [
       {
-        type: Schema.Types.ObjectId,
-        ref: 'Slide',
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Feature',
       },
     ],
   })
 );
 
-exports.Feature = Feature;
+exports.Group = Group;

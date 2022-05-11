@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Slide = mongoose.model(
   'Slide',
   new mongoose.Schema({
-    featureId: {
+    feature: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'feature',
       required: true,
