@@ -1,25 +1,12 @@
-<p class='text-center display-6 my-4'>Add Media</p>
-<form class='media row' action='/media/create-feature' method='post'>
+<form action='/structure/create-feature' method='post'>
   <div class='mb-3'>
-    <label for='appName' class='form-label'>App Name</label>
+    <label for='featureName' class='form-label'>Feature Name</label>
     <input
       type='text'
-      name='appName'
+      name='featureName'
       class='form-control'
-      id='appName'
-      aria-describedby='emailHelp'
+      id='featureName'
     />
   </div>
-  <div class='mb-3'>
-    <label for='parentName' class='form-label'>Parent Name</label>
-    <input type='text' name='parentName' class='form-control' id='ParentName' />
-  </div>
-  <div class='mb-3'>
-    <label for='name' class='form-label'>Feature Name</label>
-    <input type='text' name='name' class='form-control' id='name' />
-  </div>
-  <div class='d-grid gap-2'>
-    <button type='submit' class='btn btn-primary'>Submit</button>
-  </div>
+  <button type='submit' class='btn btn-primary'>Submit</button>
 </form>
-{{#if feature}} {{feature.duration}} {{/if}}
