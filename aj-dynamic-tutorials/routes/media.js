@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Feature } = require('../models/feature');
+const Feature = require('../models/feature');
 const Slide = require('../models/slide');
 
 router.get('/', async (req, res) => {
@@ -42,10 +42,19 @@ router.post('/create-feature', async (req, res) => {
 
 router.post('/create-slide', async (req, res) => {
   const feature = await Feature.findById(req.body.featureId);
-  // Add feature null checking
+  if (feature) {
+    feature.slides.forEach(async slide => {
+      const slideInDb = await Slide.findById(slide);
+      if (slideInDb.name === 'init') {
+        const index = feature.slides.indexOf(slide);
+        if (index > -1) feature.slides.splice(index, 1);
+        await Slide.findByIdAndDelete(slide);
+      }
+    });
+  }
 
   const slide = new Slide({
-    featureId: feature._id,
+    feature: feature._id,
     name: 'init',
   });
 
@@ -69,7 +78,7 @@ router.put('/update-slide/:id', async (req, res) => {
     duration: parseInt(req.body.duration),
   });
 
-  let feature = await Feature.findById(slide.featureId);
+  let feature = await Feature.findById(slide.feature);
   if (!feature.slides.includes(slide._id)) {
     feature.slides.push(slide._id);
     await feature.save();
@@ -79,7 +88,7 @@ router.put('/update-slide/:id', async (req, res) => {
     await feature.save();
   }
 
-  feature = await Feature.findById(slide.featureId).lean();
+  feature = await Feature.findById(slide.feature).lean();
   // res.render('index', { feature });
   res.redirect(`/media/slides/${slide._id}`);
 });

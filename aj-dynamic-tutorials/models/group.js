@@ -8,14 +8,9 @@ const Group = mongoose.model(
       ref: 'Application',
       required: true,
     },
-    name: {
-      type: String,
-      required: true,
-    },
-    duration: {
-      type: Number,
-      default: 0,
-    },
+    name: { type: String, required: true },
+    duration: { type: Number, default: 0 },
+    watchedDuration: { type: Number, default: 0 },
     features: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -25,4 +20,4 @@ const Group = mongoose.model(
   })
 );
 
-exports.Group = Group;
+module.exports = Group;
