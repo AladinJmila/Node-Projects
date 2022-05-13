@@ -10,7 +10,7 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const dbURI = require('./config/db');
 const app = express();
-const { Feature } = require('./models/feature');
+const Feature = require('./models/feature');
 
 // Load routes
 const general = require('./routes/general');
@@ -126,7 +126,7 @@ app.post(
   upload.single('audio'),
   async (req, res) => {
     const slide = await Slide.findById(req.params.id);
-    const feature = await Feature.findById(slide.featureId);
+    const feature = await Feature.findById(slide.feature);
 
     if (slide.audioName) {
       await gfs.files.findOne({ filename: slide.audioName }, (err, file) => {

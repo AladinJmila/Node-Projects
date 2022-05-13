@@ -60,25 +60,49 @@
 
 <form class="row ps-4">
 
-  <div class="col-3"></div>
-  <div class='row col-6 mb-4'>
+  
+  <div class='row col-4 mb-4'>
     <div class='col-auto'>
       <label class='col-form-label' for='slideName'><h4>Slide Name:</h4></label>
     </div>
     <div class='col-auto'>
       <input 
-      class='form-control' 
-      type='text' 
-      name='slideName' 
-      id='slideName' 
-      {{#if slide}}
-        value="{{slide.name}}"
-      {{/if}}
-       />
+        class='form-control' 
+        type='text' 
+        name='slideName' 
+        id='slideName' 
+        {{#if slide}}
+          value="{{slide.name}}"
+        {{/if}}
+      />
     </div>
   </div>
-  <div class="col-3"></div>
-
+  <div class="form-check col-4">
+    <input 
+      class="form-check-input"
+      type="checkbox"
+      id="isSolo"
+      {{#if slide}}
+        value="{{slide.isSolo}}" 
+      {{/if}}
+    />
+    <label class="form-check-label" for="isSolo">
+      Stand-alone Slide
+    </label>
+  </div>
+  <div class="form-check col-4">
+    <input 
+      class="form-check-input" 
+      type="checkbox" 
+      id="hasNext"
+      {{#if slide}}
+        value="{{slide.hasNext}}" 
+      {{/if}}
+    />
+    <label class="form-check-label" for="hasNext">
+      Connected to next Slide
+    </label>
+  </div>
 
   <div class='media row'>
     <div  class='media-image col-8 border p-5 text-center'>

@@ -75,6 +75,8 @@ router.put('/update-slide/:id', async (req, res) => {
   const slide = await Slide.findByIdAndUpdate(req.params.id, {
     name: req.body.slideName,
     notes: req.body.notes,
+    isSolo: req.body.isSolo,
+    hasNext: req.body.hasNext,
     duration: parseInt(req.body.duration),
   });
 

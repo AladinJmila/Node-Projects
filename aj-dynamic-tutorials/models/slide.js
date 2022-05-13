@@ -13,7 +13,7 @@ const Slide = mongoose.model(
     audioName: { type: String, default: '' },
     notes: { type: String, default: '' },
     duration: { type: Number, default: 0 },
-    isSeen: { type: Boolean, default: false },
+    isWatched: { type: Boolean, default: false },
     isSolo: { type: Boolean, default: true },
     hasNext: { type: Boolean, default: false },
   })

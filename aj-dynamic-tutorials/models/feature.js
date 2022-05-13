@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
 
 const Feature = mongoose.model(
   'Feature',
-  new Schema({
+  new mongoose.Schema({
     group: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Group',
@@ -14,7 +13,7 @@ const Feature = mongoose.model(
     watchedDuration: { type: Number, default: 0 },
     slides: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Slide',
       },
     ],

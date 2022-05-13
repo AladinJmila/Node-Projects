@@ -2539,7 +2539,7 @@ function captureAudio() {
   var imageInput = document.getElementById('image-file');
   submitBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
-      var slideId, formData, audioFile, res, imageFile, slideName, notes, duration, response;
+      var slideId, formData, audioFile, res, imageFile, slideName, notes, isSolo, hasNext, duration, response;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2596,21 +2596,29 @@ function captureAudio() {
             case 20:
               slideName = document.getElementById('slideName').value;
               notes = document.getElementById('notes').value;
+              isSolo = document.getElementById('isSolo').checked;
+              hasNext = document.getElementById('hasNext').checked;
 
               if (!audioFile) {
-                _context.next = 27;
+                _context.next = 29;
                 break;
               }
 
-              _context.next = 25;
+              _context.next = 27;
               return (0,getBlobDuration/* default */.Z)(audioFile);
 
-            case 25:
+            case 27:
               duration = _context.sent;
               duration = Math.floor(duration);
 
-            case 27:
-              _context.next = 29;
+            case 29:
+              console.log({
+                slideName: slideName,
+                notes: notes,
+                isSolo: isSolo,
+                hasNext: hasNext
+              });
+              _context.next = 32;
               return fetch("/media/update-slide/".concat(slideId), {
                 method: 'PUT',
                 headers: {
@@ -2619,11 +2627,13 @@ function captureAudio() {
                 body: JSON.stringify({
                   slideName: slideName,
                   notes: notes,
+                  isSolo: isSolo,
+                  hasNext: hasNext,
                   duration: duration ? duration : 0
                 })
               });
 
-            case 29:
+            case 32:
               response = _context.sent;
 
               if (response) {
@@ -2631,7 +2641,7 @@ function captureAudio() {
                 window.location = response.url;
               }
 
-            case 31:
+            case 34:
             case "end":
               return _context.stop();
           }

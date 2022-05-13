@@ -79,11 +79,20 @@ function captureAudio() {
 
     const slideName = document.getElementById('slideName').value;
     const notes = document.getElementById('notes').value;
+    const isSolo = document.getElementById('isSolo').checked;
+    const hasNext = document.getElementById('hasNext').checked;
     let duration;
     if (audioFile) {
       duration = await getBlobDuration(audioFile);
       duration = Math.floor(duration);
     }
+
+    console.log({
+      slideName,
+      notes,
+      isSolo,
+      hasNext,
+    });
 
     const response = await fetch(`/media/update-slide/${slideId}`, {
       method: 'PUT',
@@ -91,6 +100,8 @@ function captureAudio() {
       body: JSON.stringify({
         slideName,
         notes,
+        isSolo,
+        hasNext,
         duration: duration ? duration : 0,
       }),
     });
