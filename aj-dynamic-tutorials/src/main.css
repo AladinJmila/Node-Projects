@@ -1,36 +1,42 @@
 @import url('./styles/navbar.css');
 
+html {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 body {
   background-color: #0d1117;
   color: #f0f6fc;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .navbar {
   background-color: #161b22;
   width: 100%;
   height: 60px;
-  border-bottom: #535b64 solid 3px;
+  border-bottom: #535b64 solid 2px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  height: 100%;
 }
 
 .groups-nav {
   background-color: #161b22;
-  width: 250px;
+  min-width: 250px;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 58px;
-  border-right: #8b949e solid 2px;
+  border-right: #535b64 solid 2px;
 }
 
 .features-nav {
   background-color: #161b22;
-  width: 250px;
+  min-width: 250px;
   height: 100%;
-  position: absolute;
-  top: 58px;
-  right: 0;
-  border-left: #8b949e solid 2px;
+  border-left: #535b64 solid 2px;
 }
 
 .tutorials-container {
@@ -122,4 +128,62 @@ body {
   height: 120px;
   border-left: 6px #8b949e solid;
   transform: translateX(-61px);
+}
+
+.slides-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slides-progress {
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 60px;
+  background-color: #161b22;
+  padding: 18px;
+  display: flex;
+}
+
+.progress-disc {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #39404b;
+  margin-right: 40px;
+}
+
+.progress-disc:not(:last-of-type)::after {
+  content: '';
+  display: inline-block;
+  border-bottom: 2px #39404b solid;
+  width: 40px;
+  transform: translate(24px, 12px);
+}
+
+.slide-controls {
+  position: absolute;
+  bottom: 56px;
+  width: 100%;
+  height: 56px;
+  background-color: #161b22;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  /* background: url('https://images.unsplash.com/photo-1651667768708-634a231b3208?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); */
+  background: url('https://images.unsplash.com/photo-1651668284801-79678d3cdf70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80');
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-position: center; */
+  background-position: top;
+}
+
+.slides-viewer:hover .slide-controls {
+  opacity: 1;
 }
