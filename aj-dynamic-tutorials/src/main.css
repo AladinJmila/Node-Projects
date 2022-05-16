@@ -3,14 +3,14 @@
 body {
   background-color: #0d1117;
   color: #f0f6fc;
-  /* padding: 0 20px; */
+  font-size: 14px;
 }
 
 .navbar {
   background-color: #161b22;
   width: 100%;
   height: 60px;
-  border-bottom: #8b949e solid 1px;
+  border-bottom: #535b64 solid 3px;
 }
 
 .groups-nav {
@@ -19,8 +19,8 @@ body {
   height: 100%;
   position: absolute;
   left: 0;
-  top: 59px;
-  border-right: #8b949e solid 1px;
+  top: 58px;
+  border-right: #8b949e solid 2px;
 }
 
 .features-nav {
@@ -28,7 +28,98 @@ body {
   width: 250px;
   height: 100%;
   position: absolute;
-  top: 59px;
+  top: 58px;
   right: 0;
-  border-left: #8b949e solid 1px;
+  border-left: #8b949e solid 2px;
+}
+
+.tutorials-container {
+  padding: 80px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.tutorial-progress {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #8b949e 0%,
+    #8b949e 60%,
+    #1f242c 60%,
+    #1f242c 100%
+  );
+}
+
+.tutorial-progress::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  border: #2b333e solid 2px;
+}
+
+.tutorial {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+  background-color: #161b22;
+  border: #0d1117 solid 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.tutorial::after {
+  content: '';
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  border: #2b333e solid 2px;
+}
+
+.tutorial-title {
+  letter-spacing: 4;
+  font-size: 2.2em;
+}
+
+.tutorial-add {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+  border: #2b333e dashed 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.tutorial-add::before {
+  content: '';
+  width: 120px;
+  border-top: 6px #8b949e solid;
+  transform: translate(2px, -3px);
+}
+
+.tutorial-add::after {
+  content: '';
+  height: 120px;
+  border-left: 6px #8b949e solid;
+  transform: translateX(-61px);
 }
