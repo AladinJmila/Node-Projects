@@ -1,4 +1,4 @@
-<div class='slides-viewer'>
+<div id='slides-viewer' class='slides-viewer'>
   <div class='slides-progress'>
     <div class='progress-disc' style='background-color: #8b949e'></div>
     <div class='progress-disc' style='background-color: #8b949e'></div>
@@ -8,5 +8,29 @@
     <div class='progress-disc'></div>
   </div>
   <canvas class='canvas'></canvas>
-  <div class='slide-controls'></div>
+  <div class='slide-controls'>
+    <div class='comments'>comment</div>
+    <div class='audio-player'>
+      {{! <i class='fa fa-microphone'></i> }}
+      {{! <i class='fa fa-square'></i> }}
+      {{! <i class='fa fa-circle' style='color: red ;'></i> }}
+      <div id='play-btn'>
+        <i class='fa fa-play'></i>
+      </div>
+      <input type='range' class='timeline' max='100' value='0' />
+      {{! <i class='fa fa-repeat'></i> }}
+      <i class='fa fa-volume-up'></i>
+      {{! <i class='fa fa-volume-off'></i> }}
+
+      <audio
+        src='https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3'
+      ></audio>
+    </div>
+    <div id='expand-btn'>
+      <div class='fa fa-expand'></div>
+    </div>
+    <div id='compress-btn'>
+      <div class='fa fa-compress'></div>
+    </div>
+  </div>
 </div>
