@@ -75,7 +75,7 @@ export default function audioPlayer() {
     expandBtn.style.display = 'block';
 
     contentEl.style.display = 'grid';
-    navbarEl.style.display = 'block';
+    navbarEl.style.display = 'flex';
     groupsEl.style.display = 'block';
     featuresEl.style.display = 'block';
     controlsEl.style.transform = 'translateY(-56px)';

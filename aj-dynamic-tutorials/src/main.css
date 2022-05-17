@@ -273,15 +273,36 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .slides-progress {
+  display: flex;
   box-sizing: border-box;
   width: 100%;
   height: 56px;
   background-color: #161b22;
   padding: 18px;
-  display: flex;
+}
+
+.prograss-frag {
+  width: 100%;
+}
+
+.progress-bar {
+  z-index: -10;
+  height: 4px;
+  background-color: #39404b;
+  transform: translateY(15px);
+}
+
+.prograss-frag:first-of-type::before {
+  content: '';
+  position: absolute;
+  top: 23px;
+  height: 24px;
+  width: 4px;
+  background-color: #8b949e;
 }
 
 .progress-disc {
@@ -289,15 +310,12 @@ body {
   height: 24px;
   border-radius: 50%;
   background-color: #39404b;
-  margin-right: 40px;
+  float: right;
+  transform: translateX(1px);
 }
 
-.progress-disc:not(:last-of-type)::after {
-  content: '';
-  display: inline-block;
-  border-bottom: 2px #39404b solid;
-  width: 40px;
-  transform: translate(24px, 12px);
+.prograss-frag:last-of-type .progress-disc {
+  background-color: #45a369;
 }
 
 .canvas {
@@ -316,7 +334,7 @@ body {
   width: 100%;
   height: 56px;
   background-color: #161b22;
-  /* opacity: 0; */
+  opacity: 0;
   transition: opacity 0.2s ease-in;
   display: grid;
   grid-template-columns: 2fr 10fr 2fr;
