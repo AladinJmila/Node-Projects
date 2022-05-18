@@ -1,6 +1,8 @@
 import UIActions from './UI/UIActions';
-import audioPlayer from './UI/audioPlayer';
+import slidesPlayer from './UI/slidesPlayer';
+import slidesSketcher from './UI/slidesSketcher';
 import './main.css';
 
 UIActions();
-audioPlayer();
+// slidesPlayer();
+slidesSketcher();

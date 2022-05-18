@@ -9,7 +9,6 @@ export default function audioPlayer() {
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
-      console.log(playBtn);
     } else {
       audio.pause();
       playBtn.innerHTML = playIcon;
@@ -80,4 +79,14 @@ export default function audioPlayer() {
     featuresEl.style.display = 'block';
     controlsEl.style.transform = 'translateY(-56px)';
   });
+
+  // canvas.onmousemove = e => {
+  //   const prevX = e.clientX;
+  //   const prevY = e.clientY;
+
+  //   setTimeout(() => {
+  //     if (prevX === e.clientX && prevY === e.clientY) console.log('stopped');
+  //   }, 1000);
+  //   console.log(e.clientX);
+  // };
 }
