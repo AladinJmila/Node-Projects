@@ -1,4 +1,4 @@
-export default function slidesSketcher() {
+export default function slidesSketcher(state) {
   const canvasContainer = document.querySelector('.canvas-container');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
@@ -13,7 +13,6 @@ export default function slidesSketcher() {
   }
 
   resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
 
   function scaleToFit(img) {
     const scale = Math.min(
@@ -77,7 +76,7 @@ export default function slidesSketcher() {
       x: e.offsetX,
       y: e.offsetY,
     };
-    console.log(canvas.toDataURL('image/jpeg', 1.0));
+    // console.log(canvas.toDataURL('image/jpeg', 1.0));
   });
 
   canvas.addEventListener('mouseleave', () => {

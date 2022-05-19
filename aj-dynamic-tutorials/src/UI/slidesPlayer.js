@@ -1,22 +1,26 @@
-export default function audioPlayer() {
+export default function audioPlayer(state) {
   const playBtn = document.getElementById('play-btn');
   const audio = document.querySelector('audio');
   const canvas = document.querySelector('.canvas');
   const playIcon = `<i id='play-btn' class='fa fa-play'></i>`;
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
 
-  function playSlide() {
-    if (audio.paused) {
-      audio.play();
-      playBtn.innerHTML = pauseIcon;
-    } else {
-      audio.pause();
-      playBtn.innerHTML = playIcon;
+  function playSlide(pass = true) {
+    if (pass) {
+      if (audio.paused) {
+        audio.play();
+        playBtn.innerHTML = pauseIcon;
+      } else {
+        audio.pause();
+        playBtn.innerHTML = playIcon;
+      }
     }
   }
 
+  console.log(state.mode);
+
   playBtn.addEventListener('click', playSlide);
-  canvas.addEventListener('click', playSlide);
+  canvas.addEventListener('click', () => playSlide(state.mode === 'viewer'));
 
   audio.onended = () => (playBtn.innerHTML = playBtn);
 
@@ -80,13 +84,11 @@ export default function audioPlayer() {
     controlsEl.style.transform = 'translateY(-56px)';
   });
 
-  // canvas.onmousemove = e => {
-  //   const prevX = e.clientX;
-  //   const prevY = e.clientY;
+  state.mode === 'viewer'
+    ? (expandBtn.style.display = 'block')
+    : (expandBtn.style.display = 'none');
 
-  //   setTimeout(() => {
-  //     if (prevX === e.clientX && prevY === e.clientY) console.log('stopped');
-  //   }, 1000);
-  //   console.log(e.clientX);
-  // };
+  // if (state.mode === 'viewer') {
+  //   expandBtn.style.display = 'block';
+  // }
 }
