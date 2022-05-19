@@ -1,26 +1,25 @@
 export default function audioPlayer(state) {
   const playBtn = document.getElementById('play-btn');
   const audio = document.querySelector('audio');
-  const canvas = document.querySelector('.canvas');
+  const canvas = document.getElementById('canvas');
+  const slideImg = document.getElementById('slide-img');
   const playIcon = `<i id='play-btn' class='fa fa-play'></i>`;
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
 
-  function playSlide(pass = true) {
-    if (pass) {
-      if (audio.paused) {
-        audio.play();
-        playBtn.innerHTML = pauseIcon;
-      } else {
-        audio.pause();
-        playBtn.innerHTML = playIcon;
-      }
+  function playSlide() {
+    if (audio.paused) {
+      audio.play();
+      playBtn.innerHTML = pauseIcon;
+    } else {
+      audio.pause();
+      playBtn.innerHTML = playIcon;
     }
   }
 
   console.log(state.mode);
 
   playBtn.addEventListener('click', playSlide);
-  canvas.addEventListener('click', () => playSlide(state.mode === 'viewer'));
+  slideImg.addEventListener('click', playSlide);
 
   audio.onended = () => (playBtn.innerHTML = playBtn);
 
@@ -84,11 +83,13 @@ export default function audioPlayer(state) {
     controlsEl.style.transform = 'translateY(-56px)';
   });
 
-  state.mode === 'viewer'
-    ? (expandBtn.style.display = 'block')
-    : (expandBtn.style.display = 'none');
-
-  // if (state.mode === 'viewer') {
-  //   expandBtn.style.display = 'block';
-  // }
+  if (state.mode === 'viewer') {
+    expandBtn.style.display = 'block';
+    slideImg.style.display = 'block';
+    canvas.style.display = 'none';
+  } else {
+    expandBtn.style.display = 'none';
+    slideImg.style.display = 'none';
+    canvas.style.display = 'block';
+  }
 }
