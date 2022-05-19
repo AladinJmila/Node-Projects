@@ -55,6 +55,10 @@ body {
   border-bottom: 3px solid var(--text-color);
 }
 
+.navbar li.active {
+  border-bottom: 3px solid var(--text-color);
+}
+
 /* Home Styles */
 .tutorials-container {
   padding: 80px;
@@ -292,13 +296,13 @@ body {
   z-index: -10;
   height: 4px;
   background-color: #39404b;
-  transform: translateY(15px);
+  transform: translateY(8px);
 }
 
 .prograss-frag:first-of-type::before {
   content: '';
   position: absolute;
-  top: 23px;
+  top: 16px;
   height: 24px;
   width: 4px;
   background-color: #8b949e;
@@ -310,7 +314,7 @@ body {
   border-radius: 50%;
   background-color: #39404b;
   float: right;
-  transform: translateX(1px);
+  transform: translateY(-6px);
 }
 
 .prograss-frag:last-of-type .progress-disc {

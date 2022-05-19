@@ -16,8 +16,6 @@ export default function audioPlayer(state) {
     }
   }
 
-  console.log(state.mode);
-
   playBtn.addEventListener('click', playSlide);
   slideImg.addEventListener('click', playSlide);
 
