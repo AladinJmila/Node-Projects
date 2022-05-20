@@ -6,6 +6,7 @@ import './main.css';
 const state = {
   mode: 'viewer',
   // mode: 'editor',
+  loaded: false,
 };
 
 const viewerBtn = document.getElementById('viewer-btn');
@@ -19,6 +20,7 @@ function resetNavBtnsStyle() {
 
 viewerBtn.addEventListener('click', () => {
   state.mode = 'viewer';
+  state.loaded = true;
   slidesPlayer(state);
   slidesSketcher(state);
   resetNavBtnsStyle();
@@ -27,6 +29,7 @@ viewerBtn.addEventListener('click', () => {
 
 editorBtn.addEventListener('click', () => {
   state.mode = 'editor';
+  state.loaded = true;
   slidesPlayer(state);
   slidesSketcher(state);
   resetNavBtnsStyle();
