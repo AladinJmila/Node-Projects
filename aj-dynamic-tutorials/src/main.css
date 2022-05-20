@@ -1,8 +1,12 @@
 @import url('./styles/customAudio.css');
 
 :root {
-  --text-color: #f0f6fc;
-  --border-color-primary: #535b64;
+  --tone-1: #f0f6fc;
+  --tone-2t: #f0f6fc94;
+  --tone-3: #7d8794;
+  --tone-4: #535b64;
+  --tone-5: #161b22;
+  --tone-5t: #161b228d;
 }
 
 html {
@@ -11,7 +15,7 @@ html {
 
 body {
   background-color: #0d1117;
-  color: var(--text-color);
+  color: var(--tone-1);
   font-size: 14px;
   box-sizing: border-box;
 }
@@ -22,10 +26,10 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background-color: #161b22;
+  background-color: var(--tone-5);
   width: 100%;
   height: 60px;
-  border-bottom: var(--border-color-primary) solid 2px;
+  border-bottom: var(--tone-4) solid 2px;
   padding: 0 30px;
   font-size: 1.5em;
 }
@@ -33,7 +37,7 @@ body {
 .brand {
   border: none;
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--tone-1);
   padding: 0;
 }
 
@@ -52,11 +56,11 @@ body {
 }
 
 .navbar li:hover {
-  border-bottom: 3px solid var(--text-color);
+  border-bottom: 3px solid var(--tone-1);
 }
 
 .navbar li.active {
-  border-bottom: 3px solid var(--text-color);
+  border-bottom: 3px solid var(--tone-1);
 }
 
 /* Home Styles */
@@ -104,7 +108,7 @@ body {
   border-radius: 50%;
   top: 10px;
   left: 10px;
-  background-color: #161b22;
+  background-color: var(--tone-5);
   border: #0d1117 solid 15px;
   display: flex;
   justify-content: center;
@@ -166,10 +170,10 @@ body {
 }
 
 .groups {
-  background-color: #161b22;
+  background-color: var(--tone-5);
   min-width: 250px;
   height: 100%;
-  border-right: var(--border-color-primary) solid 2px;
+  border-right: var(--tone-4) solid 2px;
   padding: 16px;
 }
 
@@ -177,11 +181,11 @@ body {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
-  border-bottom: 1px solid var(--border-color-primary);
+  border-bottom: 1px solid var(--tone-4);
 }
 
 .app-name {
-  color: var(--text-color);
+  color: var(--tone-1);
   font-size: 1.2em;
   cursor: pointer;
 }
@@ -193,8 +197,8 @@ body {
   margin-left: 10px;
   padding: 4px;
   display: block;
-  color: #7d8794;
-  border: 2px dashed #7d8794;
+  color: var(--tone-3);
+  border: 2px dashed var(--tone-3);
   line-height: 1;
   text-align: center;
   letter-spacing: 2;
@@ -230,7 +234,7 @@ body {
   text-align: left;
   cursor: pointer;
   outline: none;
-  border-bottom: 1px solid var(--border-color-primary);
+  border-bottom: 1px solid var(--tone-4);
 }
 
 .dropdown-btn > i {
@@ -241,7 +245,7 @@ body {
 
 .groups-nav a:hover,
 .dropdown-btn:hover {
-  color: var(--text-color);
+  color: var(--tone-1);
 }
 
 .dropdown-container {
@@ -249,19 +253,48 @@ body {
 }
 
 .dropdown-btn.active {
-  color: #161b22;
-  background-color: var(--text-color);
+  color: var(--tone-5);
+  background-color: var(--tone-1);
 }
 
 .dropdown-btn.active:hover {
-  color: #161b22;
+  color: var(--tone-5);
 }
 
 .features {
-  background-color: #161b22;
+  background-color: var(--tone-5);
   min-width: 250px;
   height: 100%;
-  border-left: var(--border-color-primary) solid 2px;
+  border-right: var(--tone-4) solid 2px;
+  padding: 16px;
+}
+
+/* Common Navigation Styles */
+.add-group-feature {
+  display: flex;
+  border: 2px dashed var(--tone-3);
+  padding: 4px;
+  margin-top: 24px;
+}
+
+.group-feature-name {
+  background-color: transparent;
+  color: var(--tone-1);
+  border: none;
+  width: 100%;
+  border-right: 1px solid var(--tone-3);
+  margin-right: 4px;
+  font-size: 1.2em;
+}
+
+.group-feature-name::placeholder {
+  color: var(--tone-2t);
+}
+
+.add-group-feature-btn {
+  border: none;
+  color: var(--tone-1);
+  background-color: transparent;
 }
 
 /* Slides Viewer */
@@ -277,7 +310,7 @@ body {
 /* Slides Header */
 .slides-header {
   display: flex;
-  background-color: #161b22;
+  background-color: var(--tone-5);
 }
 
 .slides-progress {
@@ -328,19 +361,19 @@ body {
 }
 
 .inheader-slide-id {
-  color: var(--text-color);
-  background-color: #161b228d;
+  color: var(--tone-1);
+  background-color: var(--tone-5t);
   border: none;
   min-width: 220px;
   height: 32px;
   padding: 2px 8px;
   border-radius: 16px;
   margin-right: 18px;
-  box-shadow: 0 0 3px 2px #f0f6fc94;
+  box-shadow: 0 0 3px 2px var(--tone-2t);
 }
 
 .inheader-slide-id::placeholder {
-  color: #f0f6fc94;
+  color: var(--tone-2t);
   text-align: center;
   transform: translateX(-14px);
   font-size: 1.1em;
@@ -369,8 +402,8 @@ body {
   position: absolute;
   right: 40px;
   top: 20px;
-  color: var(--text-color);
-  background-color: #161b228d;
+  color: var(--tone-1);
+  background-color: var(--tone-5t);
   border: none;
   min-width: 190px;
   text-align: center;
