@@ -322,10 +322,23 @@ body {
 }
 
 .canvas-container {
+  position: relative;
   width: 100%;
   height: calc(100vh - 111px);
   display: flex;
   align-items: center;
+}
+
+.incanvas-slide-id {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  color: white;
+  background-color: #161b228d;
+  border: none;
+  min-width: 190px;
+  text-align: center;
+  padding: 2px 4px;
 }
 
 .canvas {
