@@ -72,7 +72,6 @@ body {
   grid-template-rows: 260px;
   gap: 40px;
   justify-items: center;
-  align-items: center;
   overflow: auto;
 }
 
@@ -88,6 +87,10 @@ body {
     #1f242c 100%
   );
   cursor: pointer;
+}
+
+.tutorial-progress:hover {
+  box-shadow: 0 0 20px 5px var(--tone-2t);
 }
 
 .tutorial-progress::after {
@@ -148,6 +151,10 @@ body {
   cursor: pointer;
 }
 
+.tutorial-add:hover {
+  box-shadow: 0 0 20px 5px var(--tone-2t);
+}
+
 .tutorial-add::before {
   content: '';
   width: 120px;
@@ -179,6 +186,7 @@ body {
 
 .app-xref {
   display: flex;
+  height: 68px;
   justify-content: space-evenly;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--tone-4);
@@ -267,6 +275,61 @@ body {
   height: 100%;
   border-left: var(--tone-4) solid 2px;
   padding: 16px;
+}
+
+.features-count {
+  display: flex;
+  height: 68px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--tone-4);
+}
+
+.features-count p {
+  margin: 0;
+  font-size: 1.2em;
+  display: block;
+  color: var(--tone-1);
+  text-align: center;
+  letter-spacing: 2;
+  transform: translateY(-8px);
+}
+
+.features-count p:nth-child(2) {
+  font-size: 1em;
+  color: var(--tone-3);
+}
+
+.features-collection {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-btn {
+  margin-bottom: 10px;
+  min-height: 32px;
+  font-size: 1.2em;
+  color: var(--tone-4);
+  border: 1px solid var(--tone-4);
+  background-color: transparent;
+}
+
+.feature-btn:last-of-type {
+  margin-bottom: 0px;
+}
+
+.feature-btn:hover {
+  color: var(--tone-1);
+}
+
+.feature-btn.active {
+  color: var(--tone-5);
+  background-color: var(--tone-1);
+}
+
+.feature-btn.active:hover {
+  color: var(--tone-5);
 }
 
 /* Common Navigation Styles */
