@@ -182,12 +182,12 @@ body {
   justify-content: space-evenly;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--tone-4);
+  cursor: pointer;
 }
 
 .app-name {
   color: var(--tone-1);
   font-size: 1.2em;
-  cursor: pointer;
 }
 
 .app-xref p {
@@ -265,7 +265,7 @@ body {
   background-color: var(--tone-5);
   min-width: 250px;
   height: 100%;
-  border-right: var(--tone-4) solid 2px;
+  border-left: var(--tone-4) solid 2px;
   padding: 16px;
 }
 
@@ -433,9 +433,9 @@ body {
 }
 
 .slide-controls {
-  transform: translateY(-56px);
+  transform: translateY(-60px);
   width: 100%;
-  height: 56px;
+  height: 60px;
   background-color: #161b2285;
   opacity: 0;
   transition: opacity 0.2s ease-in;
@@ -445,8 +445,25 @@ body {
   align-items: center;
 }
 
+.slide-controls.show {
+  opacity: 1;
+}
+
 .slides-viewer:hover .slide-controls {
   opacity: 1;
+}
+
+.slide-controls-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--tone-1);
+  height: 30px;
+  width: 110px;
+  border-radius: 15px;
+  box-shadow: 0 0 3px 2px var(--tone-2t);
+  font-size: 1.2em;
+  text-align: center;
+  transform: translateY(-2px);
 }
 
 /* Media Queries */

@@ -4,8 +4,8 @@ import slidesSketcher from './UI/slidesSketcher';
 import './main.css';
 
 const state = {
-  mode: 'viewer',
-  // mode: 'editor',
+  // mode: 'viewer',
+  mode: 'editor',
 };
 
 const viewerBtn = document.getElementById('viewer-btn');

@@ -85,9 +85,11 @@ export default function audioPlayer(state) {
     expandBtn.style.display = 'block';
     slideImg.style.display = 'block';
     canvas.style.display = 'none';
+    controlsEl.classList.remove('show');
   } else {
     expandBtn.style.display = 'none';
     slideImg.style.display = 'none';
     canvas.style.display = 'block';
+    controlsEl.classList.add('show');
   }
 }
