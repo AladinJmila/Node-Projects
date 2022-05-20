@@ -3,6 +3,13 @@ export default function audioPlayer(state) {
   const audio = document.querySelector('audio');
   const canvas = document.getElementById('canvas');
   const slideImg = document.getElementById('slide-img');
+  const incanvasSlideId = document.getElementById('incanvas-slide-id');
+  const addNotesBtn = document.getElementById('slide-add-notes-btn');
+  const showNotesBtn = document.getElementById('slide-show-notes-btn');
+  const slideSubmitBtn = document.getElementById('slide-submit-btn');
+  const addSlideEl = document.querySelector('.add-slide');
+  const addGroupFeature = document.querySelectorAll('.add-group-feature');
+
   const playIcon = `<i id='play-btn' class='fa fa-play'></i>`;
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
 
@@ -84,12 +91,28 @@ export default function audioPlayer(state) {
   if (state.mode === 'viewer') {
     expandBtn.style.display = 'block';
     slideImg.style.display = 'block';
-    canvas.style.display = 'none';
+    showNotesBtn.style.display = 'block';
     controlsEl.classList.remove('show');
+    canvas.style.display = 'none';
+    incanvasSlideId.style.display = 'none';
+    addSlideEl.style.display = 'none';
+    addNotesBtn.style.display = 'none';
+    slideSubmitBtn.style.display = 'none';
+    addGroupFeature.forEach(el => {
+      el.style.display = 'none';
+    });
   } else {
     expandBtn.style.display = 'none';
     slideImg.style.display = 'none';
-    canvas.style.display = 'block';
+    showNotesBtn.style.display = 'none';
     controlsEl.classList.add('show');
+    canvas.style.display = 'block';
+    incanvasSlideId.style.display = 'block';
+    addSlideEl.style.display = 'flex';
+    addNotesBtn.style.display = 'block';
+    slideSubmitBtn.style.display = 'block';
+    addGroupFeature.forEach(el => {
+      el.style.display = 'flex';
+    });
   }
 }

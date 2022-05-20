@@ -677,6 +677,12 @@ function audioPlayer(state) {
   var audio = document.querySelector('audio');
   var canvas = document.getElementById('canvas');
   var slideImg = document.getElementById('slide-img');
+  var incanvasSlideId = document.getElementById('incanvas-slide-id');
+  var addNotesBtn = document.getElementById('slide-add-notes-btn');
+  var showNotesBtn = document.getElementById('slide-show-notes-btn');
+  var slideSubmitBtn = document.getElementById('slide-submit-btn');
+  var addSlideEl = document.querySelector('.add-slide');
+  var addGroupFeature = document.querySelectorAll('.add-group-feature');
   var playIcon = "<i id='play-btn' class='fa fa-play'></i>";
   var pauseIcon = "<i id='play-btn' class='fa fa-pause'></i>";
 
@@ -755,13 +761,29 @@ function audioPlayer(state) {
   if (state.mode === 'viewer') {
     expandBtn.style.display = 'block';
     slideImg.style.display = 'block';
-    canvas.style.display = 'none';
+    showNotesBtn.style.display = 'block';
     controlsEl.classList.remove('show');
+    canvas.style.display = 'none';
+    incanvasSlideId.style.display = 'none';
+    addSlideEl.style.display = 'none';
+    addNotesBtn.style.display = 'none';
+    slideSubmitBtn.style.display = 'none';
+    addGroupFeature.forEach(function (el) {
+      el.style.display = 'none';
+    });
   } else {
     expandBtn.style.display = 'none';
     slideImg.style.display = 'none';
-    canvas.style.display = 'block';
+    showNotesBtn.style.display = 'none';
     controlsEl.classList.add('show');
+    canvas.style.display = 'block';
+    incanvasSlideId.style.display = 'block';
+    addSlideEl.style.display = 'flex';
+    addNotesBtn.style.display = 'block';
+    slideSubmitBtn.style.display = 'block';
+    addGroupFeature.forEach(function (el) {
+      el.style.display = 'flex';
+    });
   }
 }
 ;// CONCATENATED MODULE: ./src/UI/slidesSketcher.js
@@ -893,8 +915,8 @@ var update = injectStylesIntoStyleTag_default()(main/* default */.Z, options);
 
 
 var state = {
-  // mode: 'viewer',
-  mode: 'editor'
+  mode: 'viewer' // mode: 'editor',
+
 };
 var viewerBtn = document.getElementById('viewer-btn');
 var editorBtn = document.getElementById('editor-btn');
