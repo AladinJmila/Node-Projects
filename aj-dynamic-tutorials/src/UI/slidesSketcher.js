@@ -1,15 +1,15 @@
 export default function slidesSketcher(state) {
-  const canvasContainer = document.querySelector('.canvas-container');
+  const slidesBody = document.querySelector('.slides-body');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   let mousedown = false;
   const imageObj = new Image();
 
   function resizeCanvas() {
-    canvas.setAttribute('height', canvasContainer.clientHeight);
-    canvas.setAttribute('width', canvasContainer.clientWidth);
-    canvas.style.height = canvasContainer.clientHeight;
-    canvas.style.width = canvasContainer.clientWidth;
+    canvas.setAttribute('height', slidesBody.clientHeight);
+    canvas.setAttribute('width', slidesBody.clientWidth);
+    canvas.style.height = slidesBody.clientHeight;
+    canvas.style.width = slidesBody.clientWidth;
   }
 
   resizeCanvas();
