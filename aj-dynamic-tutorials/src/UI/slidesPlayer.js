@@ -3,6 +3,7 @@ export default function audioPlayer(state) {
   const audio = document.querySelector('audio');
   const canvas = document.getElementById('canvas');
   const slideImg = document.getElementById('slide-img');
+  const incanvasSlideName = document.getElementById('incanvas-slide-name');
   const incanvasSlideId = document.getElementById('incanvas-slide-id');
   const slideSubmitBtn = document.getElementById('slide-submit-btn');
   const addSlideEl = document.querySelector('.add-slide');
@@ -116,6 +117,7 @@ export default function audioPlayer(state) {
     notesContent.style.display = 'block';
     controlsEl.classList.remove('show');
     canvas.style.display = 'none';
+    incanvasSlideName.style.display = 'none';
     incanvasSlideId.style.display = 'none';
     addSlideEl.style.display = 'none';
     addNotesBtn.style.display = 'none';
@@ -132,6 +134,7 @@ export default function audioPlayer(state) {
     notesContent.style.display = 'none';
     controlsEl.classList.add('show');
     canvas.style.display = 'block';
+    incanvasSlideName.style.display = 'block';
     incanvasSlideId.style.display = 'block';
     addSlideEl.style.display = 'flex';
     addNotesBtn.style.display = 'block';

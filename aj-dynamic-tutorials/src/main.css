@@ -461,6 +461,24 @@ body {
   align-items: center;
 }
 
+.incanvas-slide-name {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  color: var(--tone-1);
+  background-color: var(--tone-5t);
+  border: none;
+  min-width: 190px;
+  padding: 2px 4px;
+  font-size: 1.1em;
+}
+
+.incanvas-slide-name::placeholder {
+  font-size: 1.1em;
+  color: var(--tone-2t);
+  text-align: center;
+}
+
 .incanvas-slide-id {
   position: absolute;
   right: 40px;
@@ -469,7 +487,6 @@ body {
   background-color: var(--tone-5t);
   border: none;
   min-width: 190px;
-  text-align: center;
   padding: 2px 4px;
 }
 
