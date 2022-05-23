@@ -81,9 +81,7 @@ body {
   height: 230px;
   border-radius: 50%;
   background: conic-gradient(
-    #8b949e 0%,
-    #8b949e 60%,
-    #1f242c 60%,
+    /* #8b949e 0%, */ /* #8b949e 60%, */ #1f242c 0%,
     #1f242c 100%
   );
   cursor: pointer;
@@ -102,6 +100,7 @@ body {
   top: 0px;
   left: 0px;
   border: #2b333e solid 2px;
+  z-index: 0;
 }
 
 .tutorial {
@@ -129,11 +128,16 @@ body {
   top: 0px;
   left: 0px;
   border: #2b333e solid 2px;
+  z-index: 0;
 }
 
 .tutorial-title {
   letter-spacing: 4;
   font-size: 1.8em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 90px;
+  white-space: nowrap;
 }
 
 .tutorial-add {
@@ -149,6 +153,47 @@ body {
   align-items: center;
   text-align: center;
   cursor: pointer;
+}
+
+.tuto-add-container {
+  background-color: var(--tone-3);
+}
+
+.title-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* z-index: 100; */
+  width: 100%;
+  height: 100%;
+}
+
+.title-container textarea {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  color: var(--tone-1);
+  border: none;
+  text-align: center;
+  letter-spacing: 4;
+  font-size: 1.8em;
+  width: 160px;
+  background-color: var(--tone-5);
+  /* width: 100%; */
+  /* height: 100%; */
+  /* z-index: 1000; */
+  resize: none;
+  outline: none;
+}
+
+.title-container textarea::placeholder {
+  text-align: center;
+  color: var(--tone-2t);
+}
+
+.title-container textarea::-webkit-scrollbar {
+  display: none;
 }
 
 .tutorial-add:hover {

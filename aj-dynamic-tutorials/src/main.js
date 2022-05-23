@@ -1,6 +1,7 @@
 import UIActions from './UI/UIActions';
 import slidesPlayer from './UI/slidesPlayer';
 import slidesSketcher from './UI/slidesSketcher';
+import homeDashboard from './UI/homeDashboard';
 import './main.css';
 
 const state = {
@@ -36,6 +37,7 @@ editorBtn.addEventListener('click', () => {
   editorBtn.classList.add('active');
 });
 
-UIActions();
-slidesPlayer(state);
-slidesSketcher(state);
+// UIActions();
+// slidesPlayer(state);
+// slidesSketcher(state);
+homeDashboard();
