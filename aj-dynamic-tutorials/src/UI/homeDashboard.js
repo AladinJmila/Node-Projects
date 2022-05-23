@@ -23,8 +23,18 @@ export default function homeDashboard() {
     );
 
     const tutoNameInput = document.querySelector('.title-container textarea');
-    tutoNameInput.addEventListener('blur', () => {
-      console.log(tutoNameInput.value);
+    tutoNameInput.addEventListener('blur', async () => {
+      const response = await fetch('/tuto-apps', {
+        method: 'post',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({ name: tutoNameInput.value }),
+      });
+
+      console.log(response);
+      if (response) {
+        console.log(response.url);
+        window.location = response.url;
+      }
     });
   });
 }

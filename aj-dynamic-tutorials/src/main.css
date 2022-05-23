@@ -134,10 +134,10 @@ body {
 .tutorial-title {
   letter-spacing: 4;
   font-size: 1.8em;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  max-height: 90px;
-  white-space: nowrap;
+  /* text-overflow: ellipsis; */
+  /* overflow: hidden; */
+  /* max-height: 90px; */
+  /* white-space: nowrap; */
 }
 
 .tutorial-add {

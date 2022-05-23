@@ -15,7 +15,7 @@ const Feature = require('./models/feature');
 // Load routes
 const general = require('./routes/general');
 const media = require('./routes/media');
-const tutoApps = require('./router/tutoApps');
+const tutoApps = require('./routes/tutoApps');
 
 // Launch server
 const port = process.env.PORT || 4500;
