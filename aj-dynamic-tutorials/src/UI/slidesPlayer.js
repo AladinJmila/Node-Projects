@@ -5,6 +5,8 @@ export default function audioPlayer(state) {
   const slideImg = document.getElementById('slide-img');
   const incanvasSlideName = document.getElementById('incanvas-slide-name');
   const incanvasSlideId = document.getElementById('incanvas-slide-id');
+  const prevSlideBtn = document.getElementById('prev-btn');
+  const nextSlideBtn = document.getElementById('next-btn');
   const slideSubmitBtn = document.getElementById('slide-submit-btn');
   const addSlideEl = document.querySelector('.add-slide');
   const addGroupFeature = document.querySelectorAll('.add-group-feature');
