@@ -4,8 +4,8 @@ const Application = require('../models/application');
 
 router.get('/show', async (req, res) => {
   let data = [];
-  const tutoApps = await Application.find().lean();
-  tutoApps.forEach(item => {
+  const tutorials = await Application.find().lean();
+  tutorials.forEach(item => {
     const progress = parseInt((item.watchedDuration / item.duration) * 100);
     data.push({
       _id: item._id,
@@ -13,8 +13,13 @@ router.get('/show', async (req, res) => {
       progress: progress ? progress : 0,
     });
   });
-  console.log(data);
   res.render('index', { data });
+});
+
+router.get('/show/:id', async (req, res) => {
+  const tutorial = await Application.findById(req.params.id).lean();
+
+  res.render('workspace', { tutorial });
 });
 
 router.post('/', async (req, res) => {

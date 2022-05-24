@@ -6,6 +6,7 @@ const Application = mongoose.model(
     name: { type: String, required: true },
     duration: { type: Number, default: 0 },
     watchedDuration: { type: Number, default: 0 },
+    url: { type: String, default: '' },
     groups: [
       {
         type: mongoose.Schema.Types.ObjectId,

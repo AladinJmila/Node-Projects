@@ -1,6 +1,7 @@
 export default function homeDashboard() {
   const addTutoBtn = document.getElementById('tutorial-add-btn');
   const tutoContainer = document.querySelector('.tutorials-container');
+  const tutos = document.querySelectorAll('.tutorial-progress');
 
   addTutoBtn.addEventListener('click', () => {
     const div = document.createElement('div');
@@ -24,16 +25,26 @@ export default function homeDashboard() {
 
     const tutoNameInput = document.querySelector('.title-container textarea');
     tutoNameInput.addEventListener('blur', async () => {
-      const response = await fetch('/tuto-apps', {
+      const res = await fetch('/tutorials', {
         method: 'post',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify({ name: tutoNameInput.value }),
       });
 
-      console.log(response);
-      if (response) {
-        console.log(response.url);
-        window.location = response.url;
+      if (res) {
+        window.location = res.url;
+      }
+    });
+  });
+
+  function openTuto() {}
+
+  tutos.forEach(tuto => {
+    tuto.addEventListener('click', async () => {
+      const res = await fetch(`/tutorials/show/${tuto.id}`);
+
+      if (res) {
+        window.location = res.url;
       }
     });
   });

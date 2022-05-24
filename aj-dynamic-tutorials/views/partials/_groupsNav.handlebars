@@ -1,8 +1,10 @@
 <nav class='groups'>
-  <div class='app-xref'>
-    <div class='app-name'>Dynamic <br /> Tutorials</div>
+  <a class='app-xref' href='{{tutorial.url}}' target='_blank'>
+    {{! <div > }}
+    <div class='app-name'>{{{breakWords tutorial.name}}}</div>
     <p>click to visit</p>
-  </div>
+    {{! </div> }}
+  </a>
   <div class='groups-collection'>
     <div class='groups-nav'>
       <button class='dropdown-btn'>
