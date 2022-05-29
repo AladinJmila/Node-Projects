@@ -264,9 +264,16 @@ body {
 }
 
 /* Groups Navigation */
+.groups-collection {
+  height: 80vh;
+  overflow-y: auto;
+  direction: rtl;
+}
+
 .groups-nav {
   padding-left: 5px;
   margin-bottom: 10px;
+  direction: ltr;
 }
 
 .groups-nav a {
@@ -718,4 +725,16 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tone-4);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--tone-2t);
 }
