@@ -27,7 +27,7 @@ export default function homeDashboard() {
     tutoNameInput.addEventListener('blur', async () => {
       const res = await fetch('/tutorials', {
         method: 'post',
-        headers: { 'Content-type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: tutoNameInput.value }),
       });
 

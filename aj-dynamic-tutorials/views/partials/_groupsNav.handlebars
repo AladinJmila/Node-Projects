@@ -1,18 +1,41 @@
 <nav class='groups'>
   <a class='app-xref' href='{{tutorial.url}}' target='_blank'>
-    {{! <div > }}
     <div class='app-name'>{{{breakWords tutorial.name}}}</div>
     <p>click to visit</p>
-    {{! </div> }}
   </a>
   <div class='groups-collection'>
-    <div class='groups-nav'>
-      <button class='dropdown-btn'>
-        Home
-        <i class='fa fa-caret-down'></i>
-      </button>
-    </div>
-    <div class='groups-nav'>
+    {{#if groups}}
+      {{#each groups}}
+        <div class='groups-nav'>
+          <button class='dropdown-btn'>
+            {{name}}
+            <i class='fa fa-caret-down'></i>
+          </button>
+          <div class='dropdown-container'>
+            {{#if groups}}
+              boo
+            {{/if}}
+            <div class='add-group-feature'>
+              <input
+                id='group-name'
+                type='text'
+                class='group-feature-name group-name'
+                placeholder='enter name'
+                data-app-id='{{../tutorial._id}}'
+                data-group-id='{{_id}}'
+              />
+              <button 
+              class='add-group-feature-btn add-group-btn' 
+              {{!-- id='add-group-btn' --}}
+              >
+                <i class='fa fa-plus fa-lg'></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+    {{!  <div class='groups-nav'>
       <button class='dropdown-btn'>
         Viewer
         <i class='fa fa-caret-down'></i>
@@ -23,13 +46,21 @@
         Editor
         <i class='fa fa-caret-down'></i>
       </button>
-    </div>
+    </div> }}
   </div>
   <div class='add-group-feature'>
-    <input type='text' class='group-feature-name' placeholder='enter name' />
-    <button class='add-group-feature-btn' id='add-group-feature-btn'><i
-        class='fa fa-plus fa-lg'
-      ></i>
+    <input
+      {{!-- id='group-name' --}}
+      type='text'
+      class='group-feature-name group-name'
+      placeholder='enter name'
+      data-app-id='{{tutorial._id}}'
+    />
+    <button 
+    class='add-group-feature-btn add-group-btn' 
+    {{!-- id='add-group-btn' --}}
+    >
+      <i class='fa fa-plus fa-lg'></i>
     </button>
   </div>
   {{! <div class='groups-nav'>

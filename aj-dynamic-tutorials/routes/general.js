@@ -5,7 +5,7 @@ const { createMedia } = require('../models/feature');
 router.get('/', async (req, res) => {
   // await createMedia();
 
-  res.render('index');
+  res.redirect('/tutorials/show');
 });
 
 module.exports = router;

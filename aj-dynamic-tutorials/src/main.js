@@ -1,4 +1,4 @@
-import UIActions from './UI/UIActions';
+import groupsActions from './UI/groupsActions';
 import slidesPlayer from './UI/slidesPlayer';
 import slidesSketcher from './UI/slidesSketcher';
 import homeDashboard from './UI/homeDashboard';
@@ -37,7 +37,11 @@ editorBtn.addEventListener('click', () => {
   editorBtn.classList.add('active');
 });
 
-// UIActions();
-// slidesPlayer(state);
-// slidesSketcher(state);
-homeDashboard();
+if (!/tutorials\/show$/.test(location.href)) {
+  groupsActions();
+  slidesPlayer(state);
+  slidesSketcher(state);
+}
+if (/tutorials\/show$/.test(location.href)) {
+  homeDashboard();
+}

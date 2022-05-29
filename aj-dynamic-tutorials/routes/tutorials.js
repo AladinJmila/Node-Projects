@@ -1,6 +1,7 @@
 const app = require('express');
 const router = app.Router();
 const Application = require('../models/application');
+const Group = require('../models/group');
 
 router.get('/show', async (req, res) => {
   let data = [];
@@ -18,8 +19,10 @@ router.get('/show', async (req, res) => {
 
 router.get('/show/:id', async (req, res) => {
   const tutorial = await Application.findById(req.params.id).lean();
+  const groups = await Group.find({ application: req.params.id }).lean();
+  console.log(groups);
 
-  res.render('workspace', { tutorial });
+  res.render('workspace', { tutorial, groups });
 });
 
 router.post('/', async (req, res) => {
@@ -30,7 +33,7 @@ router.post('/', async (req, res) => {
   // console.log(req.body.name);
   await tutoApp.save();
 
-  res.redirect('/tuto-apps/show');
+  res.redirect('/tutorials/show');
 });
 
 module.exports = router;

@@ -11,6 +11,12 @@ const Group = mongoose.model(
     name: { type: String, required: true },
     duration: { type: Number, default: 0 },
     watchedDuration: { type: Number, default: 0 },
+    groups: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Groups',
+      },
+    ],
     features: [
       {
         type: mongoose.Schema.Types.ObjectId,
