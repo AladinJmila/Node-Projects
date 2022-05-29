@@ -147,4 +147,33 @@ export default function audioPlayer(state) {
       el.style.display = 'flex';
     });
   }
+
+  // const groupsCollection = document.querySelector('.groups-collection');
+
+  // const groupsObserver = new MutationObserver(mutations => {
+  //   mutations.forEach(mutation => {
+  //     console.log('boo');
+  //     if (!mutation.addedNodes) return;
+
+  //     const addGroupFeature = document.querySelectorAll('.add-group-feature');
+  //     console.log(addGroupFeature);
+
+  //     if (addGroupFeature) {
+  //       if (state.mode === 'viewer') {
+  //         addGroupFeature.forEach(el => {
+  //           el.style.display = 'none';
+  //         });
+  //       } else {
+  //         addGroupFeature.forEach(el => {
+  //           el.style.display = 'flex';
+  //         });
+  //       }
+  //     }
+  //   });
+  // });
+
+  // groupsObserver.observe(groupsCollection, {
+  //   childList: true,
+  //   subtree: true,
+  // });
 }

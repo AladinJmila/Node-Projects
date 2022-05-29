@@ -3,18 +3,23 @@ const Group = require('../models/group');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  // if (req.body.parentGroup) {
-
-  // }
-
   const group = new Group({
     application: req.body.application,
     name: req.body.name,
+    isTopLevel: !Boolean(req.body.parentGroupId),
   });
 
   await group.save();
 
-  res.status(200);
+  if (req.body.parentGroupId) {
+    const parentGroup = await Group.findById(req.body.parentGroupId);
+    parentGroup.groups.push(group._id);
+
+    await parentGroup.save();
+  }
+
+  // res.redirect(`/tutorials/show/${req.body.application}`);//
+  res.status(200).send('Success');
 });
 
 module.exports = router;

@@ -11,10 +11,11 @@ const Group = mongoose.model(
     name: { type: String, required: true },
     duration: { type: Number, default: 0 },
     watchedDuration: { type: Number, default: 0 },
+    isTopLevel: { type: Boolean, default: false },
     groups: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Groups',
+        ref: 'Group',
       },
     ],
     features: [

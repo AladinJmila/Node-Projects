@@ -27,17 +27,20 @@ export default function UIActions() {
     btn.addEventListener('click', async () => {
       const name = groupsNames[i].value;
       const appId = groupsNames[i].dataset.appId;
-      const parentGroup = groupsNames[i].dataset.groupId;
+      const parentGroupId = groupsNames[i].dataset.groupId;
 
-      await fetch('/groups', {
+      const res = await fetch('/groups', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name,
           application: appId,
-          parentGroup,
+          parentGroupId,
         }),
       });
+      if (res) {
+        location.reload();
+      }
     });
   });
 }

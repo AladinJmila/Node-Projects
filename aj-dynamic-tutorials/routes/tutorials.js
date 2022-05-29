@@ -19,8 +19,14 @@ router.get('/show', async (req, res) => {
 
 router.get('/show/:id', async (req, res) => {
   const tutorial = await Application.findById(req.params.id).lean();
-  const groups = await Group.find({ application: req.params.id }).lean();
-  console.log(groups);
+  const groups = await Group.find({
+    application: req.params.id,
+    isTopLevel: true,
+  })
+    .populate({ path: 'groups', populate: 'groups' })
+    .lean();
+
+  groups.forEach(g => console.log(g.groups));
 
   res.render('workspace', { tutorial, groups });
 });

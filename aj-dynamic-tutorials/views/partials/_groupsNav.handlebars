@@ -12,8 +12,43 @@
             <i class='fa fa-caret-down'></i>
           </button>
           <div class='dropdown-container'>
+            <!-- level 2 start -->
             {{#if groups}}
-              boo
+              {{#each groups}}
+                <div class='groups-nav'  style="margin-left: 5px;">
+                  <button class='dropdown-btn'>
+                    {{name}}
+                    <i class='fa fa-caret-down'></i>
+                  </button>
+                  <div class='dropdown-container'>
+                    <!-- level 3 start -->
+                     {{#if groups}}
+                      {{#each groups}}
+                        <div class='groups-nav'  style="margin-left: 5px;">
+                          <button class='dropdown-btn'>
+                            {{name}}
+                            <i class='fa fa-caret-down'></i>
+                          </button>
+                        </div>
+                      {{/each}}
+                    {{/if}}
+                    <!-- level 3 end -->
+                    <div class='add-group-feature'>
+                      <input
+                        id='group-name'
+                        type='text'
+                        class='group-feature-name group-name'
+                        placeholder='enter name'
+                        data-app-id='{{../../tutorial._id}}'
+                        data-group-id='{{_id}}'
+                      />
+                      <button class='add-group-feature-btn add-group-btn' >
+                        <i class='fa fa-plus fa-lg'></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
             {{/if}}
             <div class='add-group-feature'>
               <input
@@ -24,64 +59,25 @@
                 data-app-id='{{../tutorial._id}}'
                 data-group-id='{{_id}}'
               />
-              <button 
-              class='add-group-feature-btn add-group-btn' 
-              {{!-- id='add-group-btn' --}}
-              >
+              <button class='add-group-feature-btn add-group-btn' >
                 <i class='fa fa-plus fa-lg'></i>
               </button>
             </div>
+            <!-- level 2 end -->
           </div>
         </div>
       {{/each}}
     {{/if}}
-    {{!  <div class='groups-nav'>
-      <button class='dropdown-btn'>
-        Viewer
-        <i class='fa fa-caret-down'></i>
-      </button>
-    </div>
-    <div class='groups-nav'>
-      <button class='dropdown-btn'>
-        Editor
-        <i class='fa fa-caret-down'></i>
-      </button>
-    </div> }}
   </div>
   <div class='add-group-feature'>
     <input
-      {{!-- id='group-name' --}}
       type='text'
       class='group-feature-name group-name'
       placeholder='enter name'
       data-app-id='{{tutorial._id}}'
     />
-    <button 
-    class='add-group-feature-btn add-group-btn' 
-    {{!-- id='add-group-btn' --}}
-    >
+    <button class='add-group-feature-btn add-group-btn'>
       <i class='fa fa-plus fa-lg'></i>
     </button>
   </div>
-  {{! <div class='groups-nav'>
-    <button class='dropdown-btn'>
-      Home
-      <i class='fa fa-caret-down'></i>
-    </button>
-    <div class='dropdown-container'>
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
-      <div class='groups-nav'>
-        <button class='dropdown-btn'>
-          Editor
-          <i class='fa fa-caret-down'></i>
-        </button>
-        <div class='dropdown-container'>
-          <a href='#'>Link 3</a>
-          <a href='#'>Link 4</a>
-        </div>
-      </div>
-    </div>
-  </div> }}
 </nav>

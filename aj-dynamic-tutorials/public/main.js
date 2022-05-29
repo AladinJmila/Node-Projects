@@ -1506,14 +1506,14 @@ function UIActions() {
   });
   addGroupBtns.forEach(function (btn, i) {
     btn.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee() {
-      var name, appId, parentGroup;
+      var name, appId, parentGroupId, res;
       return regenerator_default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               name = groupsNames[i].value;
               appId = groupsNames[i].dataset.appId;
-              parentGroup = groupsNames[i].dataset.groupId;
+              parentGroupId = groupsNames[i].dataset.groupId;
               _context.next = 5;
               return fetch('/groups', {
                 method: 'post',
@@ -1523,11 +1523,18 @@ function UIActions() {
                 body: JSON.stringify({
                   name: name,
                   application: appId,
-                  parentGroup: parentGroup
+                  parentGroupId: parentGroupId
                 })
               });
 
             case 5:
+              res = _context.sent;
+
+              if (res) {
+                location.reload();
+              }
+
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -1680,7 +1687,31 @@ function audioPlayer(state) {
     addGroupFeature.forEach(function (el) {
       el.style.display = 'flex';
     });
-  }
+  } // const groupsCollection = document.querySelector('.groups-collection');
+  // const groupsObserver = new MutationObserver(mutations => {
+  //   mutations.forEach(mutation => {
+  //     console.log('boo');
+  //     if (!mutation.addedNodes) return;
+  //     const addGroupFeature = document.querySelectorAll('.add-group-feature');
+  //     console.log(addGroupFeature);
+  //     if (addGroupFeature) {
+  //       if (state.mode === 'viewer') {
+  //         addGroupFeature.forEach(el => {
+  //           el.style.display = 'none';
+  //         });
+  //       } else {
+  //         addGroupFeature.forEach(el => {
+  //           el.style.display = 'flex';
+  //         });
+  //       }
+  //     }
+  //   });
+  // });
+  // groupsObserver.observe(groupsCollection, {
+  //   childList: true,
+  //   subtree: true,
+  // });
+
 }
 ;// CONCATENATED MODULE: ./src/UI/slidesSketcher.js
 function slidesSketcher(state) {
