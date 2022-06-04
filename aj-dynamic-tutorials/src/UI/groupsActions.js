@@ -1,4 +1,5 @@
-export default function UIActions() {
+export let selectedGroupId = '';
+export default function groupsActions() {
   const dropDownBtns = document.querySelectorAll('.dropdown-btn');
   const featureBtn = document.querySelectorAll('.feature-btn');
   const groupsNames = Array.from(document.querySelectorAll('.group-name'));
@@ -7,6 +8,18 @@ export default function UIActions() {
   dropDownBtns.forEach(btn => {
     btn.addEventListener('click', function () {
       this.classList.toggle('active');
+      const selectedGroupIdEl = document.getElementById('selected-group-id');
+      const { selectedGroupId } = selectedGroupIdEl.dataset;
+      if (selectedGroupId === this.dataset.groupId) {
+        selectedGroupIdEl.setAttribute('data-selected-group-id', '');
+      } else {
+        selectedGroupIdEl.setAttribute(
+          'data-selected-group-id',
+          this.dataset.groupId
+        );
+      }
+      const note = document.getElementById('add-feature-note');
+      note.classList.remove('show');
       const dropdownContent = this.nextElementSibling;
       if (dropdownContent) {
         dropdownContent.style.display === 'block'

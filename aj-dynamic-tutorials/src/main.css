@@ -390,12 +390,23 @@ body {
   color: var(--tone-5);
 }
 
+#add-feature-note {
+  margin-top: 8px;
+  color: #f9d17c;
+  text-align: center;
+  display: none;
+}
+#add-feature-note.show {
+  display: block;
+}
+
 /* Common Navigation Styles */
 .add-group-feature {
   display: flex;
   border: 2px dashed var(--tone-3);
   padding: 4px;
   margin-top: 24px;
+  direction: ltr;
 }
 
 .group-feature-name {
@@ -737,4 +748,5 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--tone-2t);
+  border-radius: 3px;
 }

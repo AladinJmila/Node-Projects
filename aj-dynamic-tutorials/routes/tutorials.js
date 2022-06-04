@@ -26,8 +26,6 @@ router.get('/show/:id', async (req, res) => {
     .populate({ path: 'groups', populate: 'groups' })
     .lean();
 
-  groups.forEach(g => console.log(g.groups));
-
   res.render('workspace', { tutorial, groups });
 });
 
@@ -36,7 +34,6 @@ router.post('/', async (req, res) => {
     name: req.body.name,
   });
 
-  // console.log(req.body.name);
   await tutoApp.save();
 
   res.redirect('/tutorials/show');

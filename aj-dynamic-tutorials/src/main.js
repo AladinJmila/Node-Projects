@@ -3,6 +3,7 @@ import slidesPlayer from './UI/slidesPlayer';
 import slidesSketcher from './UI/slidesSketcher';
 import homeDashboard from './UI/homeDashboard';
 import './main.css';
+import featuresActions from './UI/featruesActions';
 
 const state = {
   mode: 'viewer',
@@ -39,6 +40,7 @@ editorBtn.addEventListener('click', () => {
 
 if (!/tutorials\/show$/.test(location.href)) {
   groupsActions();
+  featuresActions();
   slidesPlayer(state);
   slidesSketcher(state);
 }
