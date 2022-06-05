@@ -1,4 +1,5 @@
 const app = require('express');
+const { populate } = require('../models/application');
 const router = app.Router();
 const Application = require('../models/application');
 const Group = require('../models/group');
@@ -23,7 +24,20 @@ router.get('/show/:id', async (req, res) => {
     application: req.params.id,
     isTopLevel: true,
   })
-    .populate({ path: 'groups', populate: 'groups' })
+    .populate({
+      path: 'groups',
+      populate: [
+        { path: 'groups', model: 'Group' },
+        { path: 'features', model: 'Feature' },
+        {
+          path: 'groups',
+          populate: [
+            { path: 'groups', model: 'Group' },
+            { path: 'features', model: 'Feature' },
+          ],
+        },
+      ],
+    })
     .populate('features')
     .lean();
 

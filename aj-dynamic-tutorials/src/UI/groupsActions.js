@@ -4,6 +4,9 @@ export default function groupsActions() {
   const groupsNames = Array.from(document.querySelectorAll('.group-name'));
   const addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
   const selectedGroupNameEl = document.getElementById('selected-group-name');
+  const featuresColletctions = document.querySelectorAll(
+    '.features-collection'
+  );
 
   dropDownBtns.forEach(btn => {
     btn.addEventListener('click', function () {
@@ -29,6 +32,12 @@ export default function groupsActions() {
         selectedGroupNameEl.innerText = featuresState.dataset.selectedGroupName;
       }
 
+      featuresColletctions.forEach(fc => {
+        fc.dataset.groupId === featuresState.dataset.selectedGroupId
+          ? (fc.style.display = 'flex')
+          : (fc.style.display = 'none');
+      });
+
       const note = document.getElementById('add-feature-note');
       note.classList.remove('show');
       const dropdownContent = this.nextElementSibling;
@@ -52,18 +61,19 @@ export default function groupsActions() {
       const name = groupsNames[i].value;
       const appId = groupsNames[i].dataset.appId;
       const parentGroupId = groupsNames[i].dataset.groupId;
+      if (name) {
+        const res = await fetch('/groups', {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            application: appId,
+            parentGroupId,
+          }),
+        });
 
-      const res = await fetch('/groups', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          application: appId,
-          parentGroupId,
-        }),
-      });
-
-      if (res) location.reload();
+        if (res) location.reload();
+      }
     });
   });
 }

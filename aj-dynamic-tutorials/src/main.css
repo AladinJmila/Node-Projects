@@ -360,7 +360,7 @@ body {
 }
 
 .features-collection {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 

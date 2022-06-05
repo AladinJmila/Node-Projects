@@ -4,12 +4,39 @@
   <div class='features-count'>
     <p id='selected-group-name'>select a group</p>
   </div>
-  <div class='features-collection'>
-    {{! <button class='feature-btn'>Feature 1</button>
-    <button class='feature-btn'>Feature 2</button>
-    <button class='feature-btn'>Feature 3</button>
-    <button class='feature-btn'>Feature 4</button> }}
-  </div>
+  {{#if groups}}
+    {{#each groups}}
+      <div class='features-collection' data-group-id='{{_id}}'>
+        {{#if features}}
+          {{#each features}}
+            <button class='feature-btn' id='{{_id}}'>{{name}}</button>
+          {{/each}}
+        {{/if}}
+      </div>
+      {{#if groups}}
+        {{#each groups}}
+          <div class='features-collection' data-group-id='{{_id}}'>
+            {{#if features}}
+              {{#each features}}
+                <button class='feature-btn' id='{{_id}}'>{{name}}</button>
+              {{/each}}
+            {{/if}}
+          </div>
+          {{#if groups}}
+            {{#each groups}}
+              <div class='features-collection' data-group-id='{{_id}}'>
+                {{#if features}}
+                  {{#each features}}
+                    <button class='feature-btn' id='{{_id}}'>{{name}}</button>
+                  {{/each}}
+                {{/if}}
+              </div>
+            {{/each}}
+          {{/if}}
+        {{/each}}
+      {{/if}}
+    {{/each}}
+  {{/if}}
   <div class='add-group-feature'>
     <input
       type='text'
