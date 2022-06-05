@@ -10,6 +10,7 @@ export default function audioPlayer(state) {
   const slideSubmitBtn = document.getElementById('slide-submit-btn');
   const addSlideEl = document.querySelector('.add-slide');
   const addGroupFeature = document.querySelectorAll('.add-group-feature');
+  const addExistingFeaure = document.querySelector('.add-existing-feature');
   const playIcon = `<i id='play-btn' class='fa fa-play'></i>`;
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
 
@@ -122,6 +123,7 @@ export default function audioPlayer(state) {
     incanvasSlideName.style.display = 'none';
     incanvasSlideId.style.display = 'none';
     addSlideEl.style.display = 'none';
+    addExistingFeaure.style.display = 'none';
     addNotesBtn.style.display = 'none';
     slideSubmitBtn.style.display = 'none';
     notesTextarea.style.display = 'none';
@@ -139,6 +141,7 @@ export default function audioPlayer(state) {
     incanvasSlideName.style.display = 'block';
     incanvasSlideId.style.display = 'block';
     addSlideEl.style.display = 'flex';
+    addExistingFeaure.style.display = 'flex';
     addNotesBtn.style.display = 'block';
     slideSubmitBtn.style.display = 'block';
     notesTextarea.style.display = 'block';
@@ -147,33 +150,4 @@ export default function audioPlayer(state) {
       el.style.display = 'flex';
     });
   }
-
-  // const groupsCollection = document.querySelector('.groups-collection');
-
-  // const groupsObserver = new MutationObserver(mutations => {
-  //   mutations.forEach(mutation => {
-  //     console.log('boo');
-  //     if (!mutation.addedNodes) return;
-
-  //     const addGroupFeature = document.querySelectorAll('.add-group-feature');
-  //     console.log(addGroupFeature);
-
-  //     if (addGroupFeature) {
-  //       if (state.mode === 'viewer') {
-  //         addGroupFeature.forEach(el => {
-  //           el.style.display = 'none';
-  //         });
-  //       } else {
-  //         addGroupFeature.forEach(el => {
-  //           el.style.display = 'flex';
-  //         });
-  //       }
-  //     }
-  //   });
-  // });
-
-  // groupsObserver.observe(groupsCollection, {
-  //   childList: true,
-  //   subtree: true,
-  // });
 }
