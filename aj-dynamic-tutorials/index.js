@@ -17,6 +17,7 @@ const general = require('./routes/general');
 const media = require('./routes/media');
 const tutorials = require('./routes/tutorials');
 const groups = require('./routes/groups');
+const features = require('./routes/features');
 
 // Launch server
 const port = process.env.PORT || 4500;
@@ -81,6 +82,7 @@ app.use('/', general);
 app.use('/media', media);
 app.use('/tutorials', tutorials);
 app.use('/groups', groups);
+app.use('/features', features);
 
 // gridfs related imports and operations
 const crypto = require('crypto');

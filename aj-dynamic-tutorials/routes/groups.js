@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
   }
 
   // res.redirect(`/tutorials/show/${req.body.application}`);//
-  res.status(200).send('Success');
+  res.send('Success');
 });
 
 module.exports = router;

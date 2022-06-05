@@ -62,9 +62,8 @@ export default function groupsActions() {
           parentGroupId,
         }),
       });
-      if (res) {
-        location.reload();
-      }
+
+      if (res) location.reload();
     });
   });
 }

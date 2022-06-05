@@ -24,6 +24,7 @@ router.get('/show/:id', async (req, res) => {
     isTopLevel: true,
   })
     .populate({ path: 'groups', populate: 'groups' })
+    .populate('features')
     .lean();
 
   res.render('workspace', { tutorial, groups });

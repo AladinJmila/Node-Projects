@@ -535,7 +535,8 @@ body {
   top: 26px;
 }
 
-.add-slide-btn i {
+.add-slide-btn i,
+.add-existing-feature-btn i {
   transform: translateY(1px);
 }
 
