@@ -1483,22 +1483,26 @@ var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 ;// CONCATENATED MODULE: ./src/UI/groupsActions.js
 
 
-var selectedGroupId = '';
 function groupsActions() {
   var dropDownBtns = document.querySelectorAll('.dropdown-btn');
   var featureBtn = document.querySelectorAll('.feature-btn');
   var groupsNames = Array.from(document.querySelectorAll('.group-name'));
   var addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
+  var selectedGroupNameEl = document.getElementById('selected-group-name');
   dropDownBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       this.classList.toggle('active');
-      var selectedGroupIdEl = document.getElementById('selected-group-id');
-      var selectedGroupId = selectedGroupIdEl.dataset.selectedGroupId;
+      var featuresState = document.getElementById('features-state');
+      var selectedGroupId = featuresState.dataset.selectedGroupId;
 
-      if (selectedGroupId === this.dataset.groupId) {
-        selectedGroupIdEl.setAttribute('data-selected-group-id', '');
+      if (selectedGroupId === this.dataset.groupId || !this.classList.contains('active')) {
+        featuresState.setAttribute('data-selected-group-id', '');
+        featuresState.setAttribute('data-selected-group-name', '');
+        selectedGroupNameEl.innerText = 'select a group';
       } else {
-        selectedGroupIdEl.setAttribute('data-selected-group-id', this.dataset.groupId);
+        featuresState.setAttribute('data-selected-group-id', this.dataset.groupId);
+        featuresState.setAttribute('data-selected-group-name', this.dataset.groupName);
+        selectedGroupNameEl.innerText = featuresState.dataset.selectedGroupName;
       }
 
       var note = document.getElementById('add-feature-note');
@@ -1925,8 +1929,8 @@ var update = injectStylesIntoStyleTag_default()(main/* default */.Z, options);
 function featuresActions() {
   var addFeatureBtn = document.getElementById('add-feature-btn');
   addFeatureBtn.addEventListener('click', function () {
-    var selectedGroupIdEl = document.getElementById('selected-group-id');
-    var selectedGroupId = selectedGroupIdEl.dataset.selectedGroupId;
+    var featuresState = document.getElementById('features-state');
+    var selectedGroupId = featuresState.dataset.selectedGroupId;
     var note = document.getElementById('add-feature-note');
     if (!selectedGroupId) note.classList.add('show');
   });
