@@ -1,6 +1,6 @@
 import groupsActions from './UI/groupsActions';
 import slidesPlayer from './UI/slidesPlayer';
-import slidesSketcher from './UI/slidesSketcher';
+import slidesEditor from './UI/slidesEditor';
 import homeDashboard from './UI/homeDashboard';
 import './main.css';
 import featuresActions from './UI/featruesActions';
@@ -24,7 +24,7 @@ viewerBtn.addEventListener('click', () => {
   state.mode = 'viewer';
   state.loaded = true;
   slidesPlayer(state);
-  slidesSketcher(state);
+  slidesEditor(state);
   resetNavBtnsStyle();
   viewerBtn.classList.add('active');
 });
@@ -33,7 +33,7 @@ editorBtn.addEventListener('click', () => {
   state.mode = 'editor';
   state.loaded = true;
   slidesPlayer(state);
-  slidesSketcher(state);
+  slidesEditor(state);
   resetNavBtnsStyle();
   editorBtn.classList.add('active');
 });
@@ -42,7 +42,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   groupsActions();
   featuresActions();
   slidesPlayer(state);
-  slidesSketcher(state);
+  slidesEditor(state);
 }
 if (/tutorials\/show$/.test(location.href)) {
   homeDashboard();

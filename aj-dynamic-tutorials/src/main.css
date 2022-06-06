@@ -549,6 +549,10 @@ body {
   align-items: center;
 }
 
+.slides-body.highlight {
+  border: 5px dashed var(--tone-3);
+}
+
 .incanvas-slide-name,
 .incanvas-slide-id {
   position: absolute;
@@ -573,6 +577,18 @@ body {
 
 .incanvas-slide-id {
   right: 40px;
+}
+
+#file-input {
+  position: absolute !important;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 32px;
+  padding: 2px 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 3px 2px var(--tone-2t);
 }
 
 .prev-btn,

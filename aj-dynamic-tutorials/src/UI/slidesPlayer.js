@@ -112,6 +112,37 @@ export default function audioPlayer(state) {
     addNotesBtn.addEventListener('click', toggleNotes);
   }
 
+  // drag and drop image
+  const dropArea = document.getElementById('slides-body');
+
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, e => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  });
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => {
+      dropArea.classList.add('highlight');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => {
+      dropArea.classList.remove('highlight');
+    });
+  });
+
+  dropArea.addEventListener('drop', e => {
+    const img = e.dataTransfer.files[0];
+    if (/image*/.test(img.type)) {
+      const imgUrl = window.URL.createObjectURL(img);
+      console.log(img);
+      slideImg.style.backgroundImage = `url(${imgUrl})`;
+    }
+  });
+
   // toggle mode
   if (state.mode === 'viewer') {
     expandBtn.style.display = 'block';
