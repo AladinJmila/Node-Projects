@@ -64,7 +64,10 @@
       readonly
       value='627cdc26ceaccba121754f9d'
     />
-    <input type='file' id='file-input' accept='image/*' />
+    <label class='file-input'>
+      Select an image file
+      <input type='file' id='file-input' accept='image/*' />
+    </label>
     <div class='prev-btn' id='prev-btn'>&#10094</div>
     <div class='next-btn' id='next-btn'>&#10095</div>
     <div class='notes-body'>
@@ -101,11 +104,15 @@
     <button class='slide-controls-btn' id='slide-show-notes-btn'>notes</button>
     <button class='slide-controls-btn' id='slide-add-notes-btn'>add notes</button>
     <div class='audio-player'>
-      {{! <i class='fa fa-microphone'></i> }}
       {{! <i class='fa fa-square'></i> }}
-      {{! <i class='fa fa-circle' style='color: red ;'></i> }}
-      <div id='play-btn'>
-        <i class='fa fa-play'></i>
+      <div class='actions-controls'>
+        <div id='record-btn'>
+          <i class='fa fa-microphone'></i>
+          <i class='fa fa-circle' style='color: red ;'></i>
+        </div>
+        <div id='play-btn'>
+          <i class='fa fa-play'></i>
+        </div>
       </div>
       <input type='range' class='timeline' max='100' value='0' />
       {{! <i class='fa fa-repeat'></i> }}

@@ -579,16 +579,32 @@ body {
   right: 40px;
 }
 
-#file-input {
-  position: absolute !important;
-  top: 90%;
+.file-input {
+  position: absolute;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 32px;
-  padding: 2px 8px;
+  width: 150px;
   border-radius: 16px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 0 3px 2px var(--tone-2t);
+  background-color: var(--tone-5t);
+  cursor: pointer;
+}
+
+.file-input input {
+  display: none;
+}
+
+.file-input::after {
+  content: 'Or drag & drop here';
+  position: absolute;
+  top: 40px;
+  color: var(--tone-5);
+  font-weight: 700;
 }
 
 .prev-btn,
@@ -708,6 +724,13 @@ body {
 
 .slides-viewer:hover .slide-controls {
   opacity: 1;
+}
+
+.actions-controls {
+  display: flex;
+  /* gap: 20px; */
+  justify-content: space-around;
+  width: 100%;
 }
 
 .slide-controls-btn {

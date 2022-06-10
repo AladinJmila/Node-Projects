@@ -1,4 +1,4 @@
-export default function audioPlayer(state) {
+export default function slidesPlayer(state) {
   const playBtn = document.getElementById('play-btn');
   const audio = document.querySelector('audio');
   const canvas = document.getElementById('canvas');

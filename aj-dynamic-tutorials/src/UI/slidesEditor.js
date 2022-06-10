@@ -1,4 +1,4 @@
-export default function slidesSketcher(state) {
+export default function slidesEditor() {
   const slidesBody = document.querySelector('.slides-body');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');

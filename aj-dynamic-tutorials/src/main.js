@@ -1,15 +1,11 @@
 import groupsActions from './UI/groupsActions';
-import slidesPlayer from './UI/slidesPlayer';
-import slidesEditor from './UI/slidesEditor';
-import homeDashboard from './UI/homeDashboard';
+import slidesActions from './UI/slidesActions';
+import homeActions from './UI/homeActions';
 import './main.css';
 import featuresActions from './UI/featruesActions';
 
-const state = {
-  mode: 'viewer',
-  // mode: 'editor',
-  loaded: false,
-};
+const domState = document.getElementById('dom-state');
+const state = { ...domState.dataset };
 
 const viewerBtn = document.getElementById('viewer-btn');
 const editorBtn = document.getElementById('editor-btn');
@@ -20,20 +16,22 @@ function resetNavBtnsStyle() {
   [...navBtns.children].forEach(el => el.classList.remove('active'));
 }
 
-viewerBtn.addEventListener('click', () => {
+viewerBtn.addEventListener('click', setViewerMode);
+
+function setViewerMode() {
   state.mode = 'viewer';
   state.loaded = true;
-  slidesPlayer(state);
-  slidesEditor(state);
+  slidesActions(state);
   resetNavBtnsStyle();
   viewerBtn.classList.add('active');
-});
+}
+
+setViewerMode();
 
 editorBtn.addEventListener('click', () => {
   state.mode = 'editor';
   state.loaded = true;
-  slidesPlayer(state);
-  slidesEditor(state);
+  slidesActions(state);
   resetNavBtnsStyle();
   editorBtn.classList.add('active');
 });
@@ -41,9 +39,8 @@ editorBtn.addEventListener('click', () => {
 if (!/tutorials\/show$/.test(location.href)) {
   groupsActions();
   featuresActions();
-  slidesPlayer(state);
-  slidesEditor(state);
+  slidesActions(state);
 }
 if (/tutorials\/show$/.test(location.href)) {
-  homeDashboard();
+  homeActions();
 }
