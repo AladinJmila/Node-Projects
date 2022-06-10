@@ -5,7 +5,8 @@ import './main.css';
 import featuresActions from './UI/featruesActions';
 
 const domState = document.getElementById('dom-state');
-const state = { ...domState.dataset };
+// const state = { ...domState.dataset };
+const state = { mode: 'viewer', state: false };
 
 const viewerBtn = document.getElementById('viewer-btn');
 const editorBtn = document.getElementById('editor-btn');
@@ -26,8 +27,6 @@ function setViewerMode() {
   viewerBtn.classList.add('active');
 }
 
-setViewerMode();
-
 editorBtn.addEventListener('click', () => {
   state.mode = 'editor';
   state.loaded = true;
@@ -40,6 +39,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   groupsActions();
   featuresActions();
   slidesActions(state);
+  setViewerMode();
 }
 if (/tutorials\/show$/.test(location.href)) {
   homeActions();
