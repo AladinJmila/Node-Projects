@@ -15,6 +15,7 @@ export default function slidesModeToggle(state) {
   const notesSubmitBtn = document.getElementById('submit-notes-btn');
   const addGroupFeature = document.querySelectorAll('.add-group-feature');
   const fileInputEl = document.querySelector('.file-input');
+  const recordBtn = document.getElementById('record-btn');
 
   const hideInEditor = [expandBtn, slideImg, showNotesBtn, notesContent];
   const showInEditorFlex = [addSlideEl, addExistingFeaure, fileInputEl];
@@ -26,6 +27,7 @@ export default function slidesModeToggle(state) {
     slideSubmitBtn,
     notesTextarea,
     notesSubmitBtn,
+    recordBtn,
   ];
 
   if (state.mode === 'viewer') {
