@@ -1,26 +1,13 @@
+import audioCapture from './audioCapture';
+
 export default function slidesEditor() {
-  const recordBtn = document.getElementById('record-btn');
-  const playBtn = document.getElementById('play-btn');
-  const stopBtn = document.getElementById('stop-btn');
   const slidesBody = document.querySelector('.slides-body');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   let mousedown = false;
   const imageObj = new Image();
 
-  recordBtn.addEventListener('click', function () {
-    stopBtn.classList.add('show-block');
-    playBtn.classList.add('hide');
-    this.classList.remove('stop-rec');
-    this.classList.add('rec');
-  });
-
-  stopBtn.addEventListener('click', function () {
-    recordBtn.classList.add('stop-rec');
-    recordBtn.classList.remove('rec');
-    playBtn.classList.remove('hide');
-    this.classList.remove('show-block');
-  });
+  audioCapture();
 
   function resizeCanvas() {
     canvas.setAttribute('height', slidesBody.clientHeight);

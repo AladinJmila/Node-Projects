@@ -36,7 +36,7 @@ export default function slidesModeToggle(state) {
     showInEditorBlock.forEach(el => el.classList.remove('show-block'));
     showInEditorFlex.forEach(el => el.classList.remove('show-flex'));
     addGroupFeature.forEach(el => {
-      el.classList.remove('show-flex');
+      el.classList.remove('hide');
     });
   } else {
     controlsEl.classList.add('show');
@@ -44,7 +44,7 @@ export default function slidesModeToggle(state) {
     showInEditorBlock.forEach(el => el.classList.add('show-block'));
     showInEditorFlex.forEach(el => el.classList.add('show-flex'));
     addGroupFeature.forEach(el => {
-      el.style.display = 'flex';
+      el.classList.remove('show-flex');
     });
   }
 }

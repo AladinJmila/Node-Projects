@@ -6,7 +6,6 @@ export default function slidesPlayer(state) {
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
 
   function playSlide() {
-    console.log('play');
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
@@ -21,7 +20,7 @@ export default function slidesPlayer(state) {
     slideImg.addEventListener('click', playSlide);
   }
 
-  audio.onended = () => (playBtn.innerHTML = playBtn);
+  audio.onended = () => (playBtn.innerHTML = playIcon);
 
   const timeline = document.querySelector('.timeline');
 
