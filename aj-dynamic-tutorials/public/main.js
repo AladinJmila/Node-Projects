@@ -1620,6 +1620,52 @@ function audioCapture(state) {
     this.classList.remove('show-block');
   });
 }
+;// CONCATENATED MODULE: ./src/UI/canvasDraw.js
+function canvasDraw(canvas, ctx, scaleToFit, imageObj) {
+  var mousedown = false;
+  var clicks = [];
+
+  function drawRectangle() {
+    ctx.beginPath();
+    ctx.rect(clicks[0].x, clicks[0].y, clicks[1].x - clicks[0].x, clicks[1].y - clicks[0].y);
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+  }
+
+  function redraw() {
+    canvas.width = canvas.width;
+    scaleToFit(imageObj);
+    drawRectangle();
+  }
+
+  canvas.addEventListener('mousedown', function (e) {
+    clicks[0] = {
+      x: e.offsetX,
+      y: e.offsetY
+    };
+    mousedown = true;
+  });
+  canvas.addEventListener('mousemove', function (e) {
+    if (mousedown) {
+      clicks[1] = {
+        x: e.offsetX,
+        y: e.offsetY
+      };
+      redraw();
+    }
+  });
+  canvas.addEventListener('mouseup', function (e) {
+    mousedown = false;
+    clicks[1] = {
+      x: e.offsetX,
+      y: e.offsetY
+    };
+  });
+  canvas.addEventListener('mouseleave', function () {
+    mousedown = false;
+  });
+}
 ;// CONCATENATED MODULE: ./src/UI/imageUpload.js
 function imageUpload(state, canvas, scaleToFit) {
   var dropArea = document.getElementById('slides-body');
@@ -1668,14 +1714,21 @@ function imageUpload(state, canvas, scaleToFit) {
 ;// CONCATENATED MODULE: ./src/UI/slidesEditor.js
 
 
+
 function slidesEditor(state) {
   var slidesBody = document.querySelector('.slides-body');
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-  var mousedown = false;
   var imageObj = new Image();
   audioCapture(state);
   imageUpload(state, canvas, scaleToFit);
+  canvasDraw(canvas, ctx, scaleToFit, imageObj);
+  resizeCanvas();
+  imageObj.src = '/images/sakura.jpg';
+
+  imageObj.onload = function () {
+    scaleToFit(this);
+  };
 
   function resizeCanvas() {
     canvas.setAttribute('height', slidesBody.clientHeight);
@@ -1684,63 +1737,12 @@ function slidesEditor(state) {
     canvas.style.width = slidesBody.clientWidth;
   }
 
-  resizeCanvas();
-
   function scaleToFit(img) {
     var scale = Math.min(canvas.width / img.width, canvas.height / img.height);
     var x = canvas.width / 2 - img.width / 2 * scale;
     var y = canvas.height / 2 - img.height / 2 * scale;
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
   }
-
-  imageObj.src = '/images/sakura.jpg';
-
-  imageObj.onload = function () {
-    scaleToFit(this);
-  };
-
-  var clicks = [];
-
-  function drawRectangle() {
-    ctx.beginPath();
-    ctx.rect(clicks[0].x, clicks[0].y, clicks[1].x - clicks[0].x, clicks[1].y - clicks[0].y);
-    ctx.strokeStyle = 'red';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-  }
-
-  function redraw() {
-    canvas.width = canvas.width;
-    scaleToFit(imageObj);
-    drawRectangle();
-  }
-
-  canvas.addEventListener('mousedown', function (e) {
-    clicks[0] = {
-      x: e.offsetX,
-      y: e.offsetY
-    };
-    mousedown = true;
-  });
-  canvas.addEventListener('mousemove', function (e) {
-    if (mousedown) {
-      clicks[1] = {
-        x: e.offsetX,
-        y: e.offsetY
-      };
-      redraw();
-    }
-  });
-  canvas.addEventListener('mouseup', function (e) {
-    mousedown = false;
-    clicks[1] = {
-      x: e.offsetX,
-      y: e.offsetY
-    }; // console.log(canvas.toDataURL('image/jpeg', 1.0));
-  });
-  canvas.addEventListener('mouseleave', function () {
-    mousedown = false;
-  });
 }
 ;// CONCATENATED MODULE: ./src/UI/slidesPlayer.js
 function slidesPlayer(state) {
@@ -1754,7 +1756,6 @@ function slidesPlayer(state) {
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
-      console.log(state.audioBlob);
     } else {
       audio.pause();
       playBtn.innerHTML = playIcon;
