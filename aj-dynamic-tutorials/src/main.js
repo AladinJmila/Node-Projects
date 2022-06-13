@@ -3,10 +3,12 @@ import slidesActions from './UI/slidesActions';
 import homeActions from './UI/homeActions';
 import './main.css';
 import featuresActions from './UI/featruesActions';
+import { sendSlide } from './UI/slidesEditor';
 
 const state = {
   mode: 'viewer',
-  state: false,
+  loaded: false,
+  slideSent: false,
   audioBlob: null,
   imageFile: null,
 };
@@ -16,7 +18,6 @@ const editorBtn = document.getElementById('editor-btn');
 const navBtns = document.getElementById('nav-btns');
 
 function resetNavBtnsStyle() {
-  // console.log(navBtns.children);
   [...navBtns.children].forEach(el => el.classList.remove('active'));
 }
 
@@ -43,6 +44,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   featuresActions();
   slidesActions(state);
   setViewerMode();
+  sendSlide();
 }
 if (/tutorials\/show$/.test(location.href)) {
   homeActions();

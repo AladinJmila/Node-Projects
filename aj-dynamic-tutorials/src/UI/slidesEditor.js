@@ -35,3 +35,22 @@ export default function slidesEditor(state) {
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
   }
 }
+
+export function sendSlide() {
+  const addSlide = document.getElementById('add-slide-btn');
+
+  addSlide.addEventListener('click', async () => {
+    let featureId = document.querySelector('.feature-btn.active');
+    if (featureId) {
+      featureId = featureId.getAttribute('id');
+      const res = await fetch('/slides', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ featureId }),
+      });
+      if (res) {
+        console.log(res);
+      }
+    }
+  });
+}

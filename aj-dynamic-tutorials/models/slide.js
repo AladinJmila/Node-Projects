@@ -3,17 +3,19 @@ const mongoose = require('mongoose');
 const Slide = mongoose.model(
   'Slide',
   new mongoose.Schema({
-    feature: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'feature',
-      required: true,
-    },
+    features: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'feature',
+        required: true,
+      },
+    ],
     name: { type: String, required: true },
     imageName: { type: String, default: '' },
     audioName: { type: String, default: '' },
     notes: { type: String, default: '' },
     duration: { type: Number, default: 0 },
-    isWatched: { type: Boolean, default: false },
+    isViewed: { type: Boolean, default: false },
   })
 );
 

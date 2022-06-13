@@ -1714,6 +1714,8 @@ function imageUpload(state, canvas, scaleToFit) {
 
 
 
+
+
 function slidesEditor(state) {
   var slidesBody = document.querySelector('.slides-body');
   var canvas = document.getElementById('canvas');
@@ -1742,6 +1744,48 @@ function slidesEditor(state) {
     var y = canvas.height / 2 - img.height / 2 * scale;
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
   }
+}
+function sendSlide() {
+  var addSlide = document.getElementById('add-slide-btn');
+  addSlide.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee() {
+    var featureId, res;
+    return regenerator_default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            featureId = document.querySelector('.feature-btn.active');
+
+            if (!featureId) {
+              _context.next = 7;
+              break;
+            }
+
+            featureId = featureId.getAttribute('id');
+            _context.next = 5;
+            return fetch('/slides', {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                featureId: featureId
+              })
+            });
+
+          case 5:
+            res = _context.sent;
+
+            if (res) {
+              console.log(res);
+            }
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  })));
 }
 ;// CONCATENATED MODULE: ./src/UI/slidesPlayer.js
 function slidesPlayer(state) {
@@ -2077,9 +2121,11 @@ function featuresActions() {
 
 
 
+
 var state = {
   mode: 'viewer',
-  state: false,
+  loaded: false,
+  slideSent: false,
   audioBlob: null,
   imageFile: null
 };
@@ -2088,7 +2134,6 @@ var editorBtn = document.getElementById('editor-btn');
 var navBtns = document.getElementById('nav-btns');
 
 function resetNavBtnsStyle() {
-  // console.log(navBtns.children);
   _toConsumableArray(navBtns.children).forEach(function (el) {
     return el.classList.remove('active');
   });
@@ -2117,6 +2162,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   featuresActions();
   slidesActions(state);
   setViewerMode();
+  sendSlide();
 }
 
 if (/tutorials\/show$/.test(location.href)) {
