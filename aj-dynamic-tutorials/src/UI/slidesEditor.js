@@ -1,13 +1,13 @@
 import audioCapture from './audioCapture';
 
-export default function slidesEditor() {
+export default function slidesEditor(state) {
   const slidesBody = document.querySelector('.slides-body');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   let mousedown = false;
   const imageObj = new Image();
 
-  audioCapture();
+  audioCapture(state);
 
   function resizeCanvas() {
     canvas.setAttribute('height', slidesBody.clientHeight);

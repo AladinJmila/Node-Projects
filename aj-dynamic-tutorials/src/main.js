@@ -4,9 +4,7 @@ import homeActions from './UI/homeActions';
 import './main.css';
 import featuresActions from './UI/featruesActions';
 
-const domState = document.getElementById('dom-state');
-// const state = { ...domState.dataset };
-const state = { mode: 'viewer', state: false };
+const state = { mode: 'viewer', state: false, recording: null };
 
 const viewerBtn = document.getElementById('viewer-btn');
 const editorBtn = document.getElementById('editor-btn');

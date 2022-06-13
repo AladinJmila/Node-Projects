@@ -1,4 +1,4 @@
-export default function audioCapture() {
+export default function audioCapture(state) {
   const domState = document.getElementById('dom-state');
   const start = document.getElementById('record-btn');
   const play = document.getElementById('play-btn');
@@ -34,7 +34,7 @@ export default function audioCapture() {
         const audioURL = window.URL.createObjectURL(blob);
         audio.src = audioURL;
         recording = audioURL;
-        domState.setAttribute('data-recording', recording);
+        state.recording = recording;
       };
     })
     .catch(err => {

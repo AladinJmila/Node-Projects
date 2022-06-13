@@ -1567,7 +1567,7 @@ function groupsActions() {
   });
 }
 ;// CONCATENATED MODULE: ./src/UI/audioCapture.js
-function audioCapture() {
+function audioCapture(state) {
   var domState = document.getElementById('dom-state');
   var start = document.getElementById('record-btn');
   var play = document.getElementById('play-btn');
@@ -1602,7 +1602,7 @@ function audioCapture() {
       var audioURL = window.URL.createObjectURL(blob);
       audio.src = audioURL;
       recording = audioURL;
-      domState.setAttribute('data-recording', recording);
+      state.recording = recording;
     };
   }).catch(function (err) {
     console.log(err);
@@ -1622,13 +1622,13 @@ function audioCapture() {
 }
 ;// CONCATENATED MODULE: ./src/UI/slidesEditor.js
 
-function slidesEditor() {
+function slidesEditor(state) {
   var slidesBody = document.querySelector('.slides-body');
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var mousedown = false;
   var imageObj = new Image();
-  audioCapture();
+  audioCapture(state);
 
   function resizeCanvas() {
     canvas.setAttribute('height', slidesBody.clientHeight);
@@ -1707,6 +1707,7 @@ function slidesPlayer(state) {
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
+      console.log(state.recording);
     } else {
       audio.pause();
       playBtn.innerHTML = playIcon;
@@ -2057,11 +2058,10 @@ function featuresActions() {
 
 
 
-var domState = document.getElementById('dom-state'); // const state = { ...domState.dataset };
-
 var state = {
   mode: 'viewer',
-  state: false
+  state: false,
+  recording: null
 };
 var viewerBtn = document.getElementById('viewer-btn');
 var editorBtn = document.getElementById('editor-btn');

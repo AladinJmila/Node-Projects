@@ -9,6 +9,7 @@ export default function slidesPlayer(state) {
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
+      console.log(state.recording);
     } else {
       audio.pause();
       playBtn.innerHTML = playIcon;
