@@ -1,4 +1,5 @@
 import audioCapture from './audioCapture';
+import imageUpload from './imageUpload';
 
 export default function slidesEditor(state) {
   const slidesBody = document.querySelector('.slides-body');
@@ -8,6 +9,7 @@ export default function slidesEditor(state) {
   const imageObj = new Image();
 
   audioCapture(state);
+  imageUpload(state, canvas, scaleToFit);
 
   function resizeCanvas() {
     canvas.setAttribute('height', slidesBody.clientHeight);

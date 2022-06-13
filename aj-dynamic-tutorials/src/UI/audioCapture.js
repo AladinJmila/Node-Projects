@@ -29,12 +29,12 @@ export default function audioCapture(state) {
 
       mediaRecorder.onstop = e => {
         const blob = new Blob(chunks, { type: 'audio/wav' });
+        state.audioBlob = blob;
 
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
         audio.src = audioURL;
         recording = audioURL;
-        state.recording = recording;
       };
     })
     .catch(err => {

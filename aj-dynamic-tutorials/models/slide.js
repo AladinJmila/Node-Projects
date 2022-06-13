@@ -14,8 +14,6 @@ const Slide = mongoose.model(
     notes: { type: String, default: '' },
     duration: { type: Number, default: 0 },
     isWatched: { type: Boolean, default: false },
-    isSolo: { type: Boolean, default: true },
-    hasNext: { type: Boolean, default: false },
   })
 );
 

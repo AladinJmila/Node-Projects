@@ -4,7 +4,12 @@ import homeActions from './UI/homeActions';
 import './main.css';
 import featuresActions from './UI/featruesActions';
 
-const state = { mode: 'viewer', state: false, recording: null };
+const state = {
+  mode: 'viewer',
+  state: false,
+  audioBlob: null,
+  imageFile: null,
+};
 
 const viewerBtn = document.getElementById('viewer-btn');
 const editorBtn = document.getElementById('editor-btn');

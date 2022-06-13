@@ -1,43 +1,42 @@
 import getBlobDuration from 'get-blob-duration';
 
 function captureAudio() {
-  let recording;
-  navigator.mediaDevices
-    .getUserMedia({ audio: true })
-    .then(function (mediaStreamObj) {
-      const start = document.getElementById('btn-start');
-      const stop = document.getElementById('btn-stop');
-      const audio = document.getElementById('audio');
-      const audioContainer = document.getElementById('audio-container');
-      const mediaRecorder = new MediaRecorder(mediaStreamObj);
-      let chunks = [];
+  // let recording;
+  // navigator.mediaDevices
+  //   .getUserMedia({ audio: true })
+  //   .then(function (mediaStreamObj) {
+  //     const start = document.getElementById('btn-start');
+  //     const stop = document.getElementById('btn-stop');
+  //     const audio = document.getElementById('audio');
+  //     const mediaRecorder = new MediaRecorder(mediaStreamObj);
+  //     let chunks = [];
 
-      start.addEventListener('click', e => {
-        e.preventDefault();
-        mediaRecorder.start();
-        console.log(mediaRecorder.state);
-      });
-      stop.addEventListener('click', e => {
-        e.preventDefault();
-        mediaRecorder.stop();
-        console.log(mediaRecorder.state);
-      });
+  //     start.addEventListener('click', e => {
+  //       e.preventDefault();
+  //       mediaRecorder.start();
+  //       console.log(mediaRecorder.state);
+  //     });
+  //     stop.addEventListener('click', e => {
+  //       e.preventDefault();
+  //       mediaRecorder.stop();
+  //       console.log(mediaRecorder.state);
+  //     });
 
-      mediaRecorder.ondataavailable = e => {
-        chunks.push(e.data);
-      };
-      mediaRecorder.onstop = e => {
-        const blob = new Blob(chunks, { type: 'audio/wav' });
+  //     mediaRecorder.ondataavailable = e => {
+  //       chunks.push(e.data);
+  //     };
+  //     mediaRecorder.onstop = e => {
+  //       const blob = new Blob(chunks, { type: 'audio/wav' });
 
-        chunks = [];
-        const audioURL = window.URL.createObjectURL(blob);
-        audio.src = audioURL;
-        recording = audioURL;
-      };
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  //       chunks = [];
+  //       const audioURL = window.URL.createObjectURL(blob);
+  //       audio.src = audioURL;
+  //       recording = audioURL;
+  //     };
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
 
   const submitBtn = document.getElementById('submit');
   const imageInput = document.getElementById('image-file');
@@ -54,9 +53,6 @@ function captureAudio() {
       audioFile = await res.blob();
       formData.append('audio', audioFile);
     }
-
-    // console.log(audioFile);
-    // console.log(imageFile);
 
     if (audioFile && audio.src === recording) {
       await fetch(`/media/upload-audio/${slideId}`, {
@@ -100,8 +96,6 @@ function captureAudio() {
       body: JSON.stringify({
         slideName,
         notes,
-        isSolo,
-        hasNext,
         duration: duration ? duration : 0,
       }),
     });

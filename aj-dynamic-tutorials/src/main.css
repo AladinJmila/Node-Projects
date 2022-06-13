@@ -602,6 +602,8 @@ body {
 
 .file-input::after {
   content: 'Or drag & drop here';
+  padding: 1px 5px;
+  background-color: var(--tone-2t);
   position: absolute;
   top: 40px;
   color: var(--tone-5);

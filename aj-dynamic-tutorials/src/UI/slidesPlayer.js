@@ -9,7 +9,7 @@ export default function slidesPlayer(state) {
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
-      console.log(state.recording);
+      console.log(state.audioBlob);
     } else {
       audio.pause();
       playBtn.innerHTML = playIcon;
@@ -99,35 +99,4 @@ export default function slidesPlayer(state) {
     showNotesBtn.addEventListener('click', toggleNotes);
     addNotesBtn.addEventListener('click', toggleNotes);
   }
-
-  // drag and drop image
-  const dropArea = document.getElementById('slides-body');
-
-  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, e => {
-      e.preventDefault();
-      e.stopPropagation();
-    });
-  });
-
-  ['dragenter', 'dragover'].forEach(eventName => {
-    dropArea.addEventListener(eventName, () => {
-      dropArea.classList.add('highlight');
-    });
-  });
-
-  ['dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, () => {
-      dropArea.classList.remove('highlight');
-    });
-  });
-
-  dropArea.addEventListener('drop', e => {
-    const img = e.dataTransfer.files[0];
-    if (/image*/.test(img.type)) {
-      const imgUrl = window.URL.createObjectURL(img);
-      console.log(img);
-      slideImg.style.backgroundImage = `url(${imgUrl})`;
-    }
-  });
 }
