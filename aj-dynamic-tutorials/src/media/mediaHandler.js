@@ -38,8 +38,8 @@ function captureAudio() {
   //     console.log(err);
   //   });
 
-  const submitBtn = document.getElementById('submit');
-  const imageInput = document.getElementById('image-file');
+  // const submitBtn = document.getElementById('submit');
+  // const imageInput = document.getElementById('image-file');
 
   submitBtn.addEventListener('click', async e => {
     e.preventDefault();

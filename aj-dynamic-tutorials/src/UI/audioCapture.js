@@ -1,5 +1,4 @@
 export default function audioCapture(state) {
-  const domState = document.getElementById('dom-state');
   const start = document.getElementById('record-btn');
   const play = document.getElementById('play-btn');
   const stop = document.getElementById('stop-btn');

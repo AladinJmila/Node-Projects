@@ -1568,7 +1568,6 @@ function groupsActions() {
 }
 ;// CONCATENATED MODULE: ./src/UI/audioCapture.js
 function audioCapture(state) {
-  var domState = document.getElementById('dom-state');
   var start = document.getElementById('record-btn');
   var play = document.getElementById('play-btn');
   var stop = document.getElementById('stop-btn');
@@ -1889,7 +1888,7 @@ function slidesModeToggle(state) {
       return el.classList.add('show-flex');
     });
     addGroupFeature.forEach(function (el) {
-      el.classList.remove('show-flex');
+      el.classList.add('show-flex');
     });
   }
 }

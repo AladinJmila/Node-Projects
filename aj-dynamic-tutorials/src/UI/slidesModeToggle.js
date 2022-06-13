@@ -44,7 +44,7 @@ export default function slidesModeToggle(state) {
     showInEditorBlock.forEach(el => el.classList.add('show-block'));
     showInEditorFlex.forEach(el => el.classList.add('show-flex'));
     addGroupFeature.forEach(el => {
-      el.classList.remove('show-flex');
+      el.classList.add('show-flex');
     });
   }
 }
