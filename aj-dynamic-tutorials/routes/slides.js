@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
   }
 
   const slide = new Slide({
-    feature: feature._id,
+    features: [feature._id],
     name: 'init',
   });
 

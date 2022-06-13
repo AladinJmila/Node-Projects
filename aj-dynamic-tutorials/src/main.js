@@ -3,7 +3,7 @@ import slidesActions from './UI/slidesActions';
 import homeActions from './UI/homeActions';
 import './main.css';
 import featuresActions from './UI/featruesActions';
-import { sendSlide } from './UI/slidesEditor';
+import { sendSlide, renderSlide } from './UI/slidesEditor';
 
 const state = {
   mode: 'viewer',
@@ -45,6 +45,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   slidesActions(state);
   setViewerMode();
   sendSlide();
+  renderSlide();
 }
 if (/tutorials\/show$/.test(location.href)) {
   homeActions();

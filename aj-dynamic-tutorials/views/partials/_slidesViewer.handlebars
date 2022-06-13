@@ -1,7 +1,33 @@
 <div id='slides-viewer' class='slides-viewer'>
   <div class='slides-header'>
     <div class='slides-progress'>
-      <div class='prograss-frag'>
+      {{#if groups}}
+        {{#each groups}}
+          {{#if features}}
+            {{#each features}}
+              {{#if slides}}
+                {{#each slides}}
+                  <div
+                    class='progress-frag'
+                    data-slide-id='{{_id}}'
+                    data-name='{{name}}'
+                    data-image-name='{{imageName}}'
+                    data-audio-name='{{audioName}}'
+                    data-notes='{{notes}}'
+                    data-duration='{{duration}}'
+                    data-is-viewed='{{isViewed}}'
+                  >
+                    <div class='progress-bar'></div>
+                    <div class='progress-disc'></div>
+                  </div>
+
+                {{/each}}
+              {{/if}}
+            {{/each}}
+          {{/if}}
+        {{/each}}
+      {{/if}}
+      {{! <div class='prograss-frag'>
         <div class='progress-bar' style='background-color: #8b949e'></div>
         <div class='progress-disc' style='background-color: #8b949e'></div>
       </div>
@@ -12,8 +38,9 @@
       <div class='prograss-frag'>
         <div class='progress-bar' style='background-color: #8b949e'></div>
         <div class='progress-disc' style='background-color: #8b949e'></div>
-      </div>
-      <div class='prograss-frag'>
+      </div> }}
+
+      {{! <div class='prograss-frag'>
         <div class='progress-bar'></div>
         <div class='progress-disc'></div>
       </div>
@@ -32,11 +59,7 @@
       <div class='prograss-frag'>
         <div class='progress-bar'></div>
         <div class='progress-disc'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar'></div>
-        <div class='progress-disc'></div>
-      </div>
+      </div> }}
     </div>
     <div class='add-slide'>
       <input

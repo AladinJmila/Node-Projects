@@ -53,6 +53,7 @@ export default function groupsActions() {
   featureBtn.forEach(btn => {
     btn.addEventListener('click', function () {
       this.classList.toggle('active');
+      console.log(btn.dataset.slides);
     });
   });
 

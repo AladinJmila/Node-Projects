@@ -38,9 +38,15 @@ router.get('/show/:id', async (req, res) => {
         },
       ],
     })
-    .populate('features')
+    .populate({
+      path: 'features',
+      populate: {
+        path: 'slides',
+        model: 'Slide',
+      },
+    })
     .lean();
-
+  // console.log(groups[0].features[0].slides[0]);
   res.render('workspace', { tutorial, groups });
 });
 

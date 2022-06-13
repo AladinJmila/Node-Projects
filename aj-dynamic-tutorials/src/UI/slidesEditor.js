@@ -48,9 +48,17 @@ export function sendSlide() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ featureId }),
       });
-      if (res) {
-        console.log(res);
-      }
+      if (res) location.reload();
     }
+  });
+}
+
+export function renderSlide() {
+  const slides = document.querySelectorAll('.progress-frag');
+
+  slides.forEach(slide => {
+    slide.addEventListener('click', function () {
+      console.log(this.dataset);
+    });
   });
 }
