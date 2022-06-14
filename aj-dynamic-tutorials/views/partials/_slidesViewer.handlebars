@@ -1,10 +1,10 @@
 <div id='slides-viewer' class='slides-viewer'>
   <div class='slides-header'>
-    <div class='slides-progress'>
       {{#if groups}}
         {{#each groups}}
           {{#if features}}
             {{#each features}}
+              <div class='slides-progress' data-feature-id="{{_id}}">
               {{#if slides}}
                 {{#each slides}}
                   <div
@@ -20,46 +20,16 @@
                     <div class='progress-bar'></div>
                     <div class='progress-disc'></div>
                   </div>
-
                 {{/each}}
               {{/if}}
             {{/each}}
-          {{/if}}
+            {{!-- <div class='prograss-frag'>
+              <div class='progress-bar' style='background-color: #8b949e'></div>
+              <div class='progress-disc' style='background-color: #8b949e'></div>
+            </div> --}}
+         {{/if}}
         {{/each}}
       {{/if}}
-      {{! <div class='prograss-frag'>
-        <div class='progress-bar' style='background-color: #8b949e'></div>
-        <div class='progress-disc' style='background-color: #8b949e'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar' style='background-color: #8b949e'></div>
-        <div class='progress-disc' style='background-color: #8b949e'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar' style='background-color: #8b949e'></div>
-        <div class='progress-disc' style='background-color: #8b949e'></div>
-      </div> }}
-
-      {{! <div class='prograss-frag'>
-        <div class='progress-bar'></div>
-        <div class='progress-disc'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar'></div>
-        <div class='progress-disc'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar'></div>
-        <div class='progress-disc'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar'></div>
-        <div class='progress-disc'></div>
-      </div>
-      <div class='prograss-frag'>
-        <div class='progress-bar'></div>
-        <div class='progress-disc'></div>
-      </div> }}
     </div>
     <div class='add-slide'>
       <input
@@ -85,7 +55,7 @@
       class='incanvas-slide-id'
       type='text'
       readonly
-      value='627cdc26ceaccba121754f9d'
+      {{!-- value='627cdc26ceaccba121754f9d' --}}
     />
     <label class='file-input'>
       Select an image file

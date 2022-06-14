@@ -791,7 +791,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_styles_customAudio_css__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_3___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n  --tone-1: #f0f6fc;\r\n  --tone-2t: rgba(240,246,252,0.58039);\r\n  --tone-3: #7d8794;\r\n  --tone-4: #535b64;\r\n  --tone-5: #161b22;\r\n  --tone-5t: rgba(22,27,34,0.55294);\r\n}\r\n\r\nhtml {\r\n  overflow: hidden;\r\n}\r\n\r\nbody {\r\n  background-color: #0d1117;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  font-size: 14px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n}\r\n\r\n.fa {\r\n  cursor: pointer;\r\n}\r\n\r\n/* Navbar Styles */\r\n.navbar {\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  width: 100%;\r\n  height: 60px;\r\n  border-bottom: #535b64 solid 2px;\r\n  border-bottom: var(--tone-4) solid 2px;\r\n  padding: 0 30px;\r\n  font-size: 1.5em;\r\n}\r\n\r\n.brand {\r\n  border: none;\r\n  background-color: transparent;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  padding: 0;\r\n  text-decoration: none;\r\n}\r\n\r\n.brand:hover {\r\n  color: inherit;\r\n}\r\n\r\n.navbar ul {\r\n  list-style-type: none;\r\n  margin: 0;\r\n  padding: 0;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\n.navbar li {\r\n  margin-left: 30px;\r\n  cursor: pointer;\r\n  border-bottom: 3px solid transparent;\r\n  -webkit-transition: all 0.2s ease-in;\r\n  transition: all 0.2s ease-in;\r\n}\r\n\r\n.navbar li:hover {\r\n  border-bottom: 3px solid #f0f6fc;\r\n  border-bottom: 3px solid var(--tone-1);\r\n}\r\n\r\n.navbar li.active {\r\n  border-bottom: 3px solid #f0f6fc;\r\n  border-bottom: 3px solid var(--tone-1);\r\n}\r\n\r\n/* Home Styles */\r\n.tutorials-container {\r\n  padding: 80px;\r\n  width: 100%;\r\n  display: grid;\r\n  grid-template-columns: repeat(6, 1fr);\r\n  grid-template-rows: 260px;\r\n  grid-gap: 40px;\r\n  gap: 40px;\r\n  justify-items: center;\r\n  overflow: auto;\r\n}\r\n\r\n.tutorial-progress {\r\n  position: relative;\r\n  width: 230px;\r\n  height: 230px;\r\n  border-radius: 50%;\r\n  background: conic-gradient(\r\n    /* #8b949e 0%, */ /* #8b949e 60%, */ #1f242c 0%,\r\n    #1f242c 100%\r\n  );\r\n  cursor: pointer;\r\n}\r\n\r\n.tutorial-progress:hover {\r\n  -webkit-box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 20px 5px var(--tone-2t);\r\n          box-shadow: 0 0 20px 5px var(--tone-2t);\r\n}\r\n\r\n.tutorial-progress::after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 230px;\r\n  height: 230px;\r\n  border-radius: 50%;\r\n  top: 0px;\r\n  left: 0px;\r\n  border: #2b333e solid 2px;\r\n  z-index: 0;\r\n}\r\n\r\n.tutorial {\r\n  position: relative;\r\n  width: 210px;\r\n  height: 210px;\r\n  border-radius: 50%;\r\n  top: 10px;\r\n  left: 10px;\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  border: #0d1117 solid 15px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  text-align: center;\r\n  padding: 10px;\r\n}\r\n\r\n.tutorial::after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 180px;\r\n  height: 180px;\r\n  border-radius: 50%;\r\n  top: 0px;\r\n  left: 0px;\r\n  border: #2b333e solid 2px;\r\n  z-index: 0;\r\n}\r\n\r\n.tutorial-title {\r\n  letter-spacing: 4;\r\n  font-size: 1.8em;\r\n  /* text-overflow: ellipsis; */\r\n  /* overflow: hidden; */\r\n  /* max-height: 90px; */\r\n  /* white-space: nowrap; */\r\n}\r\n\r\n.tutorial-add {\r\n  position: relative;\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n  top: 10px;\r\n  left: 10px;\r\n  border: #2b333e dashed 3px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  text-align: center;\r\n  cursor: pointer;\r\n}\r\n\r\n.tuto-add-container {\r\n  background-color: #7d8794;\r\n  background-color: var(--tone-3);\r\n}\r\n\r\n.title-container {\r\n  position: relative;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  /* z-index: 100; */\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.title-container textarea {\r\n  position: absolute;\r\n  top: 40px;\r\n  left: 0;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  border: none;\r\n  text-align: center;\r\n  letter-spacing: 4;\r\n  font-size: 1.8em;\r\n  width: 160px;\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  /* width: 100%; */\r\n  /* height: 100%; */\r\n  /* z-index: 1000; */\r\n  resize: none;\r\n  outline: none;\r\n}\r\n\r\n.title-container textarea::-webkit-input-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::-moz-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea:-ms-input-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::-ms-input-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::-webkit-scrollbar {\r\n  display: none;\r\n}\r\n\r\n.tutorial-add:hover {\r\n  -webkit-box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 20px 5px var(--tone-2t);\r\n          box-shadow: 0 0 20px 5px var(--tone-2t);\r\n}\r\n\r\n.tutorial-add::before {\r\n  content: '';\r\n  width: 120px;\r\n  border-top: 6px #8b949e solid;\r\n  -webkit-transform: translate(2px, -3px);\r\n          transform: translate(2px, -3px);\r\n}\r\n\r\n.tutorial-add::after {\r\n  content: '';\r\n  height: 120px;\r\n  border-left: 6px #8b949e solid;\r\n  -webkit-transform: translateX(-61px);\r\n          transform: translateX(-61px);\r\n}\r\n\r\n/* Viewer Styles */\r\n.content {\r\n  display: grid;\r\n  grid-template-columns: 2fr 8fr 2fr;\r\n  height: 100%;\r\n}\r\n\r\n.groups {\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  min-width: 250px;\r\n  height: 100%;\r\n  border-right: #535b64 solid 2px;\r\n  border-right: var(--tone-4) solid 2px;\r\n  padding: 16px;\r\n}\r\n\r\n.app-xref {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  height: 68px;\r\n  -webkit-box-pack: space-evenly;\r\n      -ms-flex-pack: space-evenly;\r\n          justify-content: space-evenly;\r\n  margin-bottom: 20px;\r\n  border-bottom: 1px solid #535b64;\r\n  border-bottom: 1px solid var(--tone-4);\r\n  cursor: pointer;\r\n  text-decoration: none;\r\n}\r\n\r\n.app-name {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  font-size: 1.2em;\r\n}\r\n\r\n.app-xref p {\r\n  font-size: 0.9em;\r\n  width: 50px;\r\n  height: 50px;\r\n  margin-left: 10px;\r\n  padding: 4px;\r\n  display: block;\r\n  color: #7d8794;\r\n  color: var(--tone-3);\r\n  border: 2px dashed #7d8794;\r\n  border: 2px dashed var(--tone-3);\r\n  line-height: 1;\r\n  text-align: center;\r\n  letter-spacing: 2;\r\n}\r\n\r\n/* Groups Navigation */\r\n.groups-collection {\r\n  height: 80vh;\r\n  overflow-y: auto;\r\n  direction: rtl;\r\n}\r\n\r\n.groups-nav {\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  direction: ltr;\r\n}\r\n\r\n.groups-nav a {\r\n  text-decoration: none;\r\n  display: block;\r\n  border: none;\r\n  background: none;\r\n  color: #6e7782;\r\n  font-size: 1.4em;\r\n  width: 100%;\r\n  text-align: left;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding-left: 10px;\r\n}\r\n\r\n.dropdown-btn {\r\n  display: block;\r\n  border: none;\r\n  background: none;\r\n  color: #6e7782;\r\n  font-size: 1.4em;\r\n  width: 100%;\r\n  text-align: left;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border-bottom: 1px solid #535b64;\r\n  border-bottom: 1px solid var(--tone-4);\r\n}\r\n\r\n.dropdown-btn > i {\r\n  float: right;\r\n  padding-right: 10px;\r\n  padding-top: 4px;\r\n}\r\n\r\n.groups-nav a:hover,\r\n.dropdown-btn:hover {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n}\r\n\r\n.dropdown-container {\r\n  display: none;\r\n}\r\n\r\n.dropdown-btn.active {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n  background-color: #f0f6fc;\r\n  background-color: var(--tone-1);\r\n}\r\n\r\n.dropdown-btn.active:hover {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n}\r\n\r\n.features {\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  min-width: 250px;\r\n  height: 100%;\r\n  border-left: #535b64 solid 2px;\r\n  border-left: var(--tone-4) solid 2px;\r\n  padding: 16px;\r\n}\r\n\r\n.features-count {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  height: 68px;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: space-evenly;\r\n      -ms-flex-pack: space-evenly;\r\n          justify-content: space-evenly;\r\n  margin-bottom: 20px;\r\n  border-bottom: 1px solid #535b64;\r\n  border-bottom: 1px solid var(--tone-4);\r\n}\r\n\r\n.features-count p {\r\n  margin: 0;\r\n  font-size: 1.2em;\r\n  display: block;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  text-align: center;\r\n  letter-spacing: 2;\r\n  -webkit-transform: translateY(-8px);\r\n          transform: translateY(-8px);\r\n}\r\n\r\n.features-count p:nth-child(2) {\r\n  font-size: 1em;\r\n  color: #7d8794;\r\n  color: var(--tone-3);\r\n}\r\n\r\n.features-collection {\r\n  display: none;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n}\r\n\r\n.feature-btn {\r\n  margin-bottom: 10px;\r\n  min-height: 32px;\r\n  font-size: 1.2em;\r\n  color: #535b64;\r\n  color: var(--tone-4);\r\n  border: 1px solid #535b64;\r\n  border: 1px solid var(--tone-4);\r\n  background-color: transparent;\r\n}\r\n\r\n.feature-btn:last-of-type {\r\n  margin-bottom: 0px;\r\n}\r\n\r\n.feature-btn:hover {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n}\r\n\r\n.feature-btn.active {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n  background-color: #f0f6fc;\r\n  background-color: var(--tone-1);\r\n}\r\n\r\n.feature-btn.active:hover {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n}\r\n\r\n#add-feature-note {\r\n  margin-top: 8px;\r\n  color: #f9d17c;\r\n  text-align: center;\r\n  display: none;\r\n}\r\n#add-feature-note.show {\r\n  display: block;\r\n}\r\n\r\n/* Common Navigation Styles */\r\n.add-group-feature {\r\n  display: none;\r\n  border: 2px dashed #7d8794;\r\n  border: 2px dashed var(--tone-3);\r\n  padding: 4px;\r\n  margin-top: 24px;\r\n  direction: ltr;\r\n}\r\n\r\n.group-feature-name {\r\n  background-color: transparent;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  border: none;\r\n  width: 100%;\r\n  border-right: 1px solid #7d8794;\r\n  border-right: 1px solid var(--tone-3);\r\n  margin-right: 4px;\r\n  font-size: 1.2em;\r\n}\r\n\r\n.group-feature-name::-webkit-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name::-moz-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name:-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name::-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name::placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.add-group-feature-btn {\r\n  border: none;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  background-color: transparent;\r\n}\r\n\r\n/* Slides Viewer */\r\n.slides-viewer {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\n\r\n/* Slides Header */\r\n.slides-header {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n}\r\n\r\n.slides-progress {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  width: 100%;\r\n  height: 56px;\r\n  padding: 18px;\r\n  cursor: pointer;\r\n}\r\n\r\n.progress-frag {\r\n  width: 100%;\r\n}\r\n\r\n.progress-bar {\r\n  z-index: -10;\r\n  height: 4px;\r\n  background-color: #39404b;\r\n  -webkit-transform: translateY(8px);\r\n          transform: translateY(8px);\r\n}\r\n\r\n.progress-frag:first-of-type::before {\r\n  content: '';\r\n  position: absolute;\r\n  top: 16px;\r\n  height: 24px;\r\n  width: 4px;\r\n  background-color: #8b949e;\r\n}\r\n\r\n.progress-disc {\r\n  width: 24px;\r\n  height: 24px;\r\n  border-radius: 50%;\r\n  background-color: #39404b;\r\n  float: right;\r\n  -webkit-transform: translateY(-6px);\r\n          transform: translateY(-6px);\r\n}\r\n\r\n.prograss-frag:last-of-type .progress-disc {\r\n  background-color: #45a369;\r\n}\r\n\r\n.add-slide,\r\n.add-existing-feature {\r\n  position: relative;\r\n  display: none;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.inheader-slide-id,\r\n.existing-feature-id {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  border: none;\r\n  min-width: 220px;\r\n  height: 32px;\r\n  padding: 2px 8px;\r\n  border-radius: 16px;\r\n  margin-right: 18px;\r\n  -webkit-box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 3px 2px var(--tone-2t);\r\n          box-shadow: 0 0 3px 2px var(--tone-2t);\r\n}\r\n\r\n.existing-feature-id {\r\n  width: 100%;\r\n  margin-right: 0;\r\n  margin-top: 24px;\r\n}\r\n\r\n.inheader-slide-id::-webkit-input-placeholder, .existing-feature-id::-webkit-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  -webkit-transform: translateX(-14px);\r\n          transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id::-moz-placeholder, .existing-feature-id::-moz-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id:-ms-input-placeholder, .existing-feature-id:-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id::-ms-input-placeholder, .existing-feature-id::-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id::placeholder,\r\n.existing-feature-id::placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  -webkit-transform: translateX(-14px);\r\n          transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.add-slide-btn,\r\n.add-existing-feature-btn {\r\n  height: 28px;\r\n  width: 28px;\r\n  border-radius: 50%;\r\n  border: none;\r\n  position: absolute;\r\n  right: 20px;\r\n  top: 14px;\r\n}\r\n.add-existing-feature-btn {\r\n  right: 2px;\r\n  top: 26px;\r\n}\r\n\r\n.add-slide-btn i,\r\n.add-existing-feature-btn i {\r\n  -webkit-transform: translateY(1px);\r\n          transform: translateY(1px);\r\n}\r\n\r\n/* Slides Body */\r\n.slides-body {\r\n  position: relative;\r\n  width: 100%;\r\n  height: calc(100vh - 111px);\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.slides-body.highlight {\r\n  border: 5px dashed #7d8794;\r\n  border: 5px dashed var(--tone-3);\r\n}\r\n\r\n.incanvas-slide-name,\r\n.incanvas-slide-id {\r\n  position: absolute;\r\n  top: 20px;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  border: none;\r\n  min-width: 190px;\r\n  padding: 2px 4px;\r\n  display: none;\r\n}\r\n\r\n.incanvas-slide-name {\r\n  left: 40px;\r\n  font-size: 1.1em;\r\n}\r\n\r\n.incanvas-slide-name::-webkit-input-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name::-moz-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name:-ms-input-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name::-ms-input-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name::placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-id {\r\n  right: 40px;\r\n}\r\n\r\n.file-input {\r\n  position: absolute;\r\n  top: 85%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  height: 32px;\r\n  width: 150px;\r\n  border-radius: 16px;\r\n  display: none;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 3px 2px var(--tone-2t);\r\n          box-shadow: 0 0 3px 2px var(--tone-2t);\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  cursor: pointer;\r\n}\r\n\r\n.file-input input {\r\n  display: none;\r\n}\r\n\r\n.file-input::after {\r\n  content: 'Or drag & drop here';\r\n  padding: 1px 5px;\r\n  background-color: rgba(240,246,252,0.58039);\r\n  background-color: var(--tone-2t);\r\n  position: absolute;\r\n  top: 40px;\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n  font-weight: 700;\r\n}\r\n\r\n.prev-btn,\r\n.next-btn {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  position: absolute;\r\n  top: 50%;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  font-size: 30px;\r\n  -webkit-transform: translateY(-44px);\r\n          transform: translateY(-44px);\r\n  cursor: pointer;\r\n  height: 44px;\r\n  width: 44px;\r\n  border-radius: 50%;\r\n  -webkit-transition: 0.3s ease;\r\n  transition: 0.3s ease;\r\n  -webkit-box-shadow: 0 0 4px 1px rgba(22,27,34,0.55294);\r\n          box-shadow: 0 0 4px 1px rgba(22,27,34,0.55294);\r\n  -webkit-box-shadow: 0 0 4px 1px var(--tone-5t);\r\n          box-shadow: 0 0 4px 1px var(--tone-5t);\r\n  opacity: 0;\r\n}\r\n\r\n.slides-viewer:hover .prev-btn,\r\n.slides-viewer:hover .next-btn {\r\n  opacity: 1;\r\n}\r\n\r\n.prev-btn:hover,\r\n.next-btn:hover {\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n}\r\n\r\n.prev-btn {\r\n  left: 40px;\r\n  padding-right: 2px;\r\n}\r\n\r\n.next-btn {\r\n  right: 40px;\r\n  padding-left: 2px;\r\n}\r\n\r\n.canvas {\r\n  width: 560px;\r\n  height: 360px;\r\n  display: none;\r\n}\r\n\r\n.slide-img {\r\n  width: 100%;\r\n  height: 100%;\r\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  background-size: contain;\r\n  background-position: center;\r\n  display: block;\r\n}\r\n\r\n.notes-body {\r\n  position: absolute;\r\n  display: none;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  width: 80%;\r\n  height: 70%;\r\n  right: 0;\r\n  left: 0;\r\n  margin: 0 auto;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding: 28px;\r\n  -webkit-transform: translateY(-40px);\r\n          transform: translateY(-40px);\r\n}\r\n\r\n.notes-body.show {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\n.notes-content {\r\n  /* width: 100%; */\r\n  /* height: 100%; */\r\n  font-size: 1.2em;\r\n  overflow: auto;\r\n  display: block;\r\n  /* white-space: pre-wrap; */\r\n}\r\n\r\n.notes-body textarea {\r\n  width: 100%;\r\n  height: 100%;\r\n  padding: 16px;\r\n  font-size: 1.2em;\r\n}\r\n\r\n.notes-body .slide-controls-btn {\r\n  position: absolute;\r\n  right: 0;\r\n  left: 0;\r\n  bottom: -50px;\r\n  margin: 0 auto;\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n}\r\n\r\n.slide-controls {\r\n  -webkit-transform: translateY(-60px);\r\n          transform: translateY(-60px);\r\n  width: 100%;\r\n  height: 60px;\r\n  background-color: rgba(22,27,34,0.52157);\r\n  opacity: 0;\r\n  -webkit-transition: opacity 0.2s ease-in;\r\n  transition: opacity 0.2s ease-in;\r\n  display: grid;\r\n  grid-template-columns: 2fr 10fr 2fr;\r\n  justify-items: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.slide-controls.show {\r\n  opacity: 1;\r\n}\r\n\r\n.slides-viewer:hover .slide-controls {\r\n  opacity: 1;\r\n}\r\n\r\n.actions-controls {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  gap: 30px;\r\n  width: 100%;\r\n}\r\n\r\n.record-btn {\r\n  display: none;\r\n  width: 15px;\r\n  height: 15px;\r\n  background-color: red;\r\n  border-radius: 50%;\r\n  cursor: pointer;\r\n  -webkit-transform: translateY(-1px);\r\n          transform: translateY(-1px);\r\n}\r\n\r\n.stop-rec {\r\n  background-color: rgb(200, 0, 0);\r\n  outline: 1px solid rgb(200, 0, 0);\r\n  outline-offset: 3px;\r\n}\r\n\r\n.rec {\r\n  -webkit-animation-name: pulse;\r\n          animation-name: pulse;\r\n  -webkit-animation-duration: 1s;\r\n          animation-duration: 1s;\r\n  -webkit-animation-iteration-count: infinite;\r\n          animation-iteration-count: infinite;\r\n  -webkit-animation-timing-function: linear;\r\n          animation-timing-function: linear;\r\n}\r\n\r\n@-webkit-keyframes pulse {\r\n  0% {\r\n    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n  }\r\n  65% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n  100% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n  }\r\n  65% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n  100% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n}\r\n\r\n.stop-btn {\r\n  display: none;\r\n}\r\n\r\n/* .record-btn {\r\n  display: block;\r\n} */\r\n\r\n.slide-controls-btn {\r\n  border: none;\r\n  background-color: transparent;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  height: 30px;\r\n  width: 110px;\r\n  border-radius: 15px;\r\n  -webkit-box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 3px 2px var(--tone-2t);\r\n          box-shadow: 0 0 3px 2px var(--tone-2t);\r\n  font-size: 1.2em;\r\n  text-align: center;\r\n  -webkit-transform: translateY(-2px);\r\n          transform: translateY(-2px);\r\n}\r\n\r\n/* viewer and editor toggle styles */\r\n#expand-btn {\r\n  display: block;\r\n}\r\n\r\n#slide-show-notes-btn {\r\n  display: block;\r\n}\r\n\r\n#slide-add-notes-btn {\r\n  display: none;\r\n}\r\n\r\n#slide-submit-btn {\r\n  display: none;\r\n}\r\n\r\n#notes-textarea {\r\n  display: none;\r\n}\r\n\r\n#submit-notes-btn {\r\n  display: none;\r\n}\r\n\r\n.hide {\r\n  display: none !important;\r\n}\r\n\r\n.show-block {\r\n  display: block !important;\r\n}\r\n\r\n.show-flex {\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\r\n}\r\n\r\n/* Media Queries */\r\n@media screen and (max-width: 1536px) {\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(4, 1fr);\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(3, 1fr);\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 960px) {\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(2, 1fr);\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 620px) {\r\n  .navbar {\r\n    padding: 0 20px;\r\n    font-size: 1.3em;\r\n  }\r\n\r\n  .navbar li {\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(1, 1fr);\r\n  }\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 6px;\r\n  height: 6px;\r\n}\r\n\r\n::-webkit-scrollbar-track {\r\n  background: #535b64;\r\n  background: var(--tone-4);\r\n}\r\n::-webkit-scrollbar-thumb {\r\n  background: rgba(240,246,252,0.58039);\r\n  background: var(--tone-2t);\r\n  border-radius: 3px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n  --tone-1: #f0f6fc;\r\n  --tone-2t: rgba(240,246,252,0.58039);\r\n  --tone-3: #7d8794;\r\n  --tone-4: #535b64;\r\n  --tone-5: #161b22;\r\n  --tone-5t: rgba(22,27,34,0.55294);\r\n}\r\n\r\nhtml {\r\n  overflow: hidden;\r\n}\r\n\r\nbody {\r\n  background-color: #0d1117;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  font-size: 14px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n}\r\n\r\n.fa {\r\n  cursor: pointer;\r\n}\r\n\r\n/* Navbar Styles */\r\n.navbar {\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  width: 100%;\r\n  height: 60px;\r\n  border-bottom: #535b64 solid 2px;\r\n  border-bottom: var(--tone-4) solid 2px;\r\n  padding: 0 30px;\r\n  font-size: 1.5em;\r\n}\r\n\r\n.brand {\r\n  border: none;\r\n  background-color: transparent;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  padding: 0;\r\n  text-decoration: none;\r\n}\r\n\r\n.brand:hover {\r\n  color: inherit;\r\n}\r\n\r\n.navbar ul {\r\n  list-style-type: none;\r\n  margin: 0;\r\n  padding: 0;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\n.navbar li {\r\n  margin-left: 30px;\r\n  cursor: pointer;\r\n  border-bottom: 3px solid transparent;\r\n  -webkit-transition: all 0.2s ease-in;\r\n  transition: all 0.2s ease-in;\r\n}\r\n\r\n.navbar li:hover {\r\n  border-bottom: 3px solid #f0f6fc;\r\n  border-bottom: 3px solid var(--tone-1);\r\n}\r\n\r\n.navbar li.active {\r\n  border-bottom: 3px solid #f0f6fc;\r\n  border-bottom: 3px solid var(--tone-1);\r\n}\r\n\r\n/* Home Styles */\r\n.tutorials-container {\r\n  padding: 80px;\r\n  width: 100%;\r\n  display: grid;\r\n  grid-template-columns: repeat(6, 1fr);\r\n  grid-template-rows: 260px;\r\n  grid-gap: 40px;\r\n  gap: 40px;\r\n  justify-items: center;\r\n  overflow: auto;\r\n}\r\n\r\n.tutorial-progress {\r\n  position: relative;\r\n  width: 230px;\r\n  height: 230px;\r\n  border-radius: 50%;\r\n  background: conic-gradient(\r\n    /* #8b949e 0%, */ /* #8b949e 60%, */ #1f242c 0%,\r\n    #1f242c 100%\r\n  );\r\n  cursor: pointer;\r\n}\r\n\r\n.tutorial-progress:hover {\r\n  -webkit-box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 20px 5px var(--tone-2t);\r\n          box-shadow: 0 0 20px 5px var(--tone-2t);\r\n}\r\n\r\n.tutorial-progress::after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 230px;\r\n  height: 230px;\r\n  border-radius: 50%;\r\n  top: 0px;\r\n  left: 0px;\r\n  border: #2b333e solid 2px;\r\n  z-index: 0;\r\n}\r\n\r\n.tutorial {\r\n  position: relative;\r\n  width: 210px;\r\n  height: 210px;\r\n  border-radius: 50%;\r\n  top: 10px;\r\n  left: 10px;\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  border: #0d1117 solid 15px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  text-align: center;\r\n  padding: 10px;\r\n}\r\n\r\n.tutorial::after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 180px;\r\n  height: 180px;\r\n  border-radius: 50%;\r\n  top: 0px;\r\n  left: 0px;\r\n  border: #2b333e solid 2px;\r\n  z-index: 0;\r\n}\r\n\r\n.tutorial-title {\r\n  letter-spacing: 4;\r\n  font-size: 1.8em;\r\n  /* text-overflow: ellipsis; */\r\n  /* overflow: hidden; */\r\n  /* max-height: 90px; */\r\n  /* white-space: nowrap; */\r\n}\r\n\r\n.tutorial-add {\r\n  position: relative;\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n  top: 10px;\r\n  left: 10px;\r\n  border: #2b333e dashed 3px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  text-align: center;\r\n  cursor: pointer;\r\n}\r\n\r\n.tuto-add-container {\r\n  background-color: #7d8794;\r\n  background-color: var(--tone-3);\r\n}\r\n\r\n.title-container {\r\n  position: relative;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  /* z-index: 100; */\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.title-container textarea {\r\n  position: absolute;\r\n  top: 40px;\r\n  left: 0;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  border: none;\r\n  text-align: center;\r\n  letter-spacing: 4;\r\n  font-size: 1.8em;\r\n  width: 160px;\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  /* width: 100%; */\r\n  /* height: 100%; */\r\n  /* z-index: 1000; */\r\n  resize: none;\r\n  outline: none;\r\n}\r\n\r\n.title-container textarea::-webkit-input-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::-moz-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea:-ms-input-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::-ms-input-placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::placeholder {\r\n  text-align: center;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.title-container textarea::-webkit-scrollbar {\r\n  display: none;\r\n}\r\n\r\n.tutorial-add:hover {\r\n  -webkit-box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 20px 5px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 20px 5px var(--tone-2t);\r\n          box-shadow: 0 0 20px 5px var(--tone-2t);\r\n}\r\n\r\n.tutorial-add::before {\r\n  content: '';\r\n  width: 120px;\r\n  border-top: 6px #8b949e solid;\r\n  -webkit-transform: translate(2px, -3px);\r\n          transform: translate(2px, -3px);\r\n}\r\n\r\n.tutorial-add::after {\r\n  content: '';\r\n  height: 120px;\r\n  border-left: 6px #8b949e solid;\r\n  -webkit-transform: translateX(-61px);\r\n          transform: translateX(-61px);\r\n}\r\n\r\n/* Viewer Styles */\r\n.content {\r\n  display: grid;\r\n  grid-template-columns: 2fr 8fr 2fr;\r\n  height: 100%;\r\n}\r\n\r\n.groups {\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  min-width: 250px;\r\n  height: 100%;\r\n  border-right: #535b64 solid 2px;\r\n  border-right: var(--tone-4) solid 2px;\r\n  padding: 16px;\r\n}\r\n\r\n.app-xref {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  height: 68px;\r\n  -webkit-box-pack: space-evenly;\r\n      -ms-flex-pack: space-evenly;\r\n          justify-content: space-evenly;\r\n  margin-bottom: 20px;\r\n  border-bottom: 1px solid #535b64;\r\n  border-bottom: 1px solid var(--tone-4);\r\n  cursor: pointer;\r\n  text-decoration: none;\r\n}\r\n\r\n.app-name {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  font-size: 1.2em;\r\n}\r\n\r\n.app-xref p {\r\n  font-size: 0.9em;\r\n  width: 50px;\r\n  height: 50px;\r\n  margin-left: 10px;\r\n  padding: 4px;\r\n  display: block;\r\n  color: #7d8794;\r\n  color: var(--tone-3);\r\n  border: 2px dashed #7d8794;\r\n  border: 2px dashed var(--tone-3);\r\n  line-height: 1;\r\n  text-align: center;\r\n  letter-spacing: 2;\r\n}\r\n\r\n/* Groups Navigation */\r\n.groups-collection {\r\n  height: 80vh;\r\n  overflow-y: auto;\r\n  direction: rtl;\r\n}\r\n\r\n.groups-nav {\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  direction: ltr;\r\n}\r\n\r\n.groups-nav a {\r\n  text-decoration: none;\r\n  display: block;\r\n  border: none;\r\n  background: none;\r\n  color: #6e7782;\r\n  font-size: 1.4em;\r\n  width: 100%;\r\n  text-align: left;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding-left: 10px;\r\n}\r\n\r\n.dropdown-btn {\r\n  display: block;\r\n  border: none;\r\n  background: none;\r\n  color: #6e7782;\r\n  font-size: 1.4em;\r\n  width: 100%;\r\n  text-align: left;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border-bottom: 1px solid #535b64;\r\n  border-bottom: 1px solid var(--tone-4);\r\n}\r\n\r\n.dropdown-btn > i {\r\n  float: right;\r\n  padding-right: 10px;\r\n  padding-top: 4px;\r\n}\r\n\r\n.groups-nav a:hover,\r\n.dropdown-btn:hover {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n}\r\n\r\n.dropdown-container {\r\n  display: none;\r\n}\r\n\r\n.dropdown-btn.active {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n  background-color: #f0f6fc;\r\n  background-color: var(--tone-1);\r\n}\r\n\r\n.dropdown-btn.active:hover {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n}\r\n\r\n.features {\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n  min-width: 250px;\r\n  height: 100%;\r\n  border-left: #535b64 solid 2px;\r\n  border-left: var(--tone-4) solid 2px;\r\n  padding: 16px;\r\n}\r\n\r\n.features-count {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  height: 68px;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: space-evenly;\r\n      -ms-flex-pack: space-evenly;\r\n          justify-content: space-evenly;\r\n  margin-bottom: 20px;\r\n  border-bottom: 1px solid #535b64;\r\n  border-bottom: 1px solid var(--tone-4);\r\n}\r\n\r\n.features-count p {\r\n  margin: 0;\r\n  font-size: 1.2em;\r\n  display: block;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  text-align: center;\r\n  letter-spacing: 2;\r\n  -webkit-transform: translateY(-8px);\r\n          transform: translateY(-8px);\r\n}\r\n\r\n.features-count p:nth-child(2) {\r\n  font-size: 1em;\r\n  color: #7d8794;\r\n  color: var(--tone-3);\r\n}\r\n\r\n.features-collection {\r\n  display: none;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n}\r\n\r\n.feature-btn {\r\n  margin-bottom: 10px;\r\n  min-height: 32px;\r\n  font-size: 1.2em;\r\n  color: #535b64;\r\n  color: var(--tone-4);\r\n  border: 1px solid #535b64;\r\n  border: 1px solid var(--tone-4);\r\n  background-color: transparent;\r\n}\r\n\r\n.feature-btn:last-of-type {\r\n  margin-bottom: 0px;\r\n}\r\n\r\n.feature-btn:hover {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n}\r\n\r\n.feature-btn.active {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n  background-color: #f0f6fc;\r\n  background-color: var(--tone-1);\r\n}\r\n\r\n.feature-btn.active:hover {\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n}\r\n\r\n#add-feature-note {\r\n  margin-top: 8px;\r\n  color: #f9d17c;\r\n  text-align: center;\r\n  display: none;\r\n}\r\n#add-feature-note.show {\r\n  display: block;\r\n}\r\n\r\n/* Common Navigation Styles */\r\n.add-group-feature {\r\n  display: none;\r\n  border: 2px dashed #7d8794;\r\n  border: 2px dashed var(--tone-3);\r\n  padding: 4px;\r\n  margin-top: 24px;\r\n  direction: ltr;\r\n}\r\n\r\n.group-feature-name {\r\n  background-color: transparent;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  border: none;\r\n  width: 100%;\r\n  border-right: 1px solid #7d8794;\r\n  border-right: 1px solid var(--tone-3);\r\n  margin-right: 4px;\r\n  font-size: 1.2em;\r\n}\r\n\r\n.group-feature-name::-webkit-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name::-moz-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name:-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name::-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.group-feature-name::placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n}\r\n\r\n.add-group-feature-btn {\r\n  border: none;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  background-color: transparent;\r\n}\r\n\r\n/* Slides Viewer */\r\n.slides-viewer {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\n\r\n/* Slides Header */\r\n.slides-header {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  background-color: #161b22;\r\n  background-color: var(--tone-5);\r\n}\r\n\r\n.slides-progress {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  width: 100%;\r\n  height: 56px;\r\n  padding: 18px;\r\n  cursor: pointer;\r\n}\r\n\r\n.progress-frag {\r\n  width: 100%;\r\n}\r\n\r\n.progress-bar {\r\n  z-index: -10;\r\n  height: 4px;\r\n  background-color: #39404b;\r\n  -webkit-transform: translateY(8px);\r\n          transform: translateY(8px);\r\n}\r\n\r\n.progress-frag:first-of-type::before {\r\n  content: '';\r\n  position: absolute;\r\n  top: 16px;\r\n  height: 24px;\r\n  width: 4px;\r\n  background-color: #8b949e;\r\n}\r\n\r\n.progress-disc {\r\n  width: 24px;\r\n  height: 24px;\r\n  border-radius: 50%;\r\n  background-color: #39404b;\r\n  float: right;\r\n  -webkit-transform: translateY(-6px);\r\n          transform: translateY(-6px);\r\n}\r\n\r\n.prograss-frag:last-of-type .progress-disc {\r\n  background-color: #45a369;\r\n}\r\n\r\n.add-slide,\r\n.add-existing-feature {\r\n  position: relative;\r\n  display: none;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.inheader-slide-id,\r\n.existing-feature-id {\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  border: none;\r\n  min-width: 220px;\r\n  height: 32px;\r\n  padding: 2px 8px;\r\n  border-radius: 16px;\r\n  margin-right: 18px;\r\n  -webkit-box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 3px 2px var(--tone-2t);\r\n          box-shadow: 0 0 3px 2px var(--tone-2t);\r\n}\r\n\r\n.existing-feature-id {\r\n  width: 100%;\r\n  margin-right: 0;\r\n  margin-top: 24px;\r\n}\r\n\r\n.inheader-slide-id::-webkit-input-placeholder, .existing-feature-id::-webkit-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  -webkit-transform: translateX(-14px);\r\n          transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id::-moz-placeholder, .existing-feature-id::-moz-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id:-ms-input-placeholder, .existing-feature-id:-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id::-ms-input-placeholder, .existing-feature-id::-ms-input-placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.inheader-slide-id::placeholder,\r\n.existing-feature-id::placeholder {\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n  -webkit-transform: translateX(-14px);\r\n          transform: translateX(-14px);\r\n  font-size: 1.1em;\r\n}\r\n\r\n.add-slide-btn,\r\n.add-existing-feature-btn {\r\n  height: 28px;\r\n  width: 28px;\r\n  border-radius: 50%;\r\n  border: none;\r\n  position: absolute;\r\n  right: 20px;\r\n  top: 14px;\r\n}\r\n.add-existing-feature-btn {\r\n  right: 2px;\r\n  top: 26px;\r\n}\r\n\r\n.add-slide-btn i,\r\n.add-existing-feature-btn i {\r\n  -webkit-transform: translateY(1px);\r\n          transform: translateY(1px);\r\n}\r\n\r\n/* Slides Body */\r\n.slides-body {\r\n  position: relative;\r\n  width: 100%;\r\n  height: calc(100vh - 111px);\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.slides-body.highlight {\r\n  border: 5px dashed #7d8794;\r\n  border: 5px dashed var(--tone-3);\r\n}\r\n\r\n.incanvas-slide-name,\r\n.incanvas-slide-id {\r\n  position: absolute;\r\n  top: 20px;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  border: none;\r\n  min-width: 190px;\r\n  padding: 2px 4px;\r\n  display: none;\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name {\r\n  left: 40px;\r\n  font-size: 1.1em;\r\n}\r\n\r\n.incanvas-slide-name::-webkit-input-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name::-moz-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name:-ms-input-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name::-ms-input-placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-name::placeholder {\r\n  font-size: 1.1em;\r\n  color: rgba(240,246,252,0.58039);\r\n  color: var(--tone-2t);\r\n  text-align: center;\r\n}\r\n\r\n.incanvas-slide-id {\r\n  right: 40px;\r\n}\r\n\r\n.file-input {\r\n  position: absolute;\r\n  top: 85%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  height: 32px;\r\n  width: 150px;\r\n  border-radius: 16px;\r\n  display: none;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 3px 2px var(--tone-2t);\r\n          box-shadow: 0 0 3px 2px var(--tone-2t);\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  cursor: pointer;\r\n}\r\n\r\n.file-input input {\r\n  display: none;\r\n}\r\n\r\n.file-input::after {\r\n  content: 'Or drag & drop here';\r\n  padding: 1px 5px;\r\n  background-color: rgba(240,246,252,0.58039);\r\n  background-color: var(--tone-2t);\r\n  position: absolute;\r\n  top: 40px;\r\n  color: #161b22;\r\n  color: var(--tone-5);\r\n  font-weight: 700;\r\n}\r\n\r\n.prev-btn,\r\n.next-btn {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  position: absolute;\r\n  top: 50%;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  font-size: 30px;\r\n  -webkit-transform: translateY(-44px);\r\n          transform: translateY(-44px);\r\n  cursor: pointer;\r\n  height: 44px;\r\n  width: 44px;\r\n  border-radius: 50%;\r\n  -webkit-transition: 0.3s ease;\r\n  transition: 0.3s ease;\r\n  -webkit-box-shadow: 0 0 4px 1px rgba(22,27,34,0.55294);\r\n          box-shadow: 0 0 4px 1px rgba(22,27,34,0.55294);\r\n  -webkit-box-shadow: 0 0 4px 1px var(--tone-5t);\r\n          box-shadow: 0 0 4px 1px var(--tone-5t);\r\n  opacity: 0;\r\n}\r\n\r\n.slides-viewer:hover .prev-btn,\r\n.slides-viewer:hover .next-btn {\r\n  opacity: 1;\r\n}\r\n\r\n.prev-btn:hover,\r\n.next-btn:hover {\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n}\r\n\r\n.prev-btn {\r\n  left: 40px;\r\n  padding-right: 2px;\r\n}\r\n\r\n.next-btn {\r\n  right: 40px;\r\n  padding-left: 2px;\r\n}\r\n\r\n.canvas {\r\n  width: 560px;\r\n  height: 360px;\r\n  display: none;\r\n}\r\n\r\n.slide-img {\r\n  width: 100%;\r\n  height: 100%;\r\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat !important;\r\n  background-size: contain !important;\r\n  background-position: center !important;\r\n  display: block;\r\n}\r\n\r\n.notes-body {\r\n  position: absolute;\r\n  display: none;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n  width: 80%;\r\n  height: 70%;\r\n  right: 0;\r\n  left: 0;\r\n  margin: 0 auto;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding: 28px;\r\n  -webkit-transform: translateY(-40px);\r\n          transform: translateY(-40px);\r\n}\r\n\r\n.notes-body.show {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\n.notes-content {\r\n  /* width: 100%; */\r\n  /* height: 100%; */\r\n  font-size: 1.2em;\r\n  overflow: auto;\r\n  display: block;\r\n  /* white-space: pre-wrap; */\r\n}\r\n\r\n.notes-body textarea {\r\n  width: 100%;\r\n  height: 100%;\r\n  padding: 16px;\r\n  font-size: 1.2em;\r\n}\r\n\r\n.notes-body .slide-controls-btn {\r\n  position: absolute;\r\n  right: 0;\r\n  left: 0;\r\n  bottom: -50px;\r\n  margin: 0 auto;\r\n  background-color: rgba(22,27,34,0.55294);\r\n  background-color: var(--tone-5t);\r\n}\r\n\r\n.slide-controls {\r\n  -webkit-transform: translateY(-60px);\r\n          transform: translateY(-60px);\r\n  width: 100%;\r\n  height: 60px;\r\n  background-color: rgba(22,27,34,0.52157);\r\n  opacity: 0;\r\n  -webkit-transition: opacity 0.2s ease-in;\r\n  transition: opacity 0.2s ease-in;\r\n  display: grid;\r\n  grid-template-columns: 2fr 10fr 2fr;\r\n  justify-items: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n\r\n.slide-controls.show {\r\n  opacity: 1;\r\n}\r\n\r\n.slides-viewer:hover .slide-controls {\r\n  opacity: 1;\r\n}\r\n\r\n.actions-controls {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  gap: 30px;\r\n  width: 100%;\r\n}\r\n\r\n.record-btn {\r\n  display: none;\r\n  width: 15px;\r\n  height: 15px;\r\n  background-color: red;\r\n  border-radius: 50%;\r\n  cursor: pointer;\r\n  -webkit-transform: translateY(-1px);\r\n          transform: translateY(-1px);\r\n}\r\n\r\n.stop-rec {\r\n  background-color: rgb(200, 0, 0);\r\n  outline: 1px solid rgb(200, 0, 0);\r\n  outline-offset: 3px;\r\n}\r\n\r\n.rec {\r\n  -webkit-animation-name: pulse;\r\n          animation-name: pulse;\r\n  -webkit-animation-duration: 1s;\r\n          animation-duration: 1s;\r\n  -webkit-animation-iteration-count: infinite;\r\n          animation-iteration-count: infinite;\r\n  -webkit-animation-timing-function: linear;\r\n          animation-timing-function: linear;\r\n}\r\n\r\n@-webkit-keyframes pulse {\r\n  0% {\r\n    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n  }\r\n  65% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n  100% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 0px rgba(255, 0, 0, 0.5);\r\n  }\r\n  65% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n  100% {\r\n    -webkit-box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n            box-shadow: 0px 0px 3px 7px rgba(255, 0, 0, 0.5);\r\n  }\r\n}\r\n\r\n.stop-btn {\r\n  display: none;\r\n}\r\n\r\n/* .record-btn {\r\n  display: block;\r\n} */\r\n\r\n.slide-controls-btn {\r\n  border: none;\r\n  background-color: transparent;\r\n  color: #f0f6fc;\r\n  color: var(--tone-1);\r\n  height: 30px;\r\n  width: 110px;\r\n  border-radius: 15px;\r\n  -webkit-box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n          box-shadow: 0 0 3px 2px rgba(240,246,252,0.58039);\r\n  -webkit-box-shadow: 0 0 3px 2px var(--tone-2t);\r\n          box-shadow: 0 0 3px 2px var(--tone-2t);\r\n  font-size: 1.2em;\r\n  text-align: center;\r\n  -webkit-transform: translateY(-2px);\r\n          transform: translateY(-2px);\r\n}\r\n\r\n/* viewer and editor toggle styles */\r\n#expand-btn {\r\n  display: block;\r\n}\r\n\r\n#slide-show-notes-btn {\r\n  display: block;\r\n}\r\n\r\n#slide-add-notes-btn {\r\n  display: none;\r\n}\r\n\r\n#slide-submit-btn {\r\n  display: none;\r\n}\r\n\r\n#notes-textarea {\r\n  display: none;\r\n}\r\n\r\n#submit-notes-btn {\r\n  display: none;\r\n}\r\n\r\n.hide {\r\n  display: none !important;\r\n}\r\n\r\n.show-block {\r\n  display: block !important;\r\n}\r\n\r\n.show-flex {\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\r\n}\r\n\r\n/* Media Queries */\r\n@media screen and (max-width: 1536px) {\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(4, 1fr);\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(3, 1fr);\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 960px) {\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(2, 1fr);\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 620px) {\r\n  .navbar {\r\n    padding: 0 20px;\r\n    font-size: 1.3em;\r\n  }\r\n\r\n  .navbar li {\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .tutorials-container {\r\n    padding: 80px;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: grid;\r\n    grid-template-columns: repeat(1, 1fr);\r\n  }\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 6px;\r\n  height: 6px;\r\n}\r\n\r\n::-webkit-scrollbar-track {\r\n  background: #535b64;\r\n  background: var(--tone-4);\r\n}\r\n::-webkit-scrollbar-thumb {\r\n  background: rgba(240,246,252,0.58039);\r\n  background: var(--tone-2t);\r\n  border-radius: 3px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
 
@@ -972,6 +972,842 @@ module.exports = function (url, options) {
 module.exports = function (i) {
   return i[1];
 };
+
+/***/ }),
+
+/***/ 280:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+var __webpack_unused_export__;
+var _interopRequireDefault=__webpack_require__(957);__webpack_unused_export__ = ({value:!0}),exports.Z=getBlobDuration;var _regenerator=_interopRequireDefault(__webpack_require__(780)),_asyncToGenerator2=_interopRequireDefault(__webpack_require__(877));function getBlobDuration(e){return _getBlobDuration.apply(this,arguments)}function _getBlobDuration(){return(_getBlobDuration=(0,_asyncToGenerator2.default)(_regenerator.default.mark(function e(r){var t,n;return _regenerator.default.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return t=document.createElement("video"),n=new Promise(function(e,r){t.addEventListener("loadedmetadata",function(){t.duration===1/0?(t.currentTime=Number.MAX_SAFE_INTEGER,t.ontimeupdate=function(){t.ontimeupdate=null,e(t.duration),t.currentTime=0}):e(t.duration)}),t.onerror=function(e){return r(e.target.error)}}),t.src="string"==typeof r||r instanceof String?r:window.URL.createObjectURL(r),e.abrupt("return",n);case 4:case"end":return e.stop()}},e)}))).apply(this,arguments)}
+//# sourceMappingURL=getBlobDuration.js.map
+
+
+/***/ }),
+
+/***/ 877:
+/***/ (function(module) {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+module.exports = _asyncToGenerator;
+
+/***/ }),
+
+/***/ 957:
+/***/ (function(module) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+
+/***/ }),
+
+/***/ 780:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+module.exports = __webpack_require__(820);
+
+
+/***/ }),
+
+/***/ 820:
+/***/ (function(module) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
+    return this;
+  });
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = GeneratorFunctionPrototype;
+  define(Gp, "constructor", GeneratorFunctionPrototype);
+  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+    return this;
+  });
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  define(Gp, iteratorSymbol, function() {
+    return this;
+  });
+
+  define(Gp, "toString", function() {
+    return "[object Generator]";
+  });
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : 0
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, in modern engines
+  // we can explicitly access globalThis. In older engines we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  if (typeof globalThis === "object") {
+    globalThis.regeneratorRuntime = runtime;
+  } else {
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
+}
+
 
 /***/ }),
 
@@ -1717,11 +2553,20 @@ function imageUpload(state, canvas, scaleToFit) {
 
 
 
+var imageObj = new Image();
+var slidesBody = document.querySelector('.slides-body');
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+function scaleToFit(img) {
+  var scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+  var x = canvas.width / 2 - img.width / 2 * scale;
+  var y = canvas.height / 2 - img.height / 2 * scale;
+  ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+}
+
 function slidesEditor(state) {
-  var slidesBody = document.querySelector('.slides-body');
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
-  var imageObj = new Image();
+  // see if you can move to main to prevent repeated calls
   audioCapture(state);
   imageUpload(state, canvas, scaleToFit);
   canvasDraw(canvas, ctx, scaleToFit, imageObj);
@@ -1737,13 +2582,6 @@ function slidesEditor(state) {
     canvas.setAttribute('width', slidesBody.clientWidth);
     canvas.style.height = slidesBody.clientHeight;
     canvas.style.width = slidesBody.clientWidth;
-  }
-
-  function scaleToFit(img) {
-    var scale = Math.min(canvas.width / img.width, canvas.height / img.height);
-    var x = canvas.width / 2 - img.width / 2 * scale;
-    var y = canvas.height / 2 - img.height / 2 * scale;
-    ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
   }
 }
 function sendSlide() {
@@ -1787,9 +2625,30 @@ function sendSlide() {
 }
 function renderSlide() {
   var slides = document.querySelectorAll('.progress-frag');
+  var slideImg = document.getElementById('slide-img');
+  var audio = document.getElementById('main-audio');
+  var slideIdEl = document.getElementById('incanvas-slide-id');
+  var slideName = document.getElementById('incanvas-slide-name');
+  var notesEl = document.getElementById('notes-textarea');
+  var notesContent = document.getElementById('notes-content');
   slides.forEach(function (slide) {
     slide.addEventListener('click', function () {
-      console.log(this.dataset);
+      var _this$dataset = this.dataset,
+          slideId = _this$dataset.slideId,
+          name = _this$dataset.name,
+          notes = _this$dataset.notes,
+          audioName = _this$dataset.audioName,
+          imageName = _this$dataset.imageName;
+      slideName.value = name;
+      slideIdEl.value = slideId;
+      notesEl.value = notes;
+      notesContent.innerText = notes;
+      audio.src = audioName ? "/slide/audio/".concat(audioName) : '';
+      var imageUrl = imageName ? "/slide/image/".concat(imageName) : '';
+      slideImg.style.background = "url(".concat(imageUrl, ")");
+      imageObj.src = imageUrl;
+      canvas.width = canvas.width;
+      canvasDraw(canvas, ctx, scaleToFit, imageObj);
     });
   });
 }
@@ -2120,7 +2979,105 @@ function featuresActions() {
     }, _callee);
   })));
 }
+// EXTERNAL MODULE: ./node_modules/get-blob-duration/dist/getBlobDuration.js
+var getBlobDuration = __webpack_require__(280);
+;// CONCATENATED MODULE: ./src/UI/slideToDb.js
+
+
+
+function slideToDb(state) {
+  var submit = document.getElementById('slide-submit-btn');
+  submit.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
+      var slideName, slideId, notes, formData, audioDuration, res;
+      return regenerator_default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              slideName = document.getElementById('incanvas-slide-name').value;
+              slideId = document.getElementById('incanvas-slide-id').value;
+              notes = document.getElementById('notes-textarea').value;
+              formData = new FormData();
+
+              if (!slideId) {
+                _context.next = 25;
+                break;
+              }
+
+              if (!state.audioBlob) {
+                _context.next = 15;
+                break;
+              }
+
+              console.log(state.audioBlob);
+              formData.append('audio', state.audioBlob);
+              _context.next = 11;
+              return fetch("/slide/upload-audio/".concat(slideId), {
+                method: 'POST',
+                body: formData
+              });
+
+            case 11:
+              _context.next = 13;
+              return (0,getBlobDuration/* default */.Z)(state.audioBlob);
+
+            case 13:
+              audioDuration = _context.sent;
+              audioDuration = Math.floor(audioDuration);
+
+            case 15:
+              if (!state.imageFile) {
+                _context.next = 20;
+                break;
+              }
+
+              formData.delete('audio');
+              formData.append('image', state.imageFile);
+              _context.next = 20;
+              return fetch("/slide/upload-image/".concat(slideId), {
+                method: 'POST',
+                body: formData
+              });
+
+            case 20:
+              _context.next = 22;
+              return fetch("/slides/".concat(slideId), {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  slideName: slideName,
+                  notes: notes,
+                  duration: audioDuration ? audioDuration : 0
+                })
+              });
+
+            case 22:
+              res = _context.sent;
+              console.log({
+                slideName: slideName,
+                notes: notes,
+                duration: audioDuration ? audioDuration : 0
+              });
+              if (res) location.reload();
+
+            case 25:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
 ;// CONCATENATED MODULE: ./src/main.js
+
 
 
 
@@ -2170,6 +3127,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   setViewerMode();
   sendSlide();
   renderSlide();
+  slideToDb(state);
 }
 
 if (/tutorials\/show$/.test(location.href)) {

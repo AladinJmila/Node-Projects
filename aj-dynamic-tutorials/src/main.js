@@ -4,6 +4,7 @@ import homeActions from './UI/homeActions';
 import './main.css';
 import featuresActions from './UI/featruesActions';
 import { sendSlide, renderSlide } from './UI/slidesEditor';
+import slideToDb from './UI/slideToDb';
 
 const state = {
   mode: 'viewer',
@@ -46,6 +47,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   setViewerMode();
   sendSlide();
   renderSlide();
+  slideToDb(state);
 }
 if (/tutorials\/show$/.test(location.href)) {
   homeActions();

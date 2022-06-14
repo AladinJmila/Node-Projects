@@ -29,27 +29,26 @@ router.post('/', async (req, res) => {
   res.send('Success');
 });
 
-router.put('/slide/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const slide = await Slide.findByIdAndUpdate(req.params.id, {
     name: req.body.slideName,
     notes: req.body.notes,
-    isSolo: req.body.isSolo,
-    hasNext: req.body.hasNext,
     duration: parseInt(req.body.duration),
   });
 
-  let feature = await Feature.findById(slide.feature);
-  if (!feature.slides.includes(slide._id)) {
-    feature.slides.push(slide._id);
-    await feature.save();
-  }
-  if (feature.slides.includes(slide._id)) {
-    feature.duration += parseInt(req.body.duration);
-    await feature.save();
+  let features = await Feature.find();
+  // if (!features[0].slides.includes(slide._id)) {
+  //   feature.slides.push(slide._id);
+  //   await feature.save();
+  // }
+  if (features[0].slides.includes(slide._id)) {
+    features[0].duration += parseInt(req.body.duration);
+    await features[0].save();
   }
 
-  feature = await Feature.findById(slide.feature).lean();
-  res.redirect(`/media/slides/${slide._id}`);
+  // feature = await Feature.findById(slide.feature).lean();
+  // res.redirect(`/media/slides/${slide._id}`);
+  res.send('Success');
 });
 
 module.exports = router;

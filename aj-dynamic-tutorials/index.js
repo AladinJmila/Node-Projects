@@ -130,16 +130,16 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage });
 
-app.get('/media/upload-form', (req, res) => {
+app.get('/slide/upload-form', (req, res) => {
   res.render('uploadForm');
 });
 
 app.post(
-  '/media/upload-audio/:id',
+  '/slide/upload-audio/:id',
   upload.single('audio'),
   async (req, res) => {
     const slide = await Slide.findById(req.params.id);
-    const feature = await Feature.findById(slide.feature);
+    const feature = await Feature.findById(slide.features[0]);
 
     if (slide.audioName) {
       await gfs.files.findOne({ filename: slide.audioName }, (err, file) => {
@@ -158,12 +158,12 @@ app.post(
     slide.audioName = req.file.filename;
     await slide.save();
 
-    res.redirect(`/media/slides/${slide._id}`);
+    res.send('Success');
   }
 );
 
 app.post(
-  '/media/upload-image/:id',
+  '/slide/upload-image/:id',
   upload.single('image'),
   async (req, res) => {
     const slide = await Slide.findById(req.params.id);
@@ -182,11 +182,11 @@ app.post(
     slide.imageName = req.file.filename;
     await slide.save();
 
-    res.redirect(`/media/slides/${slide._id}`);
+    res.send('Success');
   }
 );
 
-app.get('/media/image/:filename', (req, res) => {
+app.get('/slide/image/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file)
       return res.status(404).send('There is no file with the given filename.');
@@ -196,7 +196,7 @@ app.get('/media/image/:filename', (req, res) => {
   });
 });
 
-app.get('/media/audio/:filename', (req, res) => {
+app.get('/slide/audio/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file)
       return res.status(404).send('There is no file with the given filename.');

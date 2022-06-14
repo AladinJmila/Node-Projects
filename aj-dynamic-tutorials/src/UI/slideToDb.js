@@ -12,39 +12,44 @@ export default function slideToDb(state) {
     const formData = new FormData();
     let audioDuration;
 
-    if (state.audioBlob) {
-      formData.append('audio', state.audioBlob);
-      await fetch(`/media/upload-audio/${slideId}`, {
-        method: 'POST',
-        body: formData,
+    if (slideId) {
+      if (state.audioBlob) {
+        console.log(state.audioBlob);
+        formData.append('audio', state.audioBlob);
+        await fetch(`/slide/upload-audio/${slideId}`, {
+          method: 'POST',
+          body: formData,
+        });
+        audioDuration = await getBlobDuration(state.audioBlob);
+        audioDuration = Math.floor(audioDuration);
+      }
+
+      if (state.imageFile) {
+        formData.delete('audio');
+        formData.append('image', state.imageFile);
+        await fetch(`/slide/upload-image/${slideId}`, {
+          method: 'POST',
+          body: formData,
+        });
+      }
+
+      const res = await fetch(`/slides/${slideId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          slideName,
+          notes,
+          duration: audioDuration ? audioDuration : 0,
+        }),
       });
 
-      audioDuration = await getBlobDuration(audioFile);
-      audioDuration = Math.floor(duration);
-    }
-
-    if (state.imageFile) {
-      formData.delete('audio');
-      formData.append('image', state.imageFile);
-      await fetch(`/media/upload-image/${slideId}`, {
-        method: 'POST',
-        body: formData,
-      });
-    }
-
-    const response = await fetch(`/media/update-slide/${slideId}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+      console.log({
         slideName,
         notes,
-        duration: duration ? duration : 0,
-      }),
-    });
+        duration: audioDuration ? audioDuration : 0,
+      });
 
-    if (response) {
-      console.log(response.url);
-      window.location = response.url;
+      if (res) location.reload();
     }
   });
 }
