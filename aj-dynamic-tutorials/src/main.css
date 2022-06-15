@@ -26,9 +26,11 @@ body {
 
 /* Navbar Styles */
 .navbar {
+  display: grid;
+  grid-template-columns: 2fr 10fr 2fr;
   background-color: var(--tone-5);
   width: 100%;
-  height: 60px;
+  height: 70px;
   border-bottom: var(--tone-4) solid 2px;
   padding: 0 30px;
   font-size: 1.5em;
@@ -51,6 +53,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: right;
 }
 
 .navbar li {
@@ -472,6 +475,7 @@ body {
   height: 24px;
   width: 4px;
   background-color: #8b949e;
+  z-index: 5;
 }
 
 .progress-disc {
@@ -894,4 +898,74 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--tone-2t);
   border-radius: 3px;
+}
+
+/* Nanorep custom styles */
+#nanorep-embedded-widget {
+  display: flex !important;
+  justify-content: center;
+  overflow: visible;
+}
+
+#nanorep1 {
+  width: 70% !important;
+  max-width: 800px !important;
+  border: 3px dashed var(--tone-2t) !important;
+}
+
+#nanorep1 #nanorep-ew .scrollable {
+  height: auto !important;
+}
+
+.query-field__buttons {
+  background-color: var(--tone-5) !important;
+}
+
+#nanorep1 #nanorep-ew .widget-embedded--support-center .query-field__input {
+  height: 40px !important;
+  background-color: var(--tone-5) !important;
+  color: var(--tone-1) !important;
+  line-height: 40px !important;
+}
+#nanorep1
+  #nanorep-ew
+  .widget-embedded--support-center
+  .query-field__input::placeholder {
+  color: var(--tone-2t);
+}
+.query-field__suggestion {
+  color: var(--tone-5) !important;
+  background-color: var(--tone-2t) !important;
+}
+
+.core-search {
+  position: relative !important;
+}
+
+.core-search__content {
+  /* position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 10;
+  height: 500px;
+  width: 100%; */
+}
+
+/* Article body styles */
+
+.article-content-btn {
+  border: none;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 3px solid var(--tone-4);
+  background-color: var(--tone-2t);
+  color: var(--tone-4);
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.article-content-btn:hover {
+  border: 3px solid var(--tone-4);
+  background-color: var(--tone-4);
+  color: var(--tone-1);
 }

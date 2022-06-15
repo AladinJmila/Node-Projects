@@ -5,7 +5,10 @@ import imageUpload from './imageUpload';
 const imageObj = new Image();
 const slidesBody = document.querySelector('.slides-body');
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+let ctx;
+if (canvas) {
+  ctx = canvas.getContext('2d');
+}
 
 function scaleToFit(img) {
   const scale = Math.min(canvas.width / img.width, canvas.height / img.height);

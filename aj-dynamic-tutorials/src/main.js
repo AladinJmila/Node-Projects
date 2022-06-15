@@ -52,3 +52,10 @@ if (!/tutorials\/show$/.test(location.href)) {
 if (/tutorials\/show$/.test(location.href)) {
   homeActions();
 }
+
+setTimeout(() => {
+  const target = document.querySelector('.core-search__content');
+
+  // console.log(target.getBoundingClientRect());
+  console.log(target.parentElement);
+}, 5000);
