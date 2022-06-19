@@ -12,6 +12,7 @@ const state = {
   slideSent: false,
   audioBlob: null,
   imageFile: null,
+  editedImage: null,
   slides: [],
 };
 
@@ -47,7 +48,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   slidesActions(state);
   setViewerMode();
   sendSlide();
-  renderSlide();
+  renderSlide(state);
   slideToDb(state);
 }
 if (/tutorials\/show$/.test(location.href)) {

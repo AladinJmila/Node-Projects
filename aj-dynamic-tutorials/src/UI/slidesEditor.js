@@ -21,7 +21,7 @@ export default function slidesEditor(state) {
   // see if you can move to main to prevent repeated calls
   audioCapture(state);
   imageUpload(state, canvas, scaleToFit);
-  canvasDraw(canvas, ctx, scaleToFit, imageObj);
+  canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
   resizeCanvas();
 
   imageObj.src = '/images/sakura.jpg';
@@ -54,8 +54,8 @@ export function sendSlide() {
   });
 }
 
-export function renderSlide() {
-  const slides = document.querySelectorAll('.progress-frag');
+export function renderSlide(state) {
+  const slidesBtns = document.querySelectorAll('.progress-frag');
   const slideImg = document.getElementById('slide-img');
   const audio = document.getElementById('main-audio');
   const slideIdEl = document.getElementById('incanvas-slide-id');
@@ -63,22 +63,30 @@ export function renderSlide() {
   const notesEl = document.getElementById('notes-textarea');
   const notesContent = document.getElementById('notes-content');
 
-  slides.forEach(slide => {
+  slidesBtns.forEach((slide, i) => {
     slide.addEventListener('click', function () {
-      const { slideId, name, notes, audioName, imageName } = this.dataset;
+      const { _id, name, notes, audioName, imageName, editedImageName } =
+        state.slides[i];
 
       slideName.value = name;
-      slideIdEl.value = slideId;
+      slideIdEl.value = _id;
       notesEl.value = notes;
       notesContent.innerText = notes;
 
       audio.src = audioName ? `/slide/audio/${audioName}` : '';
       const imageUrl = imageName ? `/slide/image/${imageName}` : '';
-      slideImg.style.background = `url(${imageUrl})`;
+      const editedImageUrl = editedImageName
+        ? `/slide/image/${editedImageName}`
+        : '';
+      if (editedImageUrl) {
+        slideImg.style.background = `url(${editedImageUrl})`;
+      } else {
+        slideImg.style.background = `url(${imageUrl})`;
+      }
 
       imageObj.src = imageUrl;
       canvas.width = canvas.width;
-      canvasDraw(canvas, ctx, scaleToFit, imageObj);
+      canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
     });
   });
 }

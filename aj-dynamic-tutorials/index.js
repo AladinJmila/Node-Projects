@@ -186,6 +186,33 @@ app.post(
   }
 );
 
+app.post(
+  '/slide/edited-image/:id',
+  upload.single('image'),
+  async (req, res) => {
+    const slide = await Slide.findById(req.params.id);
+
+    if (slide.editedImageName) {
+      await gfs.files.findOne(
+        { filename: slide.editedImageName },
+        (err, file) => {
+          if (err) return res.send(err);
+
+          if (!file)
+            return res.status(404).send('There in no file with the given name');
+
+          gridfsBucket.delete(file._id);
+        }
+      );
+    }
+
+    slide.editedImageName = req.file.filename;
+    await slide.save();
+
+    res.send('Success');
+  }
+);
+
 app.get('/slide/image/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file)

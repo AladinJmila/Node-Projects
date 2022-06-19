@@ -2449,7 +2449,9 @@ function audioCapture(state) {
   });
 }
 ;// CONCATENATED MODULE: ./src/UI/canvasDraw.js
-function canvasDraw(canvas, ctx, scaleToFit, imageObj) {
+
+
+function canvasDraw(state, canvas, ctx, scaleToFit, imageObj) {
   var mousedown = false;
   var clicks = [];
 
@@ -2483,13 +2485,41 @@ function canvasDraw(canvas, ctx, scaleToFit, imageObj) {
       redraw();
     }
   });
-  canvas.addEventListener('mouseup', function (e) {
-    mousedown = false;
-    clicks[1] = {
-      x: e.offsetX,
-      y: e.offsetY
+  canvas.addEventListener('mouseup', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee(e) {
+      var res;
+      return regenerator_default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return fetch(canvas.toDataURL('image/png'));
+
+            case 2:
+              res = _context.sent;
+              _context.next = 5;
+              return res.blob();
+
+            case 5:
+              state.editedImage = _context.sent;
+              mousedown = false;
+              clicks[1] = {
+                x: e.offsetX,
+                y: e.offsetY
+              };
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
     };
-  });
+  }());
   canvas.addEventListener('mouseleave', function () {
     mousedown = false;
   });
@@ -2565,7 +2595,7 @@ function slidesEditor(state) {
   // see if you can move to main to prevent repeated calls
   audioCapture(state);
   imageUpload(state, canvas, scaleToFit);
-  canvasDraw(canvas, ctx, scaleToFit, imageObj);
+  canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
   resizeCanvas();
   imageObj.src = '/images/sakura.jpg';
 
@@ -2619,32 +2649,40 @@ function sendSlide() {
     }, _callee);
   })));
 }
-function renderSlide() {
-  var slides = document.querySelectorAll('.progress-frag');
+function renderSlide(state) {
+  var slidesBtns = document.querySelectorAll('.progress-frag');
   var slideImg = document.getElementById('slide-img');
   var audio = document.getElementById('main-audio');
   var slideIdEl = document.getElementById('incanvas-slide-id');
   var slideName = document.getElementById('incanvas-slide-name');
   var notesEl = document.getElementById('notes-textarea');
   var notesContent = document.getElementById('notes-content');
-  slides.forEach(function (slide) {
+  slidesBtns.forEach(function (slide, i) {
     slide.addEventListener('click', function () {
-      var _this$dataset = this.dataset,
-          slideId = _this$dataset.slideId,
-          name = _this$dataset.name,
-          notes = _this$dataset.notes,
-          audioName = _this$dataset.audioName,
-          imageName = _this$dataset.imageName;
+      var _state$slides$i = state.slides[i],
+          _id = _state$slides$i._id,
+          name = _state$slides$i.name,
+          notes = _state$slides$i.notes,
+          audioName = _state$slides$i.audioName,
+          imageName = _state$slides$i.imageName,
+          editedImageName = _state$slides$i.editedImageName;
       slideName.value = name;
-      slideIdEl.value = slideId;
+      slideIdEl.value = _id;
       notesEl.value = notes;
       notesContent.innerText = notes;
       audio.src = audioName ? "/slide/audio/".concat(audioName) : '';
       var imageUrl = imageName ? "/slide/image/".concat(imageName) : '';
-      slideImg.style.background = "url(".concat(imageUrl, ")");
+      var editedImageUrl = editedImageName ? "/slide/image/".concat(editedImageName) : '';
+
+      if (editedImageUrl) {
+        slideImg.style.background = "url(".concat(editedImageUrl, ")");
+      } else {
+        slideImg.style.background = "url(".concat(imageUrl, ")");
+      }
+
       imageObj.src = imageUrl;
       canvas.width = canvas.width;
-      canvasDraw(canvas, ctx, scaleToFit, imageObj);
+      canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
     });
   });
 }
@@ -3028,7 +3066,7 @@ function slideToDb(state) {
               formData = new FormData();
 
               if (!slideId) {
-                _context.next = 25;
+                _context.next = 30;
                 break;
               }
 
@@ -3068,7 +3106,21 @@ function slideToDb(state) {
               });
 
             case 20:
-              _context.next = 22;
+              if (!state.editedImage) {
+                _context.next = 25;
+                break;
+              }
+
+              formData.delete('audio');
+              formData.append('image', state.editedImage);
+              _context.next = 25;
+              return fetch("/slide/edited-image/".concat(slideId), {
+                method: 'POST',
+                body: formData
+              });
+
+            case 25:
+              _context.next = 27;
               return fetch("/slides/".concat(slideId), {
                 method: 'PUT',
                 headers: {
@@ -3081,7 +3133,7 @@ function slideToDb(state) {
                 })
               });
 
-            case 22:
+            case 27:
               res = _context.sent;
               console.log({
                 slideName: slideName,
@@ -3090,7 +3142,7 @@ function slideToDb(state) {
               });
               if (res) location.reload();
 
-            case 25:
+            case 30:
             case "end":
               return _context.stop();
           }
@@ -3118,6 +3170,7 @@ var state = {
   slideSent: false,
   audioBlob: null,
   imageFile: null,
+  editedImage: null,
   slides: []
 };
 var viewerBtn = document.getElementById('viewer-btn');
@@ -3154,7 +3207,7 @@ if (!/tutorials\/show$/.test(location.href)) {
   slidesActions(state);
   setViewerMode();
   sendSlide();
-  renderSlide();
+  renderSlide(state);
   slideToDb(state);
 }
 

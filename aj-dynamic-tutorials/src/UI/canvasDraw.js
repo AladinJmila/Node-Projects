@@ -1,4 +1,4 @@
-export default function canvasDraw(canvas, ctx, scaleToFit, imageObj) {
+export default function canvasDraw(state, canvas, ctx, scaleToFit, imageObj) {
   let mousedown = false;
   const clicks = [];
 
@@ -40,7 +40,10 @@ export default function canvasDraw(canvas, ctx, scaleToFit, imageObj) {
     }
   });
 
-  canvas.addEventListener('mouseup', e => {
+  canvas.addEventListener('mouseup', async e => {
+    const res = await fetch(canvas.toDataURL('image/png'));
+    state.editedImage = await res.blob();
+
     mousedown = false;
     clicks[1] = {
       x: e.offsetX,

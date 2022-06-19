@@ -33,6 +33,14 @@ export default function slideToDb(state) {
         });
       }
 
+      if (state.editedImage) {
+        formData.delete('audio');
+        formData.append('image', state.editedImage);
+        await fetch(`/slide/edited-image/${slideId}`, {
+          method: 'POST',
+          body: formData,
+        });
+      }
       const res = await fetch(`/slides/${slideId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
