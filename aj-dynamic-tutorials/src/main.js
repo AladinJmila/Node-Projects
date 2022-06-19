@@ -12,6 +12,7 @@ const state = {
   slideSent: false,
   audioBlob: null,
   imageFile: null,
+  slides: [],
 };
 
 const viewerBtn = document.getElementById('viewer-btn');
@@ -42,7 +43,7 @@ editorBtn.addEventListener('click', () => {
 
 if (!/tutorials\/show$/.test(location.href)) {
   groupsActions();
-  featuresActions();
+  featuresActions(state);
   slidesActions(state);
   setViewerMode();
   sendSlide();

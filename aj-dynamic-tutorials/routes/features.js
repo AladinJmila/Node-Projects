@@ -1,6 +1,7 @@
 const express = require('express');
 const Feature = require('../models/feature');
 const Group = require('../models/group');
+const Slide = require('../models/slide');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -23,6 +24,17 @@ router.post('/', async (req, res) => {
   });
 
   res.send('Success');
+});
+
+router.get('/:id', async (req, res) => {
+  const feature = await Feature.findById(req.params.id);
+  const slides = await Promise.all(
+    feature.slides.map(async slideId => {
+      return await Slide.findById(slideId);
+    })
+  );
+
+  res.send(slides);
 });
 
 module.exports = router;

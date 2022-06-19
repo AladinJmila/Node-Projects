@@ -1,4 +1,5 @@
-export default function featuresActions() {
+export default function featuresActions(state) {
+  const featureBtns = document.querySelectorAll('.feature-btn');
   const addFeatureBtn = document.getElementById('add-feature-btn');
   const featureName = document.getElementById('feature-name');
   const note = document.getElementById('add-feature-note');
@@ -20,5 +21,17 @@ export default function featuresActions() {
 
       if (res) location.reload();
     }
+  });
+
+  featureBtns.forEach(btn => {
+    btn.addEventListener('click', async function () {
+      this.classList.toggle('active');
+      const featureId = this.getAttribute('id');
+
+      const res = await fetch(`/features/${featureId}`);
+      const data = await res.json();
+      state.slides = data;
+      console.log(state.slides);
+    });
   });
 }

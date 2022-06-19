@@ -2321,7 +2321,6 @@ var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 
 function groupsActions() {
   var dropDownBtns = document.querySelectorAll('.dropdown-btn');
-  var featureBtn = document.querySelectorAll('.feature-btn');
   var groupsNames = Array.from(document.querySelectorAll('.group-name'));
   var addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
   var selectedGroupNameEl = document.getElementById('selected-group-name');
@@ -2352,13 +2351,6 @@ function groupsActions() {
       if (dropdownContent) {
         dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
       }
-    });
-  }); // transfer to featuresActions
-
-  featureBtn.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      this.classList.toggle('active');
-      console.log(btn.dataset.slides);
     });
   });
   addGroupBtns.forEach(function (btn, i) {
@@ -2940,7 +2932,8 @@ var update = injectStylesIntoStyleTag_default()(main/* default */.Z, options);
 ;// CONCATENATED MODULE: ./src/UI/featruesActions.js
 
 
-function featuresActions() {
+function featuresActions(state) {
+  var featureBtns = document.querySelectorAll('.feature-btn');
   var addFeatureBtn = document.getElementById('add-feature-btn');
   var featureName = document.getElementById('feature-name');
   var note = document.getElementById('add-feature-note');
@@ -2982,6 +2975,36 @@ function featuresActions() {
       }
     }, _callee);
   })));
+  featureBtns.forEach(function (btn) {
+    btn.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee2() {
+      var featureId, res, data;
+      return regenerator_default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              this.classList.toggle('active');
+              featureId = this.getAttribute('id');
+              _context2.next = 4;
+              return fetch("/features/".concat(featureId));
+
+            case 4:
+              res = _context2.sent;
+              _context2.next = 7;
+              return res.json();
+
+            case 7:
+              data = _context2.sent;
+              state.slides = data;
+              console.log(state.slides);
+
+            case 10:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this);
+    })));
+  });
 }
 // EXTERNAL MODULE: ./node_modules/get-blob-duration/dist/getBlobDuration.js
 var getBlobDuration = __webpack_require__(280);
@@ -3094,7 +3117,8 @@ var state = {
   loaded: false,
   slideSent: false,
   audioBlob: null,
-  imageFile: null
+  imageFile: null,
+  slides: []
 };
 var viewerBtn = document.getElementById('viewer-btn');
 var editorBtn = document.getElementById('editor-btn');
@@ -3126,7 +3150,7 @@ editorBtn.addEventListener('click', function () {
 
 if (!/tutorials\/show$/.test(location.href)) {
   groupsActions();
-  featuresActions();
+  featuresActions(state);
   slidesActions(state);
   setViewerMode();
   sendSlide();

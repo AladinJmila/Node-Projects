@@ -1,6 +1,5 @@
 export default function groupsActions() {
   const dropDownBtns = document.querySelectorAll('.dropdown-btn');
-  const featureBtn = document.querySelectorAll('.feature-btn');
   const groupsNames = Array.from(document.querySelectorAll('.group-name'));
   const addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
   const selectedGroupNameEl = document.getElementById('selected-group-name');
@@ -46,14 +45,6 @@ export default function groupsActions() {
           ? (dropdownContent.style.display = 'none')
           : (dropdownContent.style.display = 'block');
       }
-    });
-  });
-
-  // transfer to featuresActions
-  featureBtn.forEach(btn => {
-    btn.addEventListener('click', function () {
-      this.classList.toggle('active');
-      console.log(btn.dataset.slides);
     });
   });
 
