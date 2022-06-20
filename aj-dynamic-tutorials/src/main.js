@@ -14,6 +14,8 @@ const state = {
   imageFile: null,
   editedImage: null,
   slides: [],
+  selectedSlide: null,
+  playCounter: 0,
 };
 
 const viewerBtn = document.getElementById('viewer-btn');

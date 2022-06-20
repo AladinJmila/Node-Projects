@@ -6,6 +6,7 @@ export default function slideToDb(state) {
   submit.addEventListener('click', async e => {
     e.preventDefault();
 
+    const audio = document.getElementById('main-audio');
     const slideName = document.getElementById('incanvas-slide-name').value;
     const slideId = document.getElementById('incanvas-slide-id').value;
     const notes = document.getElementById('notes-textarea').value;
@@ -22,6 +23,8 @@ export default function slideToDb(state) {
         });
         audioDuration = await getBlobDuration(state.audioBlob);
         audioDuration = Math.floor(audioDuration);
+      } else {
+        audioDuration = audio.dataset.duration;
       }
 
       if (state.imageFile) {

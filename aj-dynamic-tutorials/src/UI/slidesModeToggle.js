@@ -16,8 +16,17 @@ export default function slidesModeToggle(state) {
   const addGroupFeature = document.querySelectorAll('.add-group-feature');
   const fileInputEl = document.querySelector('.file-input');
   const recordBtn = document.getElementById('record-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
 
-  const hideInEditor = [expandBtn, slideImg, showNotesBtn, notesContent];
+  const hideInEditor = [
+    expandBtn,
+    slideImg,
+    showNotesBtn,
+    notesContent,
+    nextBtn,
+    prevBtn,
+  ];
   const showInEditorFlex = [addSlideEl, addExistingFeaure, fileInputEl];
   const showInEditorBlock = [
     canvas,

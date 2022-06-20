@@ -4,14 +4,29 @@ export default function slidesPlayer(state) {
   const slideImg = document.getElementById('slide-img');
   const playIcon = `<i id='play-btn' class='fa fa-play'></i>`;
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
+  let playTime;
 
   function playSlide() {
+    const minimunToPlay = audio.dataset.duration * 0.9;
+
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
+      playTime = setInterval(() => {
+        state.playCounter++;
+        console.log(minimunToPlay);
+        console.log(state.playCounter);
+        if (state.playCounter > minimunToPlay) {
+          console.log('completed');
+        }
+        if (state.playCounter > audio.dataset.duration) {
+          clearInterval(playTime);
+        }
+      }, 1000);
     } else {
       audio.pause();
       playBtn.innerHTML = playIcon;
+      clearInterval(playTime);
     }
   }
 

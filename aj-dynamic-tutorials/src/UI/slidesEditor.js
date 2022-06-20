@@ -78,18 +78,29 @@ export function renderSlide(state) {
   const slideName = document.getElementById('incanvas-slide-name');
   const notesEl = document.getElementById('notes-textarea');
   const notesContent = document.getElementById('notes-content');
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
 
   if (slidesBtns.length) {
     slidesBtns.forEach((slide, i) => {
       slide.addEventListener('click', function () {
         slidesBtns.forEach(button => {
-          console.log(slidesBtns[i]);
           button === slidesBtns[i]
             ? button.classList.toggle('active')
             : button.classList.remove('active');
         });
-        const { _id, name, notes, audioName, imageName, editedImageName } =
-          state.slides[i];
+        const {
+          _id,
+          name,
+          notes,
+          audioName,
+          imageName,
+          editedImageName,
+          duration,
+        } = state.slides[i];
+
+        state.selectedSlide = _id;
+        state.playCounter = 0;
 
         slideName.value = name;
         slideIdEl.value = _id;
@@ -97,6 +108,7 @@ export function renderSlide(state) {
         notesContent.innerText = notes;
 
         audio.src = audioName ? `/slide/audio/${audioName}` : '';
+        audio.setAttribute('data-duration', duration);
         const imageUrl = imageName ? `/slide/image/${imageName}` : '';
         const editedImageUrl = editedImageName
           ? `/slide/image/${editedImageName}`
@@ -113,5 +125,20 @@ export function renderSlide(state) {
       });
     });
     slidesBtns[0].click();
+
+    let i = 0;
+    nextBtn.addEventListener('click', () => {
+      if (slidesBtns.length && i < slidesBtns.length - 1) {
+        i++;
+        slidesBtns[i].click();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (slidesBtns.length && i > 0) {
+        i--;
+        slidesBtns[i].click();
+      }
+    });
   }
 }

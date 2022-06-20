@@ -487,11 +487,11 @@ body {
   transform: translateY(-6px);
 }
 
-.progress-frag:last-of-type .progress-disc {
+/* .progress-frag:last-of-type .progress-disc {
   background-color: #45a369;
-}
+} */
 
-.progress-frag.active .progress-bar,
+/* .progress-frag.active .progress-bar, */
 .progress-frag.active .progress-disc {
   background-color: #8b949e !important;
 }
@@ -722,7 +722,7 @@ body {
 }
 
 .slide-controls {
-  transform: translateY(-60px);
+  transform: translateY(-74px);
   width: 100%;
   height: 60px;
   background-color: #161b2285;
