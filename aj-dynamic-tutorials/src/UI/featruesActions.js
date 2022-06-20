@@ -1,3 +1,5 @@
+import { renderProgressFrags, renderSlide } from './slidesEditor';
+
 export default function featuresActions(state) {
   const featureBtns = document.querySelectorAll('.feature-btn');
   const addFeatureBtn = document.getElementById('add-feature-btn');
@@ -25,13 +27,19 @@ export default function featuresActions(state) {
 
   featureBtns.forEach(btn => {
     btn.addEventListener('click', async function () {
-      this.classList.toggle('active');
+      featureBtns.forEach(button => {
+        button === this
+          ? this.classList.toggle('active')
+          : button.classList.remove('active');
+      });
+
       const featureId = this.getAttribute('id');
 
       const res = await fetch(`/features/${featureId}`);
       const data = await res.json();
       state.slides = data;
-      console.log(state.slides);
+      renderProgressFrags(state.slides);
+      renderSlide(state);
     });
   });
 }

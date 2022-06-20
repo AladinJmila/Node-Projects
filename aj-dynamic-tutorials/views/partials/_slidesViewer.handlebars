@@ -1,10 +1,10 @@
 <div id='slides-viewer' class='slides-viewer'>
   <div class='slides-header'>
-      {{#if groups}}
-        {{#each groups}}
-          {{#if features}}
-            {{#each features}}
-              <div class='slides-progress' data-feature-id="{{_id}}">
+    {{#if groups}}
+      {{#each groups}}
+        {{#if features}}
+          <div class='slides-progress' data-feature-id='{{_id}}'>
+            {{!-- {{#each features}}
               {{#if slides}}
                 {{#each slides}}
                   <div class='progress-frag' id='{{_id}}'>
@@ -13,15 +13,16 @@
                   </div>
                 {{/each}}
               {{/if}}
-            {{/each}}
-            {{!-- <div class='prograss-frag'>
+            {{/each}} --}}
+          </div>
+          {{! <div class='prograss-frag'>
               <div class='progress-bar' style='background-color: #8b949e'></div>
               <div class='progress-disc' style='background-color: #8b949e'></div>
-            </div> --}}
-         {{/if}}
-        {{/each}}
-      {{/if}}
-    </div>
+            </div> }}
+        {{/if}}
+      {{/each}}
+    {{/if}}
+
     <div class='add-slide'>
       <input
         id='inheader-slide-id'
@@ -46,7 +47,7 @@
       class='incanvas-slide-id'
       type='text'
       readonly
-      {{!-- value='627cdc26ceaccba121754f9d' --}}
+      {{! value='627cdc26ceaccba121754f9d' }}
     />
     <label class='file-input'>
       Select an image file

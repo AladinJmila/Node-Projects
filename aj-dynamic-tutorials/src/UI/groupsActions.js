@@ -9,7 +9,12 @@ export default function groupsActions() {
 
   dropDownBtns.forEach(btn => {
     btn.addEventListener('click', function () {
-      this.classList.toggle('active');
+      dropDownBtns.forEach(button => {
+        button === this
+          ? this.classList.toggle('active')
+          : button.classList.remove('active');
+      });
+
       const featuresState = document.getElementById('features-state');
       const { selectedGroupId } = featuresState.dataset;
       if (

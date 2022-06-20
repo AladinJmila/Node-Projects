@@ -54,6 +54,22 @@ export function sendSlide() {
   });
 }
 
+export function renderProgressFrags(slides) {
+  const slidesProgress = document.querySelector('.slides-progress');
+  const slidesHtml = slides
+    .map(slide => {
+      return `
+    <div class='progress-frag' id='${slide._id}'>
+      <div class='progress-bar'></div>
+      <div class='progress-disc'></div>
+    </div>
+  `;
+    })
+    .join('');
+
+  slidesProgress.innerHTML = slidesHtml;
+}
+
 export function renderSlide(state) {
   const slidesBtns = document.querySelectorAll('.progress-frag');
   const slideImg = document.getElementById('slide-img');
@@ -63,30 +79,39 @@ export function renderSlide(state) {
   const notesEl = document.getElementById('notes-textarea');
   const notesContent = document.getElementById('notes-content');
 
-  slidesBtns.forEach((slide, i) => {
-    slide.addEventListener('click', function () {
-      const { _id, name, notes, audioName, imageName, editedImageName } =
-        state.slides[i];
+  if (slidesBtns.length) {
+    slidesBtns.forEach((slide, i) => {
+      slide.addEventListener('click', function () {
+        slidesBtns.forEach(button => {
+          console.log(slidesBtns[i]);
+          button === slidesBtns[i]
+            ? button.classList.toggle('active')
+            : button.classList.remove('active');
+        });
+        const { _id, name, notes, audioName, imageName, editedImageName } =
+          state.slides[i];
 
-      slideName.value = name;
-      slideIdEl.value = _id;
-      notesEl.value = notes;
-      notesContent.innerText = notes;
+        slideName.value = name;
+        slideIdEl.value = _id;
+        notesEl.value = notes;
+        notesContent.innerText = notes;
 
-      audio.src = audioName ? `/slide/audio/${audioName}` : '';
-      const imageUrl = imageName ? `/slide/image/${imageName}` : '';
-      const editedImageUrl = editedImageName
-        ? `/slide/image/${editedImageName}`
-        : '';
-      if (editedImageUrl) {
-        slideImg.style.background = `url(${editedImageUrl})`;
-      } else {
-        slideImg.style.background = `url(${imageUrl})`;
-      }
+        audio.src = audioName ? `/slide/audio/${audioName}` : '';
+        const imageUrl = imageName ? `/slide/image/${imageName}` : '';
+        const editedImageUrl = editedImageName
+          ? `/slide/image/${editedImageName}`
+          : '';
+        if (editedImageUrl) {
+          slideImg.style.background = `url(${editedImageUrl})`;
+        } else {
+          slideImg.style.background = `url(${imageUrl})`;
+        }
 
-      imageObj.src = imageUrl;
-      canvas.width = canvas.width;
-      canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
+        imageObj.src = imageUrl;
+        canvas.width = canvas.width;
+        canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
+      });
     });
-  });
+    slidesBtns[0].click();
+  }
 }

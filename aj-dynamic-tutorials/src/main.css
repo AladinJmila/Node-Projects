@@ -487,8 +487,13 @@ body {
   transform: translateY(-6px);
 }
 
-.prograss-frag:last-of-type .progress-disc {
+.progress-frag:last-of-type .progress-disc {
   background-color: #45a369;
+}
+
+.progress-frag.active .progress-bar,
+.progress-frag.active .progress-disc {
+  background-color: #8b949e !important;
 }
 
 .add-slide,
