@@ -466,6 +466,7 @@ body {
   height: 4px;
   background-color: #39404b;
   transform: translateY(8px);
+  transition: all 0.5s linear;
 }
 
 .progress-frag:first-of-type::before {
@@ -493,7 +494,14 @@ body {
 
 /* .progress-frag.active .progress-bar, */
 .progress-frag.active .progress-disc {
-  background-color: #8b949e !important;
+  /* background-color: #8b949e; */
+  outline: 3px solid #8b949e;
+  outline-offset: 4px;
+}
+
+.progress-frag.viewed .progress-bar,
+.progress-frag.viewed .progress-disc {
+  background-color: #f9d17c;
 }
 
 .add-slide,

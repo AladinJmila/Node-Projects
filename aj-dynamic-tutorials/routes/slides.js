@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
   });
 
   await slide.save();
+  console.log(slide);
 
   feature.slides.push(slide._id);
   await feature.save();
@@ -47,6 +48,14 @@ router.put('/:id', async (req, res) => {
       feature.duration += parseInt(req.body.duration);
       await feature.save();
     }
+  });
+
+  res.send('Success');
+});
+
+router.put('/viewed/:id', async (req, res) => {
+  const slide = await Slide.findByIdAndUpdate(req.params.id, {
+    isViewed: req.body.isViewed,
   });
 
   res.send('Success');

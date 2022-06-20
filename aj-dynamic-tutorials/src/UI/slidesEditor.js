@@ -84,11 +84,6 @@ export function renderSlide(state) {
   if (slidesBtns.length) {
     slidesBtns.forEach((slide, i) => {
       slide.addEventListener('click', function () {
-        slidesBtns.forEach(button => {
-          button === slidesBtns[i]
-            ? button.classList.toggle('active')
-            : button.classList.remove('active');
-        });
         const {
           _id,
           name,
@@ -97,7 +92,18 @@ export function renderSlide(state) {
           imageName,
           editedImageName,
           duration,
+          isViewed,
         } = state.slides[i];
+
+        slidesBtns.forEach((button, j) => {
+          button === slidesBtns[i]
+            ? button.classList.add('active')
+            : button.classList.remove('active');
+
+          state.slides[j].isViewed && button.classList.add('viewed');
+        });
+
+        if (isViewed) slidesBtns[i].classList.add('viewed');
 
         state.selectedSlide = _id;
         state.playCounter = 0;

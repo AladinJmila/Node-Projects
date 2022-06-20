@@ -7,19 +7,42 @@ export default function slidesPlayer(state) {
   let playTime;
 
   function playSlide() {
-    const minimunToPlay = audio.dataset.duration * 0.9;
+    const { duration } = audio.dataset;
+    const minimunToPlay = parseInt(duration * 0.9);
+    let progress;
 
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = pauseIcon;
-      playTime = setInterval(() => {
+      const progressFrag = document.getElementById(state.selectedSlide);
+      const fragProgressBar = progressFrag.querySelector('.progress-bar');
+
+      playTime = setInterval(async () => {
         state.playCounter++;
         console.log(minimunToPlay);
         console.log(state.playCounter);
+
+        progress = parseInt((state.playCounter / duration) * 100);
+
+        fragProgressBar.style.backgroundImage = `
+        linear-gradient(
+          to right,
+          #8b949e 0%,
+          #8b949e ${progress}%,
+          #1f242c ${progress}%,
+          #1f242c 100%
+          )
+          `;
+
         if (state.playCounter > minimunToPlay) {
-          console.log('completed');
+          await fetch(`/slides/viewed/${state.selectedSlide}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ isViewed: true }),
+          });
         }
-        if (state.playCounter > audio.dataset.duration) {
+        if (state.playCounter > duration) {
+          progressFrag.classList.add('viewed');
           clearInterval(playTime);
         }
       }, 1000);
