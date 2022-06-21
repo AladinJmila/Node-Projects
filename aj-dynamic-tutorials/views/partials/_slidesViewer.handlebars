@@ -55,7 +55,18 @@
     </label>
     <div class='prev-btn' id='prev-btn'>&#10094</div>
     <div class='next-btn' id='next-btn'>&#10095</div>
+    <div class='edit-panel' id='edit-panel'>
+      <div class='edit-panel-btn' id='draw-btn'>
+        <i class='fa fa-pencil-square-o fa-lg' aria-hidden='true'></i>
+      </div>
+      <div class='edit-panel-btn' id='add-note-btn'>
+        <i class='fa fa-align-right fa-lg' aria-hidden='true'></i>
+      </div>
+    </div>
     <div class='notes-body'>
+      <div class='close-note-btn' id='close-note-btn'>
+        <i class='fa fa-times fa-lg' aria-hidden='true'></i>
+      </div>
       <div id='notes-content' class='notes-content'>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias nisi
         maxime maiores minus nihil laudantium molestiae, fugit modi dolores
@@ -80,14 +91,13 @@
         quasi. Repudiandae, nulla aperiam.
       </div>
       <textarea id='notes-textarea' name='' id=''></textarea>
-      <button class='slide-controls-btn' id='submit-notes-btn'>save</button>
     </div>
     <canvas id='canvas' class='canvas'></canvas>
     <div id='slide-img' class='slide-img' alt=''></div>
   </div>
   <div class='slide-controls'>
     <button class='slide-controls-btn' id='slide-show-notes-btn'>notes</button>
-    <button class='slide-controls-btn' id='slide-add-notes-btn'>add notes</button>
+    <div id='place-holder-btn'></div>
     <div class='audio-player'>
       <div class='actions-controls'>
         <div id='record-btn' class='record-btn stop-rec'>

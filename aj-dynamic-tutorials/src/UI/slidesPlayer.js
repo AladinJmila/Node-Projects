@@ -27,10 +27,10 @@ export default function slidesPlayer(state) {
         fragProgressBar.style.backgroundImage = `
         linear-gradient(
           to right,
-          #8b949e 0%,
-          #8b949e ${progress}%,
-          #1f242c ${progress}%,
-          #1f242c 100%
+          #f9d17c 0%,
+          #f9d17c ${progress}%,
+          #39404b ${progress}%,
+          #39404b 100%
           )
           `;
 
@@ -125,7 +125,8 @@ export default function slidesPlayer(state) {
 
   // notes
   const showNotesBtn = document.getElementById('slide-show-notes-btn');
-  const addNotesBtn = document.getElementById('slide-add-notes-btn');
+  const addNoteBtn = document.getElementById('add-note-btn');
+  const closeNoteBtn = document.getElementById('close-note-btn');
   const notesBody = document.querySelector('.notes-body');
 
   function toggleNotes() {
@@ -134,6 +135,7 @@ export default function slidesPlayer(state) {
 
   if (!state.loaded) {
     showNotesBtn.addEventListener('click', toggleNotes);
-    addNotesBtn.addEventListener('click', toggleNotes);
+    addNoteBtn.addEventListener('click', toggleNotes);
+    closeNoteBtn.addEventListener('click', toggleNotes);
   }
 }

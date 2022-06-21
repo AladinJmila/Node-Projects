@@ -9,10 +9,9 @@ export default function slidesModeToggle(state) {
   const incanvasSlideId = document.getElementById('incanvas-slide-id');
   const addSlideEl = document.querySelector('.add-slide');
   const addExistingFeaure = document.querySelector('.add-existing-feature');
-  const addNotesBtn = document.getElementById('slide-add-notes-btn');
+  const placeHolder = document.getElementById('place-holder-btn');
   const slideSubmitBtn = document.getElementById('slide-submit-btn');
   const notesTextarea = document.getElementById('notes-textarea');
-  const notesSubmitBtn = document.getElementById('submit-notes-btn');
   const addGroupFeature = document.querySelectorAll('.add-group-feature');
   const fileInputEl = document.querySelector('.file-input');
   const recordBtn = document.getElementById('record-btn');
@@ -32,10 +31,9 @@ export default function slidesModeToggle(state) {
     canvas,
     incanvasSlideName,
     incanvasSlideId,
-    addNotesBtn,
+    placeHolder,
     slideSubmitBtn,
     notesTextarea,
-    notesSubmitBtn,
     recordBtn,
   ];
 
