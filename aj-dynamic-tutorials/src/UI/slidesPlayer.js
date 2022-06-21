@@ -19,8 +19,8 @@ export default function slidesPlayer(state) {
 
       playTime = setInterval(async () => {
         state.playCounter++;
-        console.log(minimunToPlay);
-        console.log(state.playCounter);
+        // console.log(minimunToPlay);
+        // console.log(state.playCounter);
 
         progress = parseInt((state.playCounter / duration) * 100);
 

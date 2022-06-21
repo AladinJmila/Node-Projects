@@ -3,12 +3,25 @@ import canvasDraw from './canvasDraw';
 import imageUpload from './imageUpload';
 
 const imageObj = new Image();
+const slideImg = document.getElementById('slide-img');
+const editBtns = document.querySelectorAll('.edit-panel-btn');
+const drawBtn = document.getElementById('draw-btn');
 const slidesBody = document.querySelector('.slides-body');
 const canvas = document.getElementById('canvas');
 let ctx;
 if (canvas) {
   ctx = canvas.getContext('2d');
 }
+
+drawBtn.addEventListener('click', function () {
+  slideImg.classList.toggle('hide');
+  canvas.classList.toggle('show-block');
+  editBtns.forEach(btn => {
+    btn === this
+      ? btn.classList.toggle('active')
+      : btn.classList.remove('active');
+  });
+});
 
 function scaleToFit(img) {
   const scale = Math.min(canvas.width / img.width, canvas.height / img.height);

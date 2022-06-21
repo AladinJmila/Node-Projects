@@ -7,6 +7,7 @@
   --tone-4: #535b64;
   --tone-5: #161b22;
   --tone-5t: #161b228d;
+  --orange-1: #f9d17c;
 }
 
 html {
@@ -395,7 +396,7 @@ body {
 
 #add-feature-note {
   margin-top: 8px;
-  color: #f9d17c;
+  color: var(--orange-1);
   text-align: center;
   display: none;
 }
@@ -475,7 +476,7 @@ body {
   top: 16px;
   height: 24px;
   width: 4px;
-  background-color: #f9d17c;
+  background-color: var(--orange-1);
   z-index: 5;
 }
 
@@ -501,7 +502,7 @@ body {
 
 .progress-frag.viewed .progress-bar,
 .progress-frag.viewed .progress-disc {
-  background-color: #f9d17c;
+  background-color: var(--orange-1);
 }
 
 .add-slide,
@@ -675,10 +676,10 @@ body {
 }
 
 .edit-panel {
+  display: none;
   position: absolute;
   right: 0;
   top: 50%;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -702,6 +703,10 @@ body {
 
 .edit-panel-btn:last-of-type {
   border-top: none;
+}
+
+.edit-panel-btn.active {
+  color: var(--orange-1);
 }
 
 .slide-img {

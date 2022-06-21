@@ -1,10 +1,9 @@
 export default function slidesModeToggle(state) {
   const expandBtn = document.getElementById('expand-btn');
-  const slideImg = document.getElementById('slide-img');
   const showNotesBtn = document.getElementById('slide-show-notes-btn');
   const notesContent = document.getElementById('notes-content');
   const controlsEl = document.querySelector('.slide-controls');
-  const canvas = document.getElementById('canvas');
+  const editPanel = document.getElementById('edit-panel');
   const incanvasSlideName = document.getElementById('incanvas-slide-name');
   const incanvasSlideId = document.getElementById('incanvas-slide-id');
   const addSlideEl = document.querySelector('.add-slide');
@@ -20,15 +19,18 @@ export default function slidesModeToggle(state) {
 
   const hideInEditor = [
     expandBtn,
-    slideImg,
     showNotesBtn,
     notesContent,
     nextBtn,
     prevBtn,
   ];
-  const showInEditorFlex = [addSlideEl, addExistingFeaure, fileInputEl];
+  const showInEditorFlex = [
+    addSlideEl,
+    addExistingFeaure,
+    fileInputEl,
+    editPanel,
+  ];
   const showInEditorBlock = [
-    canvas,
     incanvasSlideName,
     incanvasSlideId,
     placeHolder,
