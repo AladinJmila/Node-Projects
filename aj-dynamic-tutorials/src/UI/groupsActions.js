@@ -1,4 +1,4 @@
-export default function groupsActions() {
+export default function groupsActions(state) {
   const dropDownBtns = document.querySelectorAll('.dropdown-btn');
   const groupsNames = Array.from(document.querySelectorAll('.group-name'));
   const addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
@@ -21,23 +21,15 @@ export default function groupsActions() {
         selectedGroupId === this.dataset.groupId ||
         !this.classList.contains('active')
       ) {
-        featuresState.setAttribute('data-selected-group-id', '');
-        featuresState.setAttribute('data-selected-group-name', '');
+        state.selectedGroup = null;
         selectedGroupNameEl.innerText = 'select a group';
       } else {
-        featuresState.setAttribute(
-          'data-selected-group-id',
-          this.dataset.groupId
-        );
-        featuresState.setAttribute(
-          'data-selected-group-name',
-          this.dataset.groupName
-        );
-        selectedGroupNameEl.innerText = featuresState.dataset.selectedGroupName;
+        state.selectedGroup = this.dataset.groupId;
+        selectedGroupNameEl.innerText = this.dataset.groupName;
       }
 
       featuresColletctions.forEach(fc => {
-        fc.dataset.groupId === featuresState.dataset.selectedGroupId
+        fc.dataset.groupId === state.selectedGroup
           ? (fc.style.display = 'flex')
           : (fc.style.display = 'none');
       });

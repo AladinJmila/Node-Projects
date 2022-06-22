@@ -2319,7 +2319,7 @@ var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 ;// CONCATENATED MODULE: ./src/UI/groupsActions.js
 
 
-function groupsActions() {
+function groupsActions(state) {
   var dropDownBtns = document.querySelectorAll('.dropdown-btn');
   var groupsNames = Array.from(document.querySelectorAll('.group-name'));
   var addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
@@ -2336,17 +2336,15 @@ function groupsActions() {
       var selectedGroupId = featuresState.dataset.selectedGroupId;
 
       if (selectedGroupId === this.dataset.groupId || !this.classList.contains('active')) {
-        featuresState.setAttribute('data-selected-group-id', '');
-        featuresState.setAttribute('data-selected-group-name', '');
+        state.selectedGroup = null;
         selectedGroupNameEl.innerText = 'select a group';
       } else {
-        featuresState.setAttribute('data-selected-group-id', this.dataset.groupId);
-        featuresState.setAttribute('data-selected-group-name', this.dataset.groupName);
-        selectedGroupNameEl.innerText = featuresState.dataset.selectedGroupName;
+        state.selectedGroup = this.dataset.groupId;
+        selectedGroupNameEl.innerText = this.dataset.groupName;
       }
 
       featuresColletctions.forEach(function (fc) {
-        fc.dataset.groupId === featuresState.dataset.selectedGroupId ? fc.style.display = 'flex' : fc.style.display = 'none';
+        fc.dataset.groupId === state.selectedGroup ? fc.style.display = 'flex' : fc.style.display = 'none';
       });
       var note = document.getElementById('add-feature-note');
       note.classList.remove('show');
@@ -2591,7 +2589,7 @@ if (canvas) {
   ctx = canvas.getContext('2d');
 }
 
-drawBtn.addEventListener('click', function () {
+drawBtn && drawBtn.addEventListener('click', function () {
   var _this = this;
 
   slideImg.classList.toggle('hide');
@@ -2627,7 +2625,7 @@ function slidesEditor(state) {
     canvas.style.width = slidesBody.clientWidth;
   }
 }
-function sendSlide() {
+function sendSlide(state) {
   var addSlide = document.getElementById('add-slide-btn');
   addSlide.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee() {
     var featureId, res;
@@ -2636,14 +2634,15 @@ function sendSlide() {
         switch (_context.prev = _context.next) {
           case 0:
             featureId = document.querySelector('.feature-btn.active');
+            state.selectedFeature = featureId;
 
             if (!featureId) {
-              _context.next = 7;
+              _context.next = 8;
               break;
             }
 
             featureId = featureId.getAttribute('id');
-            _context.next = 5;
+            _context.next = 6;
             return fetch('/slides', {
               method: 'post',
               headers: {
@@ -2654,11 +2653,11 @@ function sendSlide() {
               })
             });
 
-          case 5:
+          case 6:
             res = _context.sent;
             if (res) location.reload();
 
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -2700,6 +2699,8 @@ function renderSlide(state) {
           button === slidesBtns[i] ? button.classList.add('active') : button.classList.remove('active');
           state.slides[j].isViewed && button.classList.add('viewed');
         });
+        canvas.classList.remove('show-block');
+        slideImg.classList.remove('hide');
         if (isViewed) slidesBtns[i].classList.add('viewed');
         state.selectedSlide = _id;
         state.playCounter = 0;
@@ -2723,7 +2724,13 @@ function renderSlide(state) {
         canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
       });
     });
-    slidesBtns[0].click();
+
+    if (state.selectedSlide) {
+      document.getElementById(state.selectedSlide).click();
+    } else {
+      slidesBtns[0].click();
+    }
+
     var i = 0;
     nextBtn.addEventListener('click', function () {
       if (slidesBtns.length && i < slidesBtns.length - 1) {
@@ -3082,21 +3089,22 @@ function featuresActions(state) {
   var featureName = document.getElementById('feature-name');
   var note = document.getElementById('add-feature-note');
   addFeatureBtn.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regenerator_default().mark(function _callee() {
-    var featuresState, selectedGroupId, res;
+    var selectedGroupId, res;
     return regenerator_default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            featuresState = document.getElementById('features-state');
-            selectedGroupId = featuresState.dataset.selectedGroupId;
+            // const featuresState = document.getElementById('features-state');
+            // const { selectedGroupId } = featuresState.dataset;
+            selectedGroupId = state.selectedGroup;
             if (!selectedGroupId) note.classList.add('show');
 
             if (!selectedGroupId) {
-              _context.next = 8;
+              _context.next = 7;
               break;
             }
 
-            _context.next = 6;
+            _context.next = 5;
             return fetch('/features', {
               method: 'post',
               headers: {
@@ -3108,11 +3116,11 @@ function featuresActions(state) {
               })
             });
 
-          case 6:
+          case 5:
             res = _context.sent;
             if (res) location.reload();
 
-          case 8:
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -3132,21 +3140,22 @@ function featuresActions(state) {
                 button === _this ? _this.classList.toggle('active') : button.classList.remove('active');
               });
               featureId = this.getAttribute('id');
-              _context2.next = 4;
+              state.selectedFeature = featureId;
+              _context2.next = 5;
               return fetch("/features/".concat(featureId));
 
-            case 4:
+            case 5:
               res = _context2.sent;
-              _context2.next = 7;
+              _context2.next = 8;
               return res.json();
 
-            case 7:
+            case 8:
               data = _context2.sent;
               state.slides = data;
               renderProgressFrags(state.slides);
               renderSlide(state);
 
-            case 11:
+            case 12:
             case "end":
               return _context2.stop();
           }
@@ -3257,7 +3266,11 @@ function slideToDb(state) {
                 notes: notes,
                 duration: audioDuration ? audioDuration : 0
               });
-              if (res) location.reload();
+
+              if (res) {
+                document.getElementById(state.selectedFeature).click();
+              } // if (res) location.reload();
+
 
             case 34:
             case "end":
@@ -3288,8 +3301,10 @@ var state = {
   audioBlob: null,
   imageFile: null,
   editedImage: null,
-  slides: [],
+  selectedGroup: null,
+  selectedFeature: null,
   selectedSlide: null,
+  slides: [],
   playCounter: 0
 };
 var viewerBtn = document.getElementById('viewer-btn');
@@ -3321,24 +3336,22 @@ editorBtn.addEventListener('click', function () {
 });
 
 if (!/tutorials\/show$/.test(location.href)) {
-  groupsActions();
+  groupsActions(state);
   featuresActions(state);
   slidesActions(state);
   setViewerMode();
-  sendSlide();
+  sendSlide(state);
   renderSlide(state);
   slideToDb(state);
 }
 
 if (/tutorials\/show$/.test(location.href)) {
   homeDashboard();
-}
-
-setTimeout(function () {
-  var target = document.querySelector('.core-search__content'); // console.log(target.getBoundingClientRect());
-
-  console.log(target.parentElement);
-}, 5000);
+} // setTimeout(() => {
+//   const target = document.querySelector('.core-search__content');
+//   console.log(target.getBoundingClientRect());
+//   console.log(target.parentElement);
+// }, 5000);
 }();
 /******/ })()
 ;

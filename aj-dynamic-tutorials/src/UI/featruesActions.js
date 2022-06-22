@@ -7,8 +7,9 @@ export default function featuresActions(state) {
   const note = document.getElementById('add-feature-note');
 
   addFeatureBtn.addEventListener('click', async () => {
-    const featuresState = document.getElementById('features-state');
-    const { selectedGroupId } = featuresState.dataset;
+    // const featuresState = document.getElementById('features-state');
+    // const { selectedGroupId } = featuresState.dataset;
+    const selectedGroupId = state.selectedGroup;
     if (!selectedGroupId) note.classList.add('show');
 
     if (selectedGroupId) {
@@ -34,6 +35,7 @@ export default function featuresActions(state) {
       });
 
       const featureId = this.getAttribute('id');
+      state.selectedFeature = featureId;
 
       const res = await fetch(`/features/${featureId}`);
       const data = await res.json();

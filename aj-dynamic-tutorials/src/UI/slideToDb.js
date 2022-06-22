@@ -60,7 +60,10 @@ export default function slideToDb(state) {
         duration: audioDuration ? audioDuration : 0,
       });
 
-      if (res) location.reload();
+      if (res) {
+        document.getElementById(state.selectedFeature).click();
+      }
+      // if (res) location.reload();
     }
   });
 }

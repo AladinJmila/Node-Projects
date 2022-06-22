@@ -13,15 +13,16 @@ if (canvas) {
   ctx = canvas.getContext('2d');
 }
 
-drawBtn.addEventListener('click', function () {
-  slideImg.classList.toggle('hide');
-  canvas.classList.toggle('show-block');
-  editBtns.forEach(btn => {
-    btn === this
-      ? btn.classList.toggle('active')
-      : btn.classList.remove('active');
+drawBtn &&
+  drawBtn.addEventListener('click', function () {
+    slideImg.classList.toggle('hide');
+    canvas.classList.toggle('show-block');
+    editBtns.forEach(btn => {
+      btn === this
+        ? btn.classList.toggle('active')
+        : btn.classList.remove('active');
+    });
   });
-});
 
 function scaleToFit(img) {
   const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
@@ -50,11 +51,12 @@ export default function slidesEditor(state) {
   }
 }
 
-export function sendSlide() {
+export function sendSlide(state) {
   const addSlide = document.getElementById('add-slide-btn');
 
   addSlide.addEventListener('click', async () => {
     let featureId = document.querySelector('.feature-btn.active');
+    state.selectedFeature = featureId;
     if (featureId) {
       featureId = featureId.getAttribute('id');
       const res = await fetch('/slides', {
@@ -115,6 +117,8 @@ export function renderSlide(state) {
 
           state.slides[j].isViewed && button.classList.add('viewed');
         });
+        canvas.classList.remove('show-block');
+        slideImg.classList.remove('hide');
 
         if (isViewed) slidesBtns[i].classList.add('viewed');
 
@@ -143,7 +147,11 @@ export function renderSlide(state) {
         canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
       });
     });
-    slidesBtns[0].click();
+    if (state.selectedSlide) {
+      document.getElementById(state.selectedSlide).click();
+    } else {
+      slidesBtns[0].click();
+    }
 
     let i = 0;
     nextBtn.addEventListener('click', () => {

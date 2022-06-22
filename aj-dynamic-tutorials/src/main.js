@@ -13,8 +13,10 @@ const state = {
   audioBlob: null,
   imageFile: null,
   editedImage: null,
-  slides: [],
+  selectedGroup: null,
+  selectedFeature: null,
   selectedSlide: null,
+  slides: [],
   playCounter: 0,
 };
 
@@ -45,11 +47,11 @@ editorBtn.addEventListener('click', () => {
 });
 
 if (!/tutorials\/show$/.test(location.href)) {
-  groupsActions();
+  groupsActions(state);
   featuresActions(state);
   slidesActions(state);
   setViewerMode();
-  sendSlide();
+  sendSlide(state);
   renderSlide(state);
   slideToDb(state);
 }
@@ -57,9 +59,9 @@ if (/tutorials\/show$/.test(location.href)) {
   homeActions();
 }
 
-setTimeout(() => {
-  const target = document.querySelector('.core-search__content');
+// setTimeout(() => {
+//   const target = document.querySelector('.core-search__content');
 
-  // console.log(target.getBoundingClientRect());
-  console.log(target.parentElement);
-}, 5000);
+//   console.log(target.getBoundingClientRect());
+//   console.log(target.parentElement);
+// }, 5000);
