@@ -4,8 +4,8 @@ import imageUpload from './imageUpload';
 
 const imageObj = new Image();
 const slideImg = document.getElementById('slide-img');
-const editBtns = document.querySelectorAll('.edit-panel-btn');
 const drawBtn = document.getElementById('draw-btn');
+const editBtns = document.querySelectorAll('.edit-panel-btn');
 const slidesBody = document.querySelector('.slides-body');
 const canvas = document.getElementById('canvas');
 let ctx;
@@ -119,6 +119,7 @@ export function renderSlide(state) {
         });
         canvas.classList.remove('show-block');
         slideImg.classList.remove('hide');
+        drawBtn.classList.remove('active');
 
         if (isViewed) slidesBtns[i].classList.add('viewed');
 

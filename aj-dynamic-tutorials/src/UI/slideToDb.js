@@ -15,7 +15,6 @@ export default function slideToDb(state) {
 
     if (slideId) {
       if (state.audioBlob) {
-        console.log(state.audioBlob);
         formData.append('audio', state.audioBlob);
         await fetch(`/slide/upload-audio/${slideId}`, {
           method: 'POST',
@@ -54,11 +53,11 @@ export default function slideToDb(state) {
         }),
       });
 
-      console.log({
-        slideName,
-        notes,
-        duration: audioDuration ? audioDuration : 0,
-      });
+      // console.log({
+      //   slideName,
+      //   notes,
+      //   duration: audioDuration ? audioDuration : 0,
+      // });
 
       if (res) {
         document.getElementById(state.selectedFeature).click();

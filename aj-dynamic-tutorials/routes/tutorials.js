@@ -46,7 +46,6 @@ router.get('/show/:id', async (req, res) => {
       },
     })
     .lean();
-  // console.log(groups[0].features[0].slides[0]);
   res.render('workspace', { tutorial, groups });
 });
 

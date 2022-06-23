@@ -1,5 +1,6 @@
 export default function groupsActions(state) {
-  const dropDownBtns = document.querySelectorAll('.dropdown-btn');
+  const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+  const dropdownContainers = document.querySelectorAll('.dropdown-container');
   const groupsNames = Array.from(document.querySelectorAll('.group-name'));
   const addGroupBtns = Array.from(document.querySelectorAll('.add-group-btn'));
   const selectedGroupNameEl = document.getElementById('selected-group-name');
@@ -7,9 +8,21 @@ export default function groupsActions(state) {
     '.features-collection'
   );
 
-  dropDownBtns.forEach(btn => {
+  function renderDropdown() {
+    dropdownContainers.forEach((el, i) => {
+      console.log(el.children);
+      if (el.children.length) {
+        dropdownBtns[i].classList.add('dropdown');
+      } else {
+        dropdownBtns[i].classList.remove('dropdown');
+      }
+    });
+  }
+  renderDropdown();
+
+  dropdownBtns.forEach(btn => {
     btn.addEventListener('click', function () {
-      dropDownBtns.forEach(button => {
+      dropdownBtns.forEach(button => {
         button === this
           ? this.classList.toggle('active')
           : button.classList.remove('active');

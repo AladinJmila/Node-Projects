@@ -22,7 +22,6 @@ router.post('/', async (req, res) => {
   });
 
   await slide.save();
-  console.log(slide);
 
   feature.slides.push(slide._id);
   await feature.save();

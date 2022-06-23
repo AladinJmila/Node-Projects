@@ -1,6 +1,7 @@
 <nav class='groups'>
   <a class='app-xref' href='{{tutorial.url}}' target='_blank'>
-    <div class='app-name'>{{{breakWords tutorial.name}}}</div>
+    {{!-- <div class='app-name'>{{{breakWords tutorial.name}}}</div> --}}
+    <div class='app-name'>{{tutorial.name}}</div>
     <p>click to visit</p>
   </a>
   <div class='groups-collection'>
@@ -9,7 +10,7 @@
         <div class='groups-nav'>
           <button class='dropdown-btn' data-group-id='{{_id}}' data-group-name='{{name}}'>
             {{name}}
-            {{#if groups}}<i class='fa fa-caret-down'></i>{{/if}}
+            <i class='fa fa-caret-down'></i>
           </button>
           <div class='dropdown-container'>
             <!-- level 2 start -->
@@ -18,7 +19,7 @@
                 <div class='groups-nav' style="margin-left: 5px;">
                   <button class='dropdown-btn' data-group-id='{{_id}}' data-group-name='{{name}}'>
                     {{name}}
-                    {{#if groups}}<i class='fa fa-caret-down'></i>{{/if}}
+                    <i class='fa fa-caret-down'></i>
                   </button>
                   <div class='dropdown-container'>
                     <!-- level 3 start -->
@@ -27,13 +28,12 @@
                         <div class='groups-nav' style="margin-left: 5px;">
                           <button class='dropdown-btn' data-group-id='{{_id}}' data-group-name='{{name}}'>
                             {{name}}
-                            {{#if groups}}<i class='fa fa-caret-down'></i>{{/if}}
+                            <i class='fa fa-caret-down'></i>
                           </button>
                         </div>
                       {{/each}}
                     {{/if}}
-                  </div>
-                  <div class='add-group-feature' style="margin-left: 5px;">
+                    <div class='add-group-feature' style="margin-left: 5px;">
                       <input
                         id='group-name'
                         type='text'
@@ -46,12 +46,13 @@
                         <i class='fa fa-plus fa-lg'></i>
                       </button>
                     </div>
+                  </div>
+                  
                     <!-- level 3 end -->
                 </div>
               {{/each}}
             {{/if}}
-          </div>
-          <div class='add-group-feature' style="margin-left: 5px;">
+            <div class='add-group-feature' style="margin-left: 5px;">
               <input
                 id='group-name'
                 type='text'
@@ -64,6 +65,8 @@
                 <i class='fa fa-plus fa-lg'></i>
               </button>
             </div>
+          </div>
+          
             <!-- level 2 end -->
         </div>
       {{/each}}

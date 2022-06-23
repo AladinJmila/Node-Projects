@@ -7,7 +7,7 @@ import { sendSlide, renderSlide } from './UI/slidesEditor';
 import slideToDb from './UI/slideToDb';
 
 const state = {
-  mode: 'viewer',
+  mode: '',
   loaded: false,
   slideSent: false,
   audioBlob: null,
@@ -38,19 +38,21 @@ function setViewerMode() {
   viewerBtn.classList.add('active');
 }
 
-editorBtn.addEventListener('click', () => {
+editorBtn.addEventListener('click', setEditorMode);
+
+function setEditorMode() {
   state.mode = 'editor';
   state.loaded = true;
   slidesActions(state);
   resetNavBtnsStyle();
   editorBtn.classList.add('active');
-});
+}
 
 if (!/tutorials\/show$/.test(location.href)) {
   groupsActions(state);
   featuresActions(state);
   slidesActions(state);
-  setViewerMode();
+  setEditorMode();
   sendSlide(state);
   renderSlide(state);
   slideToDb(state);

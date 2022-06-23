@@ -251,6 +251,8 @@ body {
 .app-name {
   color: var(--tone-1);
   font-size: 1.2em;
+  max-width: 100px;
+  text-align: center;
 }
 
 .app-xref p {
@@ -311,6 +313,11 @@ body {
   float: right;
   padding-right: 10px;
   padding-top: 4px;
+  display: none;
+}
+
+.dropdown-btn.dropdown > i {
+  display: block;
 }
 
 .groups-nav a:hover,
@@ -447,6 +454,8 @@ body {
 .slides-header {
   display: flex;
   background-color: var(--tone-5);
+  min-height: 57px;
+  padding: 0 10px;
 }
 
 .slides-progress {
@@ -620,7 +629,7 @@ body {
   display: none;
 }
 
-.file-input::after {
+/* .file-input::after {
   content: 'Or drag & drop here';
   padding: 1px 5px;
   background-color: var(--tone-2t);
@@ -628,7 +637,7 @@ body {
   top: 40px;
   color: var(--tone-5);
   font-weight: 700;
-}
+} */
 
 .prev-btn,
 .next-btn {
@@ -712,11 +721,25 @@ body {
 .slide-img {
   width: 100%;
   height: 100%;
-  background: url('../public/images/sakura.jpg');
   background-repeat: no-repeat !important;
   background-size: contain !important;
   background-position: center !important;
   display: block;
+}
+
+.slide-img:after {
+  content: 'drag & drop an image here';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: var(--tone-4);
+  z-index: -1;
 }
 
 .notes-body {
