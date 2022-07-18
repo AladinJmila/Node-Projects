@@ -2620,13 +2620,18 @@ function renderSlide(state) {
         audio.src = audioName ? "/slide/audio/".concat(audioName) : '';
         audio.setAttribute('data-duration', duration);
         var imageUrl = imageName ? "/slide/image/".concat(imageName) : '';
-        var editedImageUrl = editedImageName ? "/slide/image/".concat(editedImageName) : '';
 
-        if (editedImageUrl) {
-          slideImg.style.background = "url(".concat(editedImageUrl, ")");
-        } else {
+        if (imageUrl) {
           slideImg.style.background = "url(".concat(imageUrl, ")");
-        }
+        } // const editedImageUrl = editedImageName
+        //   ? `/slide/image/${editedImageName}`
+        //   : '';
+        // if (editedImageUrl) {
+        //   slideImg.style.background = `url(${editedImageUrl})`;
+        // } else {
+        //   slideImg.style.background = `url(${imageUrl})`;
+        // }
+
 
         imageObj.src = imageUrl;
         canvas.width = canvas.width;

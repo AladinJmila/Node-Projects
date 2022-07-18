@@ -137,14 +137,18 @@ export function renderSlide(state) {
         audio.src = audioName ? `/slide/audio/${audioName}` : '';
         audio.setAttribute('data-duration', duration);
         const imageUrl = imageName ? `/slide/image/${imageName}` : '';
-        const editedImageUrl = editedImageName
-          ? `/slide/image/${editedImageName}`
-          : '';
-        if (editedImageUrl) {
-          slideImg.style.background = `url(${editedImageUrl})`;
-        } else {
+        if (imageUrl) {
           slideImg.style.background = `url(${imageUrl})`;
         }
+
+        // const editedImageUrl = editedImageName
+        //   ? `/slide/image/${editedImageName}`
+        //   : '';
+        // if (editedImageUrl) {
+        //   slideImg.style.background = `url(${editedImageUrl})`;
+        // } else {
+        //   slideImg.style.background = `url(${imageUrl})`;
+        // }
 
         imageObj.src = imageUrl;
         canvas.width = canvas.width;

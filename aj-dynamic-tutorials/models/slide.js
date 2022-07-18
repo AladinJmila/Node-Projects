@@ -18,7 +18,7 @@ const Slide = mongoose.model(
       },
     ],
     name: { type: String, required: true },
-    editedImageName: { type: String, default: '' },
+    ImageName: { type: String, default: '' },
     audioName: { type: String, default: '' },
     notes: { type: String, default: '' },
     duration: { type: Number, default: 0 },
