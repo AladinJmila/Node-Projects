@@ -16,6 +16,7 @@ export default function slidesModeToggle(state) {
   const recordBtn = document.getElementById('record-btn');
   const nextBtn = document.getElementById('next-btn');
   const prevBtn = document.getElementById('prev-btn');
+  const baseSelect = document.getElementById('base-select');
 
   const hideInEditor = [
     expandBtn,
@@ -32,6 +33,7 @@ export default function slidesModeToggle(state) {
   ];
   const showInEditorBlock = [
     incanvasSlideName,
+    baseSelect,
     incanvasSlideId,
     placeHolder,
     slideSubmitBtn,

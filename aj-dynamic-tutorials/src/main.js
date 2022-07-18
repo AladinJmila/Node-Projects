@@ -2,7 +2,7 @@ import groupsActions from './UI/groupsActions';
 import slidesActions from './UI/slidesActions';
 import homeActions from './UI/homeActions';
 import './main.css';
-import featuresActions from './UI/featruesActions';
+import featuresActions from './UI/featuresActions';
 import { sendSlide, renderSlide } from './UI/slidesEditor';
 import slideToDb from './UI/slideToDb';
 

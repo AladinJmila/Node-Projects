@@ -24,6 +24,13 @@ const Group = mongoose.model(
         ref: 'Feature',
       },
     ],
+    slides: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Slide',
+      },
+    ],
+    baseImages: [String],
   })
 );
 

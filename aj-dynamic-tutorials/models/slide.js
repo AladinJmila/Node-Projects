@@ -6,12 +6,18 @@ const Slide = mongoose.model(
     features: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'feature',
+        ref: 'Feature',
+        required: true,
+      },
+    ],
+    groups: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group',
         required: true,
       },
     ],
     name: { type: String, required: true },
-    imageName: { type: String, default: '' },
     editedImageName: { type: String, default: '' },
     audioName: { type: String, default: '' },
     notes: { type: String, default: '' },

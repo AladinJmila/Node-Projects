@@ -38,7 +38,8 @@ export default function slidesEditor(state) {
   canvasDraw(state, canvas, ctx, scaleToFit, imageObj);
   resizeCanvas();
 
-  imageObj.src = '/images/sakura.jpg';
+  // imageObj.src = '/images/sakura.jpg';
+  imageObj.src = '';
   imageObj.onload = function () {
     scaleToFit(this);
   };
@@ -57,12 +58,14 @@ export function sendSlide(state) {
   addSlide.addEventListener('click', async () => {
     let featureId = document.querySelector('.feature-btn.active');
     state.selectedFeature = featureId;
-    if (featureId) {
+    groupId = state.selectedGroup;
+
+    if (groupId || featureId) {
       featureId = featureId.getAttribute('id');
       const res = await fetch('/slides', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ featureId }),
+        body: JSON.stringify({ featureId, groupId }),
       });
       if (res) location.reload();
     }

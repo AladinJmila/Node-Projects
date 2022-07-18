@@ -187,6 +187,32 @@ app.post(
 );
 
 app.post(
+  '/feature/upload-image/:id',
+  upload.single('image'),
+  async (req, res) => {
+    const feature = await Feature.findById(req.params.id);
+
+    // if (feature.baseImages.length) {
+    //   feature.baseImages.forEach(async imageName => {
+    //     await gfs.files.findOne({ filename: imageName }, (err, file) => {
+    //       if (err) return res.send(err);
+
+    //       if (!file)
+    //         return res.status(404).send('There in no file with the given name');
+
+    //       gridfsBucket.delete(file._id);
+    //     });
+    //   });
+    // }
+
+    feature.baseImages.push(req.file.filename);
+    await feature.save();
+
+    res.send('Success');
+  }
+);
+
+app.post(
   '/slide/edited-image/:id',
   upload.single('image'),
   async (req, res) => {

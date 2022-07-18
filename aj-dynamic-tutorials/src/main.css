@@ -17,7 +17,7 @@ html {
 body {
   background-color: #0d1117;
   color: var(--tone-1);
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
 }
 
@@ -303,13 +303,21 @@ body {
   color: #6e7782;
   font-size: 1.4em;
   width: 100%;
+  /* position: relative; */
+  /* min-width: 240px; */
   text-align: left;
   cursor: pointer;
   outline: none;
   border-bottom: 1px solid var(--tone-4);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .dropdown-btn > i {
+  /* position: absolute;
+  right: 0;
+  top: 0; */
   float: right;
   padding-right: 10px;
   padding-top: 4px;
@@ -472,11 +480,13 @@ body {
 }
 
 .progress-bar {
-  z-index: -10;
-  height: 4px;
-  background-color: #39404b;
+  /* z-index: -10; */
+  /* height: 4px; */
+  /* background-color: #39404b; */
+  background-color: transparent !important;
   transform: translateY(8px);
   transition: all 0.5s linear;
+  border-bottom: 2px dashed var(--tone-3);
 }
 
 .progress-frag:first-of-type::before {
@@ -581,6 +591,7 @@ body {
   border: 5px dashed var(--tone-3);
 }
 
+.base-select,
 .incanvas-slide-name,
 .incanvas-slide-id {
   position: absolute;
@@ -592,6 +603,11 @@ body {
   padding: 2px 4px;
   display: none;
   text-align: center;
+}
+
+.base-select {
+  right: 50%;
+  transform: translateX(50%);
 }
 
 .incanvas-slide-name {
@@ -725,6 +741,10 @@ body {
   background-size: contain !important;
   background-position: center !important;
   display: block;
+  transition: all linear 1s;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 
 .slide-img:after {

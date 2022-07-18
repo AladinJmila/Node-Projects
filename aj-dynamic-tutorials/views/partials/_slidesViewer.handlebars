@@ -1,28 +1,6 @@
 <div id='slides-viewer' class='slides-viewer'>
   <div class='slides-header'>
-    {{#if groups}}
-      {{#each groups}}
-        {{#if features}}
-          <div class='slides-progress' data-feature-id='{{_id}}'>
-            {{!-- {{#each features}}
-              {{#if slides}}
-                {{#each slides}}
-                  <div class='progress-frag' id='{{_id}}'>
-                    <div class='progress-bar'></div>
-                    <div class='progress-disc'></div>
-                  </div>
-                {{/each}}
-              {{/if}}
-            {{/each}} --}}
-          </div>
-          {{! <div class='prograss-frag'>
-              <div class='progress-bar' style='background-color: #8b949e'></div>
-              <div class='progress-disc' style='background-color: #8b949e'></div>
-            </div> }}
-        {{/if}}
-      {{/each}}
-    {{/if}}
-
+    <div class='slides-progress' data-feature-id='{{_id}}'></div>
     <div class='add-slide'>
       <input
         id='inheader-slide-id'
@@ -49,6 +27,9 @@
       readonly
       {{! value='627cdc26ceaccba121754f9d' }}
     />
+    <select id='base-select' class='base-select'>
+      <option>Select base image</option>
+    </select>
     <label class='file-input'>
       Select an image file
       <input type='file' id='file-input' accept='image/*' />
@@ -93,7 +74,7 @@
       <textarea id='notes-textarea' name='' id=''></textarea>
     </div>
     <canvas id='canvas' class='canvas'></canvas>
-    <div id='slide-img' class='slide-img' alt=''></div>
+    <div id='slide-img' class='slide-img' alt=''><img src='' alt='' /></div>
   </div>
   <div class='slide-controls'>
     <button class='slide-controls-btn' id='slide-show-notes-btn'>notes</button>

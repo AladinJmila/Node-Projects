@@ -29,7 +29,7 @@ export default function slideToDb(state) {
       if (state.imageFile) {
         formData.delete('audio');
         formData.append('image', state.imageFile);
-        await fetch(`/slide/upload-image/${slideId}`, {
+        await fetch(`/feature/upload-image/${state.selectedFeature}`, {
           method: 'POST',
           body: formData,
         });

@@ -18,7 +18,8 @@ export default function imageUpload(state, canvas, scaleToFit) {
 
     ['dragenter', 'dragover'].forEach(eventName => {
       dropArea.addEventListener(eventName, () => {
-        dropArea.classList.add('highlight');
+        canvas.classList.contains('show') &&
+          dropArea.classList.add('highlight');
       });
     });
 

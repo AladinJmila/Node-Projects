@@ -19,6 +19,7 @@ const Feature = mongoose.model(
         ref: 'Slide',
       },
     ],
+    baseImages: [String],
   })
 );
 
