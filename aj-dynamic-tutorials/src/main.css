@@ -17,7 +17,7 @@ html {
 body {
   background-color: #0d1117;
   color: var(--tone-1);
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
 }
 
@@ -307,12 +307,17 @@ body {
   cursor: pointer;
   outline: none;
   border-bottom: 1px solid var(--tone-4);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  padding-right: 20px;
 }
 
 .dropdown-btn > i {
-  float: right;
-  padding-right: 10px;
-  padding-top: 4px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
   display: none;
 }
 
@@ -725,6 +730,10 @@ body {
   background-size: contain !important;
   background-position: center !important;
   display: block;
+  transition: all linear 1s;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 
 .slide-img:after {
