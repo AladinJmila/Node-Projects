@@ -287,7 +287,7 @@ body {
   display: block;
   border: none;
   background: none;
-  color: #6e7782;
+  color: var(--tone-3);
   font-size: 1.4em;
   width: 100%;
   text-align: left;
@@ -300,7 +300,7 @@ body {
   display: block;
   border: none;
   background: none;
-  color: #6e7782;
+  color: var(--tone-3);
   font-size: 1.4em;
   width: 100%;
   text-align: left;
@@ -351,13 +351,19 @@ body {
   padding: 16px;
 }
 
+.groups h5,
+.features h5 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
 .features-count {
   display: flex;
   height: 68px;
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 20px;
-  border-bottom: 1px solid var(--tone-4);
+  border-bottom: 1px solid var(--tone-3);
 }
 
 .features-count p {
@@ -384,8 +390,8 @@ body {
   margin-bottom: 10px;
   min-height: 32px;
   font-size: 1.2em;
-  color: var(--tone-4);
-  border: 1px solid var(--tone-4);
+  color: var(--tone-3);
+  border: 1px solid var(--tone-3);
   background-color: transparent;
 }
 

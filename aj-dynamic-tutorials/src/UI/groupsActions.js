@@ -10,7 +10,7 @@ export default function groupsActions(state) {
 
   function renderDropdown() {
     dropdownContainers.forEach((el, i) => {
-      if (el.children.length) {
+      if (el.children.length > 1) {
         dropdownBtns[i].classList.add('dropdown');
       } else {
         dropdownBtns[i].classList.remove('dropdown');
