@@ -55,7 +55,7 @@ export default function slidesPlayer(state) {
 
   if (!state.loaded) {
     playBtn.addEventListener('click', playSlide);
-    slideImg.addEventListener('click', playSlide);
+    // slideImg.addEventListener('click', playSlide);
   }
 
   audio.onended = () => (playBtn.innerHTML = playIcon);
