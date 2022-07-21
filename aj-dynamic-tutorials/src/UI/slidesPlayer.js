@@ -2,7 +2,6 @@ export default function slidesPlayer(state) {
   const playBtn = document.getElementById('play-btn');
   const audio = document.querySelector('audio');
   const slideImg = document.getElementById('slide-img');
-  const progressFrag = document.getElementById(state.selectedSlide);
   const playIcon = `<i id='play-btn' class='fa fa-play'></i>`;
   const pauseIcon = `<i id='play-btn' class='fa fa-pause'></i>`;
   let playTime;
@@ -10,10 +9,11 @@ export default function slidesPlayer(state) {
   function playSlide() {
     const { duration } = audio.dataset;
     const minimunToPlay = parseInt(duration * 0.9);
+    const progressFrag = document.getElementById(state.selectedSlide);
     let progress;
 
     if (audio.paused && progressFrag) {
-      // audio.play();
+      audio.play();
       playBtn.innerHTML = pauseIcon;
       const fragProgressBar = progressFrag.querySelector('.progress-bar');
 
