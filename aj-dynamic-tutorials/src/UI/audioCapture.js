@@ -29,6 +29,7 @@ export default function audioCapture(state) {
       mediaRecorder.onstop = e => {
         const blob = new Blob(chunks, { type: 'audio/wav' });
         state.audioBlob = blob;
+        console.log(blob);
 
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
